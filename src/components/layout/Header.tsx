@@ -121,18 +121,6 @@ export default function Header() {
           onClick={closeMenu}
         />
 
-        {/* Close button */}
-        <button
-          onClick={closeMenu}
-          className={`absolute top-5 right-5 z-[70] w-12 h-12 rounded-full bg-surface-mid flex items-center justify-center transition-all duration-300 ${
-            mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-          }`}
-          style={{ transitionDelay: mobileOpen ? "200ms" : "0ms" }}
-          aria-label="Close menu"
-        >
-          <span className="material-symbols-outlined text-[22px] text-on-surface">close</span>
-        </button>
-
         {/* Decorative soundwave */}
         <div className="absolute bottom-12 sm:bottom-20 left-0 right-0 flex justify-center gap-1 opacity-10 pointer-events-none" aria-hidden="true">
           {Array.from({ length: 32 }).map((_, i) => (
@@ -147,9 +135,22 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Menu content — centered links, no card */}
-        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8">
-          <nav className="flex flex-col items-center gap-2 w-full max-w-md">
+        {/* Menu content — full-screen stacked sections */}
+        <div className="relative h-full flex flex-col">
+          {/* Close button */}
+          <button
+            onClick={closeMenu}
+            className={`absolute top-5 right-5 z-[70] w-12 h-12 rounded-full bg-surface-mid/60 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+            }`}
+            style={{ transitionDelay: mobileOpen ? "200ms" : "0ms" }}
+            aria-label="Close menu"
+          >
+            <span className="material-symbols-outlined text-[22px] text-on-surface">close</span>
+          </button>
+
+          {/* Nav link sections — each fills equal height */}
+          <nav className="flex-1 flex flex-col">
             {NAV_LINKS.map((link, i) => {
               const isActive = pathname === link.href;
               return (
@@ -158,38 +159,52 @@ export default function Header() {
                   href={link.href}
                   onClick={closeMenu}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative w-full text-center py-3 sm:py-4 rounded-2xl transition-all duration-300 ${
-                    isActive
-                      ? "bg-primary text-on-primary shadow-[0_2px_16px_rgba(62,0,94,0.2)]"
-                      : "text-on-surface hover:bg-surface-mid/40"
-                  } ${
-                    mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  className={`group flex-1 flex items-center justify-center relative overflow-hidden transition-all duration-500 ${
+                    mobileOpen ? "opacity-100" : "opacity-0"
                   }`}
                   style={{
-                    transitionDelay: mobileOpen ? `${i * 50 + 60}ms` : "0ms",
+                    transitionDelay: mobileOpen ? `${i * 60 + 40}ms` : "0ms",
                   }}
                 >
-                  <span className="font-headline text-2xl sm:text-3xl font-bold">
+                  {/* Background fill */}
+                  <span className={`absolute inset-0 transition-all duration-500 ${
+                    isActive
+                      ? "bg-primary"
+                      : "bg-surface group-hover:bg-surface-mid/60"
+                  }`} />
+
+                  {/* Subtle top border */}
+                  <span className="absolute top-0 left-0 right-0 h-px bg-outline-variant/15" />
+
+                  {/* Link text */}
+                  <span className={`relative font-headline text-3xl sm:text-4xl font-bold transition-colors duration-300 ${
+                    isActive ? "text-on-primary" : "text-on-surface"
+                  }`}>
                     {link.label}
                   </span>
+
+                  {/* Active glow */}
+                  {isActive && (
+                    <span className="absolute inset-0 bg-gradient-to-t from-primary-container/30 to-transparent pointer-events-none" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* CTA */}
-          <Link
-            href="/contact"
-            onClick={closeMenu}
-            className={`mt-8 w-full max-w-md text-center py-4 rounded-2xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(200,100,50,0.15)] hover:shadow-[0_4px_24px_rgba(200,100,50,0.25)] ${
-              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-            style={{
-              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 50 + 100}ms` : "0ms",
-            }}
-          >
-            Support Our Work
-          </Link>
+          {/* CTA — fixed at bottom */}
+          <div className={`px-6 pb-8 pt-4 bg-surface transition-all duration-500 ${
+            mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`} style={{ transitionDelay: mobileOpen ? `${NAV_LINKS.length * 60 + 80}ms` : "0ms" }}>
+            <Link
+              href="/contact"
+              onClick={closeMenu}
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(200,100,50,0.15)] hover:shadow-[0_4px_24px_rgba(200,100,50,0.25)]"
+            >
+              Support Our Work
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </Link>
+          </div>
         </div>
       </div>
     </>
