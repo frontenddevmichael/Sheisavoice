@@ -149,7 +149,12 @@ export default function Header() {
 
         {/* Menu content — centered links, no card */}
         <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8">
-          <nav className="flex flex-col items-center gap-2">
+          {/* Vertical accent line running through links */}
+          <div className={`absolute left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-outline-variant/30 to-transparent transition-all duration-700 ${
+            mobileOpen ? "h-[60%] opacity-100" : "h-0 opacity-0"
+          }`} style={{ transitionDelay: mobileOpen ? "200ms" : "0ms" }} />
+
+          <nav className="relative flex flex-col items-center gap-1">
             {NAV_LINKS.map((link, i) => {
               const isActive = pathname === link.href;
               return (
@@ -158,18 +163,40 @@ export default function Header() {
                   href={link.href}
                   onClick={closeMenu}
                   aria-current={isActive ? "page" : undefined}
-                  className={`transition-all duration-300 ${
-                    mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  className={`group relative flex items-center justify-center py-3 sm:py-3.5 transition-all duration-300 ${
+                    mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{
-                    transitionDelay: mobileOpen ? `${i * 50 + 80}ms` : "0ms",
+                    transitionDelay: mobileOpen ? `${i * 55 + 60}ms` : "0ms",
                   }}
                 >
-                  <span className={`font-headline text-3xl sm:text-4xl font-bold transition-colors duration-200 ${
-                    isActive ? "text-primary" : "text-on-surface"
+                  {/* Hover background */}
+                  <span className={`absolute inset-x-0 -inset-y-1 rounded-2xl transition-all duration-300 ${
+                    isActive
+                      ? "bg-primary/8"
+                      : "bg-transparent group-hover:bg-surface-mid/40"
+                  }`} />
+
+                  {/* Dot on the vertical line */}
+                  <span className={`absolute -left-8 sm:-left-12 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "bg-primary scale-125 shadow-[0_0_8px_rgba(62,0,94,0.3)]"
+                      : "bg-outline-variant/40 scale-100 group-hover:bg-primary/50 group-hover:scale-110"
+                  }`} />
+
+                  {/* Link text */}
+                  <span className={`relative font-headline text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight transition-all duration-300 ${
+                    isActive
+                      ? "bg-gradient-to-r from-primary via-primary-container to-secondary bg-clip-text text-transparent"
+                      : "text-on-surface group-hover:text-on-surface/80"
                   }`}>
                     {link.label}
                   </span>
+
+                  {/* Active underline */}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-primary to-secondary rounded-full" />
+                  )}
                 </Link>
               );
             })}
@@ -179,11 +206,11 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={closeMenu}
-            className={`mt-10 flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
-              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`relative mt-10 flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] hover:shadow-[0_4px_24px_rgba(62,0,94,0.25)] hover:scale-[1.02] active:scale-[0.98] ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
-              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 50 + 120}ms` : "0ms",
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 55 + 100}ms` : "0ms",
             }}
           >
             Support Our Work
