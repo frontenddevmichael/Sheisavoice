@@ -121,6 +121,18 @@ export default function Header() {
           onClick={closeMenu}
         />
 
+        {/* Close button */}
+        <button
+          onClick={closeMenu}
+          className={`absolute top-5 right-5 z-[70] w-12 h-12 rounded-full bg-surface-mid flex items-center justify-center transition-all duration-300 ${
+            mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}
+          style={{ transitionDelay: mobileOpen ? "200ms" : "0ms" }}
+          aria-label="Close menu"
+        >
+          <span className="material-symbols-outlined text-[22px] text-on-surface">close</span>
+        </button>
+
         {/* Decorative soundwave */}
         <div className="absolute bottom-12 sm:bottom-20 left-0 right-0 flex justify-center gap-1 opacity-10 pointer-events-none" aria-hidden="true">
           {Array.from({ length: 32 }).map((_, i) => (
@@ -135,64 +147,43 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Menu content */}
+        {/* Menu content — centered links, no card */}
         <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8">
-          {/* Links card */}
-          <div className={`w-full max-w-lg rounded-3xl bg-white border border-outline-variant/10 shadow-[0_8px_40px_rgba(0,0,0,0.08)] p-8 sm:p-10 transition-all duration-500 ${
-            mobileOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
-          }`}>
-            <nav className="flex flex-col items-center gap-0.5">
-              {NAV_LINKS.map((link, i) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMenu}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`group w-full flex items-center justify-center gap-3 py-3 sm:py-3.5 rounded-xl transition-all duration-300 ${
-                      isActive
-                        ? "bg-primary/10"
-                        : "hover:bg-surface-mid/50"
-                    } ${
-                      mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                    }`}
-                    style={{
-                      transitionDelay: mobileOpen ? `${i * 45 + 60}ms` : "0ms",
-                    }}
-                  >
-                    <span className={`font-label-xs font-bold tracking-widest transition-colors duration-300 ${
-                      isActive ? "text-primary" : "text-outline-variant group-hover:text-primary"
-                    }`}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                    <span className={`w-1 h-1 rounded-full transition-colors duration-300 ${
-                      isActive ? "bg-primary" : "bg-outline-variant/40 group-hover:bg-primary/50"
-                    }`} />
-
-                    <span className={`font-headline text-xl sm:text-2xl font-bold transition-colors duration-200 ${
-                      isActive
-                        ? "text-primary"
-                        : "text-on-surface group-hover:text-on-surface"
-                    }`}>
-                      {link.label}
-                    </span>
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+          <nav className="flex flex-col items-center gap-2">
+            {NAV_LINKS.map((link, i) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`transition-all duration-300 ${
+                    mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  }`}
+                  style={{
+                    transitionDelay: mobileOpen ? `${i * 50 + 80}ms` : "0ms",
+                  }}
+                >
+                  <span className={`font-headline text-3xl sm:text-4xl font-bold transition-colors duration-200 ${
+                    isActive ? "text-primary" : "text-on-surface"
+                  }`}>
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
+          </nav>
 
           {/* CTA */}
           <Link
             href="/contact"
             onClick={closeMenu}
-            className={`mt-6 w-full max-w-lg flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
-              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`mt-10 flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{
-              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 45 + 100}ms` : "0ms",
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 50 + 120}ms` : "0ms",
             }}
           >
             Support Our Work
