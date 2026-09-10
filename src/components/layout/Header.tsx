@@ -19,6 +19,33 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.width = "100%";
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+      }
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+    };
+  }, [mobileOpen]);
+
+  const closeMenu = useCallback(() => setMobileOpen(false), []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -32,7 +59,7 @@ export default function Header() {
         <div className="h-full bg-gradient-to-r from-transparent via-secondary-container/40 to-transparent" />
       </div>
 
-      <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 flex items-center justify-between h-full">
+      <div className="max-w-[var(--max-w-content)] mx-auto px-4 sm:px-5 lg:px-12 flex items-center justify-between h-full">
         <Link href="/" className="flex items-center gap-2 shrink-0 group">
           <Logo className="h-7 lg:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
         </Link>
@@ -44,24 +71,37 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary-container/80 backdrop-blur-md border border-primary/10 text-on-primary font-label-md font-semibold hover:bg-primary hover:shadow-lg transition-all duration-300"
+            className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-primary-container/80 backdrop-blur-md border border-primary/10 text-on-primary font-label-sm sm:font-label-md font-semibold hover:bg-primary hover:shadow-lg transition-all duration-300"
           >
             Support Our Work
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <span className="material-symbols-outlined text-[16px] sm:text-[18px]">arrow_forward</span>
           </Link>
 
           {/* Morphing hamburger */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 relative"
+            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] relative"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
-            <span className={`w-6 h-0.5 bg-on-surface transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
-            <span className={`w-6 h-0.5 bg-on-surface transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span
+              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""
+              }`}
+            />
+            <span
+              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-200 ${
+                mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
+              }`}
+            />
+            <span
+              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
+              }`}
+            />
           </button>
         </div>
       </div>
@@ -76,11 +116,11 @@ export default function Header() {
         {/* Backdrop */}
         <div
           className="absolute inset-0 bg-surface/95 backdrop-blur-3xl"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMenu}
         />
 
         {/* Decorative soundwave in mobile menu */}
-        <div className="absolute bottom-20 left-0 right-0 flex justify-center gap-1 opacity-10 pointer-events-none" aria-hidden="true">
+        <div className="absolute bottom-12 sm:bottom-20 left-0 right-0 flex justify-center gap-1 opacity-10 pointer-events-none" aria-hidden="true">
           {Array.from({ length: 32 }).map((_, i) => (
             <div
               key={i}
@@ -93,16 +133,16 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Menu content */}
-        <div className="relative h-full flex flex-col justify-center items-center px-8">
-          <nav className="flex flex-col items-center gap-3">
+        {/* Menu content — safe area aware */}
+        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8 pt-safe-area-inset-top pb-safe-area-inset-bottom">
+          <nav className="flex flex-col items-center gap-2 sm:gap-3">
             {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMenu}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`text-2xl font-headline font-bold transition-all duration-300 ${
+                className={`text-xl sm:text-2xl font-headline font-bold transition-all duration-300 ${
                   mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 } ${
                   pathname === link.href
@@ -118,8 +158,8 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className={`mt-6 px-8 py-3 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
+              onClick={closeMenu}
+              className={`mt-4 sm:mt-6 px-7 sm:px-8 py-3 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md sm:font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
                 mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{
