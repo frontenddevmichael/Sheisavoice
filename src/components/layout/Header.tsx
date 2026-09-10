@@ -148,8 +148,8 @@ export default function Header() {
         </div>
 
         {/* Menu content — centered links, no card */}
-        <div className="relative h-full flex flex-col justify-center items-center px-8 sm:px-12">
-          <nav className="flex flex-col items-center gap-3 sm:gap-4">
+        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8">
+          <nav className="flex flex-col items-center gap-2 w-full max-w-md">
             {NAV_LINKS.map((link, i) => {
               const isActive = pathname === link.href;
               return (
@@ -158,23 +158,20 @@ export default function Header() {
                   href={link.href}
                   onClick={closeMenu}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative transition-all duration-400 ${
+                  className={`relative w-full text-center py-3 sm:py-4 rounded-2xl transition-all duration-300 ${
+                    isActive
+                      ? "bg-primary text-on-primary shadow-[0_2px_16px_rgba(62,0,94,0.2)]"
+                      : "text-on-surface hover:bg-surface-mid/40"
+                  } ${
                     mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                   }`}
                   style={{
                     transitionDelay: mobileOpen ? `${i * 50 + 60}ms` : "0ms",
                   }}
                 >
-                  <span className={`font-headline text-[2rem] sm:text-[2.5rem] font-bold transition-colors duration-300 ${
-                    isActive ? "text-primary" : "text-on-surface/80 hover:text-on-surface"
-                  }`}>
+                  <span className="font-headline text-2xl sm:text-3xl font-bold">
                     {link.label}
                   </span>
-
-                  {/* Active indicator */}
-                  {isActive && (
-                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-[3px] bg-primary rounded-full" />
-                  )}
                 </Link>
               );
             })}
@@ -184,7 +181,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={closeMenu}
-            className={`mt-12 flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] hover:shadow-[0_4px_24px_rgba(62,0,94,0.25)] hover:scale-[1.02] active:scale-[0.98] ${
+            className={`mt-8 w-full max-w-md text-center py-4 rounded-2xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(200,100,50,0.15)] hover:shadow-[0_4px_24px_rgba(200,100,50,0.25)] ${
               mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{
@@ -192,7 +189,6 @@ export default function Header() {
             }}
           >
             Support Our Work
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
           </Link>
         </div>
       </div>
