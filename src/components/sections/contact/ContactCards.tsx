@@ -33,7 +33,7 @@ export default function ContactCards() {
   ];
 
   return (
-    <SectionWrapper className="relative bg-surface py-space-5xl overflow-hidden">
+    <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
       <NoiseOverlay />
       <div className="absolute inset-0 dot-grid opacity-15 pointer-events-none" />
 

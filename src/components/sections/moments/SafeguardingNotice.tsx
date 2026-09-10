@@ -4,7 +4,7 @@ import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 export default function SafeguardingNotice() {
   return (
-    <SectionWrapper className="py-space-5xl bg-surface-mid relative overflow-hidden">
+    <SectionWrapper className="py-space-5xl bg-surface-lowest relative overflow-hidden">
       <NoiseOverlay />
       <div className="absolute inset-0 dot-grid opacity-20" />
 

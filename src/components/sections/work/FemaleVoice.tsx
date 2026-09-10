@@ -4,7 +4,7 @@ import WaveDecoration from "@/components/ui/WaveDecoration";
 
 export default function FemaleVoice() {
   return (
-    <SectionWrapper id="female-voice" className="relative bg-surface py-space-5xl">
+    <SectionWrapper id="female-voice" className="relative bg-surface-lowest py-space-5xl">
       <ScrollReveal animation="scale">
         <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold mb-space-lg">
           04 / Voice &amp; Leadership

@@ -1,7 +1,6 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
-import ScallopEdge from "@/components/ui/ScallopEdge";
 import useInView from "@/hooks/useInView";
 
 interface AboutHeroProps {
@@ -70,7 +69,6 @@ export default function AboutHero({ eyebrow, title, subtitle, children }: AboutH
         </div>
       </div>
 
-      <ScallopEdge color="var(--color-surface-mid)" scallops={14} height="48px" />
     </section>
   );
 }

@@ -8,7 +8,7 @@ export default function FounderStory() {
   const { ref: decorRef, offset } = useParallax(0.1);
 
   return (
-    <SectionWrapper className="relative py-space-5xl bg-surface-mid overflow-hidden grain" id="founder-story">
+    <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden grain" id="founder-story">
       {/* Parallax decorative quote mark */}
       <div
         ref={decorRef}

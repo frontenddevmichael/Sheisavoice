@@ -1,6 +1,5 @@
 "use client";
 
-import ScallopEdge from "@/components/ui/ScallopEdge";
 import useInView from "@/hooks/useInView";
 
 interface MomentsHeroProps {
@@ -73,7 +72,6 @@ export default function MomentsHero({ eyebrow, title, subtitle }: MomentsHeroPro
         </div>
       </div>
 
-      <ScallopEdge color="var(--color-surface)" scallops={14} height="48px" />
     </section>
   );
 }

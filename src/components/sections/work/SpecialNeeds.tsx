@@ -5,7 +5,7 @@ import WaveDecoration from "@/components/ui/WaveDecoration";
 
 export default function SpecialNeeds() {
   return (
-    <SectionWrapper id="special-needs" className="relative bg-surface-low py-space-5xl">
+    <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
       <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
 
       <div className="relative z-10">

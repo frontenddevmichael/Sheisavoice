@@ -3,7 +3,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 
 export default function SafeguardingBanner() {
   return (
-    <SectionWrapper className="bg-surface-low py-space-2xl">
+    <SectionWrapper className="bg-surface-lowest py-space-2xl">
       <div className="flex flex-col items-center text-center gap-space-lg max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 px-space-md py-space-2xs rounded-full bg-primary-fixed text-on-primary-fixed">
           <span className="material-symbols-outlined text-[16px]">verified</span>

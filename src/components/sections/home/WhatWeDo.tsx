@@ -38,7 +38,7 @@ const PROGRAMS = [
 
 export default function WhatWeDo() {
   return (
-    <section className="relative w-full bg-surface-low py-space-5xl overflow-hidden">
+    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden">
       <NoiseOverlay opacity={0.02} />
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">

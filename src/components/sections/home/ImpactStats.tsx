@@ -8,7 +8,7 @@ export default function ImpactStats() {
   const { ref: counterRef, count } = useCounter(IMPACT_STATS.childrenCount, 1800);
 
   return (
-    <section className="w-full bg-surface py-space-5xl" id="impact-counter">
+    <section className="w-full bg-surface-lowest py-space-5xl" id="impact-counter">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <ScrollReveal animation="scale">
           <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">

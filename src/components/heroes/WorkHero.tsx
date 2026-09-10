@@ -1,7 +1,6 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
-import ScallopEdge from "@/components/ui/ScallopEdge";
 import useInView from "@/hooks/useInView";
 
 interface WorkHeroProps {
@@ -67,7 +66,6 @@ export default function WorkHero({ eyebrow, title, subtitle, children }: WorkHer
         </div>
       </div>
 
-      <ScallopEdge color="var(--color-surface-mid)" scallops={14} height="48px" />
     </section>
   );
 }

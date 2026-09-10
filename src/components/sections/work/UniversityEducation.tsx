@@ -5,7 +5,7 @@ import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 export default function UniversityEducation() {
   return (
-    <SectionWrapper id="university-education" className="relative bg-surface py-space-5xl overflow-hidden">
+    <SectionWrapper id="university-education" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
       <NoiseOverlay />
       <div className="absolute inset-0 dot-grid opacity-30" />
 

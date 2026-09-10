@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function MissionVision() {
   return (
-    <SectionWrapper className="relative py-space-5xl bg-surface-low overflow-hidden grain" id="mission-vision">
+    <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden grain" id="mission-vision">
       {/* Subtle dot grid background */}
       <div className="absolute inset-0 dot-grid opacity-[0.02] pointer-events-none" aria-hidden="true" />
 

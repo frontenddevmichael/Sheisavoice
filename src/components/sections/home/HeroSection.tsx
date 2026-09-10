@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import ScallopEdge from "@/components/ui/ScallopEdge";
 import FloatingElements from "@/components/ui/FloatingElements";
 import useInView from "@/hooks/useInView";
 
@@ -93,8 +92,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scalloped edge transition to next section */}
-      <ScallopEdge color="var(--color-surface-mid)" scallops={14} height="48px" />
+      {/* No scallop needed — hero and sections share same white background */}
     </section>
   );
 }

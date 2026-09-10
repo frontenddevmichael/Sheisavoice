@@ -31,7 +31,7 @@ export default function GlobalVirtual() {
   return (
     <SectionWrapper
       id="global-support"
-      className="relative bg-surface-low py-space-5xl overflow-hidden"
+      className="relative bg-surface-lowest py-space-5xl overflow-hidden"
     >
       <NoiseOverlay />
       <div className="absolute inset-0 dot-grid opacity-25" />

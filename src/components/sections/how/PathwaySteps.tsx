@@ -10,7 +10,7 @@ export default function PathwaySteps() {
   const { ref: lineRef, isInView: lineVisible } = useInView({ threshold: 0.1 });
 
   return (
-    <SectionWrapper className="py-space-5xl bg-surface" id="pathway">
+    <SectionWrapper className="py-space-5xl bg-surface-lowest" id="pathway">
       <ScrollReveal animation="left">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
           <div className="max-w-xl">

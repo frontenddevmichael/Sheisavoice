@@ -30,7 +30,7 @@ const GUARDRAILS = [
 
 export default function DignityGuardrails() {
   return (
-    <SectionWrapper className="relative py-space-5xl bg-surface-low overflow-hidden" id="guardrails">
+    <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="guardrails">
       <NoiseOverlay />
       <div className="absolute inset-0 dot-grid opacity-25" />
 

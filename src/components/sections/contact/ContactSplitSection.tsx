@@ -51,7 +51,7 @@ export default function ContactSplitSection() {
     "flex items-center gap-space-sm px-space-md py-space-sm rounded-card bg-surface-mid border border-outline-variant/30 font-body text-body-sm text-on-surface-variant cursor-pointer hover:border-primary/40 transition-all duration-200 has-[:checked]:border-primary has-[:checked]:bg-primary-fixed/30 has-[:checked]:text-on-surface";
 
   return (
-    <SectionWrapper className="bg-surface py-space-5xl">
+    <SectionWrapper className="bg-surface-lowest py-space-5xl">
       <ScrollReveal stagger="children" animation="up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
           {/* LEFT: Forms (60%) */}

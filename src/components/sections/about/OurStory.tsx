@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function OurStory() {
   return (
-    <SectionWrapper className="py-space-4xl bg-surface" id="our-story">
+    <SectionWrapper className="py-space-4xl bg-surface-lowest" id="our-story">
       <ScrollReveal stagger="children" animation="left">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
           <div className="lg:col-span-7 flex flex-col gap-space-lg">
