@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Amplifying the Voice of the Unheard. Supporting children with special needs and students facing financial hardship across Africa.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpeg",
         width: 1200,
         height: 630,
         alt: "SHEISAVOICE Global Children Advocacy Foundation",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "SHEISAVOICE | Global Children Advocacy Foundation",
     description:
       "Amplifying the Voice of the Unheard. Supporting children with special needs and students facing financial hardship across Africa.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpeg"],
   },
   robots: {
     index: true,
@@ -96,8 +96,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.jpeg" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo.jpeg" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
