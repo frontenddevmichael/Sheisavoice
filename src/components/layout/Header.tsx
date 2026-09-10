@@ -134,74 +134,71 @@ export default function Header() {
         </div>
 
         {/* Menu content — safe area aware */}
-        <div className="relative h-full flex flex-col justify-center px-8 sm:px-12 pt-safe-area-inset-top pb-safe-area-inset-bottom">
-          <nav className="flex flex-col items-start gap-1">
-            {NAV_LINKS.map((link, i) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={closeMenu}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`group w-full flex items-center gap-4 py-3 transition-all duration-300 ${
-                    mobileOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-                  }`}
-                  style={{
-                    transitionDelay: mobileOpen ? `${i * 50 + 80}ms` : "0ms",
-                  }}
-                >
-                  {/* Number indicator */}
-                  <span className={`font-label-xs font-bold tracking-widest transition-colors duration-300 ${
-                    isActive ? "text-primary" : "text-outline-variant group-hover:text-primary"
-                  }`}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8 pt-safe-area-inset-top pb-safe-area-inset-bottom">
+          {/* Links container with background */}
+          <div className={`w-full max-w-sm rounded-3xl bg-surface/80 backdrop-blur-xl border border-outline-variant/15 p-6 sm:p-8 transition-all duration-500 ${
+            mobileOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
+          }`}>
+            <nav className="flex flex-col items-center gap-1">
+              {NAV_LINKS.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeMenu}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`group w-full flex items-center justify-center gap-3 py-2.5 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? "bg-primary/10"
+                        : "hover:bg-surface-mid/50"
+                    } ${
+                      mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                    }`}
+                    style={{
+                      transitionDelay: mobileOpen ? `${i * 45 + 60}ms` : "0ms",
+                    }}
+                  >
+                    {/* Number */}
+                    <span className={`font-label-xs font-bold tracking-widest transition-colors duration-300 ${
+                      isActive ? "text-primary" : "text-outline-variant group-hover:text-primary"
+                    }`}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
 
-                  {/* Accent bar */}
-                  <span className={`w-[2px] h-5 rounded-full transition-all duration-300 ${
-                    isActive
-                      ? "bg-primary"
-                      : "bg-outline-variant/30 group-hover:bg-primary/50 group-hover:h-6"
-                  }`} />
+                    {/* Dot separator */}
+                    <span className={`w-1 h-1 rounded-full transition-colors duration-300 ${
+                      isActive ? "bg-primary" : "bg-outline-variant/40 group-hover:bg-primary/50"
+                    }`} />
 
-                  {/* Link text */}
-                  <span className={`font-headline text-[1.35rem] sm:text-2xl font-bold transition-colors duration-200 ${
-                    isActive
-                      ? "text-primary"
-                      : "text-on-surface group-hover:text-on-surface"
-                  }`}>
-                    {link.label}
-                  </span>
+                    {/* Link text */}
+                    <span className={`font-headline text-lg sm:text-xl font-bold transition-colors duration-200 ${
+                      isActive
+                        ? "text-primary"
+                        : "text-on-surface group-hover:text-on-surface"
+                    }`}>
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
-                  {/* Active dot */}
-                  {isActive && (
-                    <span className="ml-auto w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  )}
-                </Link>
-              );
-            })}
-
-            {/* Divider */}
-            <div className={`w-full h-px bg-outline-variant/20 my-4 transition-all duration-500 ${
-              mobileOpen ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
-            }`} style={{ transformOrigin: "left" }} />
-
-            {/* CTA */}
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              className={`mt-1 w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
-                mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{
-                transitionDelay: mobileOpen ? `${NAV_LINKS.length * 50 + 120}ms` : "0ms",
-              }}
-            >
-              Support Our Work
-              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </Link>
-          </nav>
+          {/* CTA — outside the card */}
+          <Link
+            href="/contact"
+            onClick={closeMenu}
+            className={`mt-5 w-full max-w-sm flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{
+              transitionDelay: mobileOpen ? `${NAV_LINKS.length * 45 + 100}ms` : "0ms",
+            }}
+          >
+            Support Our Work
+            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </Link>
         </div>
       </div>
     </header>
