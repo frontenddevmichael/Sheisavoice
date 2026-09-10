@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3e0056"/>
+      <stop offset="100%" stop-color="#ff6b6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Soundwave arcs -->
+  <path d="M200 315 Q300 200 400 315 Q500 430 600 315 Q700 200 800 315 Q900 430 1000 315" stroke="rgba(255,255,255,0.15)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M250 315 Q350 230 450 315 Q550 400 650 315 Q750 230 850 315 Q950 400 1050 315" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="600" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="72" fill="#fef9f2" letter-spacing="8">SHE IS A</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="96" fill="#fef9f2" letter-spacing="12">VOICE</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-weight="400" font-size="28" fill="rgba(254,249,242,0.7)">Global Children Advocacy Foundation</text>
+</svg>
