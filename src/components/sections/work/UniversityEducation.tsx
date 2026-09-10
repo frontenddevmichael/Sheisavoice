@@ -55,7 +55,7 @@ export default function UniversityEducation() {
           </ScrollReveal>
 
           <ScrollReveal className="lg:col-span-5 order-2 lg:order-2" animation="right" delay={120}>
-            <div className="grid grid-cols-2 gap-space-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
               {[
                 { icon: "account_balance", title: "Direct Subsidies", desc: "Semester tuition relief and examination fee coverage." },
                 { icon: "fact_check", title: "Need-Based Review", desc: "Each application assessed individually, based on need." },

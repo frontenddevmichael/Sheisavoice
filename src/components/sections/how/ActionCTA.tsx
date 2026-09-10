@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function ActionCTA() {
   return (
-    <section className="w-full bg-primary text-on-primary py-space-5xl relative overflow-hidden grain">
+    <section className="w-full bg-primary text-on-primary py-space-3xl lg:py-space-5xl relative overflow-hidden grain">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative z-10">
         <ScrollReveal animation="blur">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">

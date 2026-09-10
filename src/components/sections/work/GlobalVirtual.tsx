@@ -142,7 +142,7 @@ export default function GlobalVirtual() {
                         required
                         value={formData.fullName}
                         onChange={handleChange}
-                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -158,12 +158,12 @@ export default function GlobalVirtual() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                         placeholder="you@example.com"
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-space-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                       <div className="flex flex-col gap-space-2xs">
                         <label htmlFor="global-country" className="font-label-md text-label-md text-on-surface font-semibold">
                           Country
@@ -175,7 +175,7 @@ export default function GlobalVirtual() {
                           required
                           value={formData.country}
                           onChange={handleChange}
-                          className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                          className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                           placeholder="e.g. United Kingdom"
                         />
                       </div>
@@ -189,7 +189,7 @@ export default function GlobalVirtual() {
                           type="text"
                           value={formData.childAge}
                           onChange={handleChange}
-                          className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                          className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                           placeholder="e.g. 7"
                         />
                       </div>
@@ -205,7 +205,7 @@ export default function GlobalVirtual() {
                         required
                         value={formData.supportType}
                         onChange={handleChange}
-                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
+                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
                       >
                         <option value="" disabled>Select the type of support needed</option>
                         <option value="special-needs">Special Needs Therapy</option>
@@ -227,7 +227,7 @@ export default function GlobalVirtual() {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
                         placeholder="Tell us about your situation..."
                       />
                     </div>

@@ -38,7 +38,7 @@ export default function WorkHero({ eyebrow, title, subtitle, children }: WorkHer
 
               <div className={`text-reveal ${isInView ? "is-visible" : ""}`} style={{ transitionDelay: "120ms" }}>
                 <div className="text-reveal-inner">
-                  <h1 className="font-headline text-headline-xl lg:text-[4rem] text-primary leading-[1.05] tracking-tight">
+                  <h1 className="font-headline text-headline-lg lg:text-headline-xl text-primary leading-[1.05] tracking-tight">
                     {title}
                   </h1>
                 </div>

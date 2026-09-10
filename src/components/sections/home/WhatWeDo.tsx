@@ -57,7 +57,7 @@ export default function WhatWeDo() {
         </ScrollReveal>
 
         <ScrollReveal stagger="children">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
             {PROGRAMS.map((program) => (
               <Card key={program.number} accent={program.accent} className="flex flex-col gap-space-md pressable">
                 <div className="flex items-center justify-between">

@@ -43,7 +43,7 @@ export default function SpecialNeeds() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-space-md mb-space-xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md mb-space-xl">
                 {[
                   { icon: "neurology", title: "Autism & Neurodiversity", bg: "bg-secondary-fixed" },
                   { icon: "graphic_eq", title: "Speech & Language Therapy", bg: "bg-primary-fixed" },

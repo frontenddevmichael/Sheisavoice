@@ -68,7 +68,7 @@ export default function ContactCards() {
             </div>
 
             {/* Info cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-space-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
               {contacts.map((item, i) => (
                 <ScrollReveal key={i} animation="up" delay={i * 100}>
                   <Card

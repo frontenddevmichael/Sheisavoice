@@ -46,7 +46,7 @@ export default function ContactSplitSection() {
   };
 
   const inputClasses =
-    "w-full px-space-lg py-space-sm rounded-card bg-surface-mid border border-outline-variant/30 font-body text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:bg-surface-low transition-all duration-200";
+    "w-full px-space-lg py-space-sm rounded-card bg-surface-mid border border-outline-variant/30 font-body text-base text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:bg-surface-low transition-all duration-200";
   const radioClasses =
     "flex items-center gap-space-sm px-space-md py-space-sm rounded-card bg-surface-mid border border-outline-variant/30 font-body text-body-sm text-on-surface-variant cursor-pointer hover:border-primary/40 transition-all duration-200 has-[:checked]:border-primary has-[:checked]:bg-primary-fixed/30 has-[:checked]:text-on-surface";
 
@@ -162,7 +162,7 @@ export default function ContactSplitSection() {
                     </div>
                     <fieldset className="flex flex-col gap-space-xs border-0 p-0 m-0">
                       <legend className="font-label-sm text-on-surface-variant font-semibold">Available for volunteer outreach?</legend>
-                      <div className="grid grid-cols-3 gap-space-xs">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-xs">
                         {["Yes", "Open to discuss", "Not now"].map((option) => (
                           <label key={option} className={radioClasses}>
                             <input type="radio" name="volunteerOutreach" value={option}
@@ -176,7 +176,7 @@ export default function ContactSplitSection() {
                     </fieldset>
                     <fieldset className="flex flex-col gap-space-xs border-0 p-0 m-0">
                       <legend className="font-label-sm text-on-surface-variant font-semibold">Open to financial support?</legend>
-                      <div className="grid grid-cols-2 gap-space-xs">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
                         {["Yes", "Monthly pledge"].map((option) => (
                           <label key={option} className={radioClasses}>
                             <input type="radio" name="financialSupport" value={option}

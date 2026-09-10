@@ -14,7 +14,7 @@ export default function HeroSection() {
       <FloatingElements />
 
       {/* Layer 2: Content */}
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[10rem] pb-[120px] w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-3xl lg:pt-[10rem] pb-[80px] lg:pb-[120px] w-full flex-1 flex items-center">
         <div ref={heroRef} className="max-w-4xl mx-auto">
           {/* Eyebrow */}
           <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-xl`}>
@@ -31,7 +31,7 @@ export default function HeroSection() {
           {/* Headline */}
           <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-lg`} style={{ transitionDelay: "120ms" }}>
             <div className="text-reveal-inner">
-              <h1 className="font-headline text-headline-xl lg:text-[4.5rem] text-primary leading-[1.05] tracking-tight">
+              <h1 className="font-headline text-headline-lg lg:text-headline-xl text-primary leading-[1.05] tracking-tight">
                 Amplifying the Voice of the{" "}
                 <span className="text-secondary relative">
                   Unheard

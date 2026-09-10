@@ -48,7 +48,7 @@ export default function DignityGuardrails() {
         </ScrollReveal>
 
         <ScrollReveal stagger="children">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
             {GUARDRAILS.map((item) => (
               <Card key={item.title} accent={item.accent} className="flex flex-col gap-space-md pressable">
                 <div className="flex items-center gap-space-md">

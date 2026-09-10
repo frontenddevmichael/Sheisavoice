@@ -26,7 +26,7 @@ export default function FemaleVoice() {
       </ScrollReveal>
 
       <ScrollReveal stagger="children">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
           {[
             {
               icon: "groups",
