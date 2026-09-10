@@ -47,79 +47,81 @@ export default function Header() {
   const closeMenu = useCallback(() => setMobileOpen(false), []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-surface/80 backdrop-blur-2xl border-b border-outline-variant/25 shadow-[0_4px_30px_rgba(62,0,94,0.06)] h-16"
-          : "bg-surface/50 backdrop-blur-2xl border-b border-outline-variant/10 h-20"
-      }`}
-    >
-      {/* Subtle soundwave accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-px overflow-hidden" aria-hidden="true">
-        <div className="h-full bg-gradient-to-r from-transparent via-secondary-container/40 to-transparent" />
-      </div>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-surface/80 backdrop-blur-2xl border-b border-outline-variant/25 shadow-[0_4px_30px_rgba(62,0,94,0.06)] h-16"
+            : "bg-surface/50 backdrop-blur-2xl border-b border-outline-variant/10 h-20"
+        }`}
+      >
+        {/* Subtle soundwave accent line at top */}
+        <div className="absolute top-0 left-0 right-0 h-px overflow-hidden" aria-hidden="true">
+          <div className="h-full bg-gradient-to-r from-transparent via-secondary-container/40 to-transparent" />
+        </div>
 
-      <div className="max-w-[var(--max-w-content)] mx-auto px-4 sm:px-5 lg:px-12 flex items-center justify-between h-full">
-        <Link href="/" className="flex items-center gap-2 shrink-0 group">
-          <Logo className="h-7 lg:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-0.5 relative">
-          {NAV_LINKS.map((link) => (
-            <NavLink key={link.href} link={link} pathname={pathname} />
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Link
-            href="/contact"
-            className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-primary-container/80 backdrop-blur-md border border-primary/10 text-on-primary font-label-sm sm:font-label-md font-semibold hover:bg-primary hover:shadow-lg transition-all duration-300"
-          >
-            Support Our Work
-            <span className="material-symbols-outlined text-[16px] sm:text-[18px]">arrow_forward</span>
+        <div className="max-w-[var(--max-w-content)] mx-auto px-4 sm:px-5 lg:px-12 flex items-center justify-between h-full">
+          <Link href="/" className="flex items-center gap-2 shrink-0 group">
+            <Logo className="h-7 lg:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
-          {/* Morphing hamburger */}
-          <button
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] relative"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            <span
-              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-                mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""
-              }`}
-            />
-            <span
-              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-200 ${
-                mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
-              }`}
-            />
-            <span
-              className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-                mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
-              }`}
-            />
-          </button>
-        </div>
-      </div>
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-0.5 relative">
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.href} link={link} pathname={pathname} />
+            ))}
+          </nav>
 
-      {/* Mobile menu — fullscreen glass overlay with staggered items */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              href="/contact"
+              className="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-primary-container/80 backdrop-blur-md border border-primary/10 text-on-primary font-label-sm sm:font-label-md font-semibold hover:bg-primary hover:shadow-lg transition-all duration-300"
+            >
+              Support Our Work
+              <span className="material-symbols-outlined text-[16px] sm:text-[18px]">arrow_forward</span>
+            </Link>
+
+            {/* Morphing hamburger */}
+            <button
+              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] relative"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              <span
+                className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                  mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""
+                }`}
+              />
+              <span
+                className={`w-5 h-[1.5px] bg-on-surface transition-all duration-200 ${
+                  mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
+                }`}
+              />
+              <span
+                className={`w-5 h-[1.5px] bg-on-surface transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                  mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
+                }`}
+              />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile menu — OUTSIDE header, fullscreen overlay */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 z-[60] transition-all duration-500 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
-        {/* Backdrop — fullscreen */}
+        {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-surface/95 backdrop-blur-3xl"
+          className="absolute inset-0 bg-surface"
           onClick={closeMenu}
         />
 
-        {/* Decorative soundwave in mobile menu */}
+        {/* Decorative soundwave */}
         <div className="absolute bottom-12 sm:bottom-20 left-0 right-0 flex justify-center gap-1 opacity-10 pointer-events-none" aria-hidden="true">
           {Array.from({ length: 32 }).map((_, i) => (
             <div
@@ -133,10 +135,10 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Menu content — fullscreen centered */}
-        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8 pt-safe-area-inset-top pb-safe-area-inset-bottom">
-          {/* Links card — fills most of the screen */}
-          <div className={`w-full max-w-lg rounded-3xl bg-surface/60 backdrop-blur-xl border border-outline-variant/15 p-8 sm:p-10 transition-all duration-500 ${
+        {/* Menu content */}
+        <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8">
+          {/* Links card */}
+          <div className={`w-full max-w-lg rounded-3xl bg-white border border-outline-variant/10 shadow-[0_8px_40px_rgba(0,0,0,0.08)] p-8 sm:p-10 transition-all duration-500 ${
             mobileOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
           }`}>
             <nav className="flex flex-col items-center gap-0.5">
@@ -198,7 +200,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
@@ -242,11 +244,9 @@ function NavLink({
       }`}
       style={hoverStyle}
     >
-      {/* Active pill background */}
       {isActive && (
         <span className="absolute inset-0 bg-primary rounded-full shadow-md" />
       )}
-      {/* Hover pill background */}
       {!isActive && (
         <span className="absolute inset-0 bg-surface-mid/0 hover:bg-surface-mid rounded-full transition-colors duration-200 -z-10" />
       )}
