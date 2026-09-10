@@ -19,7 +19,7 @@ export default function ImpactStats() {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary" />
                   </span>
                   <span className="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary">
-                    Clinical Registry
+                    LIVE Clinical Registry
                   </span>
                 </span>
 
@@ -38,7 +38,7 @@ export default function ImpactStats() {
                 <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
                   As of {IMPACT_STATS.lastUpdated}, {IMPACT_STATS.childrenCount} children with special
                   needs are onboarded and receiving therapy and healthcare access through our partner
-                  network.
+                  network, a number that keeps growing with every intake round.
                 </p>
               </div>
 
@@ -47,7 +47,7 @@ export default function ImpactStats() {
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-[20px]">monitor_heart</span>
                     <span className="font-label-lg text-label-lg text-primary font-bold">
-                      Clinical Care Pipeline
+                      Clinical Care Pipeline Status
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm text-secondary font-bold uppercase">
@@ -100,7 +100,7 @@ export default function ImpactStats() {
 
                 <div className="pt-space-sm flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
                   <span className="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
-                  <span>All sessions conducted through accredited partner clinics.</span>
+                  <span>All sessions conducted through accredited partner clinics and licensed practitioners.</span>
                 </div>
               </div>
             </div>

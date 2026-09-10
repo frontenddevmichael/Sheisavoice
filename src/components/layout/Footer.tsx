@@ -17,9 +17,7 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col gap-space-lg">
             <StackedMonogram className="w-fit" />
             <p className="font-body text-body-md text-on-surface-variant max-w-sm mt-space-sm">
-              Amplify the dignity, protection, and boundless potential of girls, women, and children
-              with special needs across underserved communities in Nigeria and across the African
-              continent.
+              Building a legacy of dignity, reform, and lifelong support.
             </p>
           </div>
 
@@ -49,10 +47,17 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[16px]">pin_drop</span>
                 {SITE.address}
               </span>
-              <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[16px]">schedule</span>
-                Mon - Fri, 9am - 5pm WAT
+            </div>
+
+            {/* Linked To */}
+            <div className="mt-space-sm">
+              <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">
+                Linked To
               </span>
+              <p className="font-body text-body-sm text-on-surface-variant mt-1">
+                Independent child welfare advocacy institution. Not a subsidiary or affiliate of any
+                private or government agency.
+              </p>
             </div>
           </div>
         </div>
@@ -69,6 +74,14 @@ export default function Footer() {
                 Strict privacy protocol honored. CAC Reg #{SITE.cacReg}.
               </span>
             </div>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-xs text-xs font-bold">
+              Special Needs Advocacy
+            </span>
+            <span className="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-xs text-xs font-bold">
+              Equitable Protection
+            </span>
           </div>
         </div>
 

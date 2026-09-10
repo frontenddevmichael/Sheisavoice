@@ -44,7 +44,8 @@ export default function WhyItMatters() {
                   without the support they need. Their families often carry this alone, without the
                   funds, information, or professional care they deserve. Many bright students lose their
                   education to financial hardship they had no way to plan for. SHEISAVOICE exists to
-                  change that.
+                  change that. We are building a future where every child has access to the care that
+                  helps them thrive, and every student has a path to finish what they started.
                 </p>
               </div>
 

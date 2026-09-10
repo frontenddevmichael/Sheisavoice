@@ -46,7 +46,7 @@ export default function HeroSection() {
           <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-2xl`} style={{ transitionDelay: "240ms" }}>
             <div className="text-reveal-inner">
               <p className="font-body text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                A social impact and advocacy organization committed to supporting
+                SHEISAVOICE is a social impact and advocacy organization committed to supporting
                 children with special needs and students facing financial hardship, giving them access
                 to care, education, and opportunity across Africa.
               </p>
@@ -57,12 +57,12 @@ export default function HeroSection() {
           <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-3xl`} style={{ transitionDelay: "360ms" }}>
             <div className="text-reveal-inner">
               <div className="flex flex-wrap items-center gap-space-md">
-                <Button href="#what-we-do" variant="primary" size="lg">
-                  See Our Programs
+                <Button href="#support" variant="primary" size="lg">
+                  Support Our Work
                   <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                 </Button>
-                <Button href="#impact-counter" variant="secondary" size="lg">
-                  Our Impact
+                <Button href="/our-work" variant="secondary" size="lg">
+                  See Our Programs
                 </Button>
               </div>
             </div>
@@ -78,13 +78,13 @@ export default function HeroSection() {
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-outline-variant" />
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-primary text-[18px]">public</span>
-                  Pan-African Direct Reach
+                  <span className="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">shield</span>
+                  Non-Identifiable Safeguarding
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-outline-variant" />
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">shield</span>
-                  Non-Identifiable Safeguarding
+                  <span className="material-symbols-outlined text-primary text-[18px]">public</span>
+                  Pan-African Direct Reach
                 </span>
               </div>
             </div>

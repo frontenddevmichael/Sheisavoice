@@ -22,6 +22,9 @@ export default function UniversityEducation() {
               <h2 className="font-headline text-headline-lg text-primary">
                 University Education Support Program
               </h2>
+              <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
+                A safety net safeguarding scholars near completion from catastrophic academic disruption.
+              </p>
               <div className="flex flex-col gap-space-md">
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
                   We support university students facing financial hardship with access to funds,
@@ -31,7 +34,13 @@ export default function UniversityEducation() {
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
                   Too many brilliant, hardworking minds in Nigeria and across the continent are forced
                   to abandon their degrees in their final semesters due to unforeseen financial
-                  emergencies. We step in precisely at this tipping point.
+                  emergencies, tuition surges, or sudden loss of family support. We step in precisely
+                  at this tipping point.
+                </p>
+                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                  Support is delivered with complete transparency and unconditional dignity: direct
+                  semester tuition relief, laboratory and examination subsidies, and dedicated academic
+                  mentorship that walks with students all the way to graduation.
                 </p>
               </div>
 
@@ -57,10 +66,10 @@ export default function UniversityEducation() {
           <ScrollReveal className="lg:col-span-5 order-2 lg:order-2" animation="right" delay={120}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
               {[
-                { icon: "account_balance", title: "Direct Subsidies", desc: "Semester tuition relief and examination fee coverage." },
-                { icon: "fact_check", title: "Need-Based Review", desc: "Each application assessed individually, based on need." },
-                { icon: "school", title: "Academic Mentorship", desc: "Dedicated mentors walking students all the way to graduation." },
-                { icon: "savings", title: "Zero Debt Burden", desc: "Grants, not loans. No financial obligation after graduation." },
+                { icon: "account_balance", title: "Direct Subsidies", desc: "Semester tuition relief, capstone project funding, and examination fees covered promptly." },
+                { icon: "fact_check", title: "Need-Based Review", desc: "Personal evaluations prioritizing students at imminent risk of degree abandonment." },
+                { icon: "school", title: "Academic Mentorship", desc: "One-on-one professional guidance ensuring students navigate academic milestones smoothly." },
+                { icon: "savings", title: "Zero Debt Burden", desc: "All grants are non-repayable gifts of solidarity designed to liberate, not indebt." },
               ].map((item) => (
                 <div key={item.title} className="rounded-card bg-surface-low p-space-md flex flex-col gap-space-xs pressable">
                   <span className="material-symbols-outlined text-[24px] text-tertiary-fixed-dim">{item.icon}</span>

@@ -50,32 +50,26 @@ export default function GlobalVirtual() {
               <h2 className="font-headline text-headline-lg text-primary">
                 Support for Families Outside Nigeria
               </h2>
+              <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
+                A continental and diaspora bridge for families seeking guidance.
+              </p>
 
               <div className="flex flex-col gap-space-md">
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                  Our vision is continental and global: to ensure that families anywhere in the world
-                  can access dignified, specialized support for children with developmental needs
-                  and university students facing financial barriers, regardless of geographic
-                  location.
+                  SHEISAVOICE was built with a global vision. While our in-person therapy partnerships
+                  are currently based in Nigeria, we are building toward virtual consultation and
+                  support options for special needs families anywhere in the diaspora or beyond.
                 </p>
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                  Through our Global Virtual Support program, we are building pathways for
-                  telehealth consultations, virtual therapy coordination, and family guidance
-                  services that extend our mission beyond Nigeria and across the African diaspora.
-                </p>
-                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                  If you are a family, caregiver, or student outside Nigeria seeking support, join
-                  our waitlist and we will reach out as virtual services become available in your
-                  region.
+                  If you are outside Nigeria and would like guidance, a virtual consultation, or to
+                  be notified when direct support opens in your region, register your interest below
+                  and our team will reach out.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-space-sm">
-                <Badge variant="primary">Telehealth Consultations</Badge>
-                <Badge variant="coral">Virtual Therapy Coordination</Badge>
-                <Badge variant="gold">Diaspora Family Guidance</Badge>
-                <Badge variant="plum-light">Continental Expansion</Badge>
-              </div>
+              <p className="font-body text-body-sm text-on-surface-variant/70 pt-space-sm">
+                Privacy safeguarded. All family information remains strictly confidential and non-public.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -92,9 +86,7 @@ export default function GlobalVirtual() {
                       You&apos;re on the Waitlist
                     </h3>
                     <p className="font-body text-body-md text-on-surface-variant leading-relaxed max-w-sm">
-                      Thank you, {formData.fullName}. We have received your information and will
-                      contact you at {formData.email} as virtual support services become available
-                      in your region.
+                      Thank you. Your family has been securely placed on our international consultation list.
                     </p>
                   </div>
                   <button
@@ -109,25 +101,28 @@ export default function GlobalVirtual() {
                         message: "",
                       });
                     }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-mid text-primary hover:bg-surface-high transition-all text-label-md font-label-md"
+                    className="px-space-lg py-space-sm rounded-full bg-surface-mid text-on-surface font-label-md font-semibold hover:bg-surface-high transition-colors"
                   >
-                    Submit Another Response
+                    Submit Another Registration
                   </button>
                 </div>
               ) : (
                 <>
-                  <div className="flex items-center gap-space-sm mb-space-lg">
-                    <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary shrink-0">
-                      <span className="material-symbols-outlined text-[20px]">public</span>
+                  <div className="flex items-center justify-between mb-space-lg">
+                    <div className="flex items-center gap-space-sm">
+                      <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary shrink-0">
+                        <span className="material-symbols-outlined text-[20px]">public</span>
+                      </div>
+                      <div>
+                        <h3 className="font-headline text-headline-sm text-primary">
+                          Global Consultation Waitlist
+                        </h3>
+                        <p className="font-body text-body-sm text-on-surface-variant">
+                          Early registration for international telehealth coordination
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-headline text-headline-sm text-primary">
-                        Global Waitlist
-                      </h3>
-                      <p className="font-body text-body-sm text-on-surface-variant">
-                        Join the queue for virtual support services
-                      </p>
-                    </div>
+                    <Badge variant="gold">Waitlist Only</Badge>
                   </div>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-space-md">
@@ -149,7 +144,7 @@ export default function GlobalVirtual() {
 
                     <div className="flex flex-col gap-space-2xs">
                       <label htmlFor="global-email" className="font-label-md text-label-md text-on-surface font-semibold">
-                        Email
+                        Email Address
                       </label>
                       <input
                         id="global-email"
@@ -166,7 +161,7 @@ export default function GlobalVirtual() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                       <div className="flex flex-col gap-space-2xs">
                         <label htmlFor="global-country" className="font-label-md text-label-md text-on-surface font-semibold">
-                          Country
+                          Country of Residence
                         </label>
                         <input
                           id="global-country"
@@ -187,6 +182,7 @@ export default function GlobalVirtual() {
                           id="global-childAge"
                           name="childAge"
                           type="text"
+                          required
                           value={formData.childAge}
                           onChange={handleChange}
                           className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
@@ -197,7 +193,7 @@ export default function GlobalVirtual() {
 
                     <div className="flex flex-col gap-space-2xs">
                       <label htmlFor="global-supportType" className="font-label-md text-label-md text-on-surface font-semibold">
-                        Support Type
+                        Type of Support Needed
                       </label>
                       <select
                         id="global-supportType"
@@ -208,12 +204,10 @@ export default function GlobalVirtual() {
                         className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
                       >
                         <option value="" disabled>Select the type of support needed</option>
-                        <option value="special-needs">Special Needs Therapy</option>
-                        <option value="speech-therapy">Speech &amp; Language Therapy</option>
-                        <option value="occupational">Occupational Therapy</option>
-                        <option value="university">University Education Support</option>
-                        <option value="family-counseling">Family Counseling</option>
-                        <option value="other">Other</option>
+                        <option value="speech">Speech therapy guidance</option>
+                        <option value="autism">Autism resources and sensory coordination</option>
+                        <option value="sensory">Sensory &amp; behavioral support</option>
+                        <option value="general">General developmental consultation</option>
                       </select>
                     </div>
 
@@ -232,18 +226,16 @@ export default function GlobalVirtual() {
                       />
                     </div>
 
-                    <p className="font-body text-body-sm text-on-surface-variant leading-snug">
-                      Your information is kept strictly confidential and used only to assess and
-                      coordinate support. We do not share personal data with third parties.
-                    </p>
-
                     <button
                       type="submit"
-                      className="w-full inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-primary-container text-surface-lowest hover:bg-primary transition-all duration-300 shadow-[0_12px_28px_rgba(62,0,94,0.22)] hover:-translate-y-0.5 font-label-md text-label-md"
+                      className="w-full px-space-xl py-space-sm rounded-full bg-primary text-on-primary font-label-md font-bold hover:bg-primary-container transition-all duration-300 shadow-md hover:-translate-y-0.5"
                     >
-                      <span>Join the Waitlist</span>
-                      <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                      Join the Global Waitlist
                     </button>
+
+                    <p className="font-body text-body-xs text-on-surface-variant/60 text-center">
+                      Not a live booking flow. This registers your interest for future virtual services.
+                    </p>
                   </form>
                 </>
               )}

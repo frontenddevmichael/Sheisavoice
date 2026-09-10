@@ -21,6 +21,10 @@ export default function MissionVision() {
             <h2 className="font-headline text-headline-lg text-primary leading-tight">
               Mission &amp; Vision
             </h2>
+            <p className="font-body text-body-md text-on-surface-variant max-w-2xl">
+              The two enduring pillars guiding our institutional decisions, field partnerships, and
+              continental aspirations.
+            </p>
           </div>
         </ScrollReveal>
 

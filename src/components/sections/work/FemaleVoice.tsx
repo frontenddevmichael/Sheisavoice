@@ -31,19 +31,19 @@ export default function FemaleVoice() {
             {
               icon: "groups",
               title: "Mentorship Circles",
-              description: "Intergenerational dialogue sessions pairing experienced women leaders with young girls navigating identity, education, and self-expression.",
+              description: "Structured intergenerational safe spaces providing steady peer counsel.",
               accent: "bg-primary",
             },
             {
               icon: "record_voice_over",
               title: "Spoken Expression",
-              description: "Workshops, speaking forums, and creative platforms that help girls and women find, refine, and courageously use their voices.",
+              description: "Public presence clinics nurturing fearless community dialogue.",
               accent: "bg-secondary",
             },
             {
               icon: "family_restroom",
               title: "Caregiver Advocacy",
-              description: "Training and equipping mothers, guardians, and female caregivers with the language and confidence to advocate for their children.",
+              description: "Empowering mothers of children with special needs as lead advocates.",
               accent: "bg-tertiary-fixed-dim",
             },
           ].map((pillar) => (

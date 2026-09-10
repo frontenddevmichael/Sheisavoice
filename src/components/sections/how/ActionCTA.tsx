@@ -13,8 +13,8 @@ export default function ActionCTA() {
               Ready to Begin the Journey?
             </h2>
             <p className="font-body text-body-lg text-on-primary/85 max-w-2xl leading-relaxed mb-space-2xl">
-              Whether you are a family seeking support or a clinical provider ready to partner,
-              SHEISAVOICE is here to guide you through a dignified, transparent process.
+              Whether you are a family seeking structured care for a child with special needs or an
+              accredited provider desiring to serve underserved students, we are ready to connect.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-space-md">
               <Button variant="gold" size="lg" href="/contact">Submit an Intake Application</Button>
@@ -23,7 +23,8 @@ export default function ActionCTA() {
               </Button>
             </div>
             <p className="font-body text-body-sm text-on-primary/60 mt-space-2xl max-w-xl">
-              All applications are safeguarded under strict child protection protocols.
+              SHEISAVOICE operates in full alignment with international child protection and
+              non-stigmatizing protocols. All applications are treated with strict confidentiality.
             </p>
           </div>
         </ScrollReveal>

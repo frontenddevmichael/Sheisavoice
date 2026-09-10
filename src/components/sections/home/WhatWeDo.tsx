@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
@@ -11,6 +12,7 @@ const PROGRAMS = [
     title: "Special Needs Support",
     description:
       "We help children with autism, speech impairment, dyslexia, and other developmental challenges get the therapy and care they need, in partnership with qualified clinical providers.",
+    footer: "Comprehensive Clinical Ecosystem",
     accent: "plum" as const,
     iconBg: "bg-secondary-fixed",
   },
@@ -21,6 +23,7 @@ const PROGRAMS = [
     title: "University Education Support",
     description:
       "We support students facing financial hardship with access to funds, resources, and guidance so a lack of money doesn't end an education.",
+    footer: "Scholarship Desk",
     accent: "gold" as const,
     iconBg: "bg-tertiary-fixed",
   },
@@ -31,6 +34,7 @@ const PROGRAMS = [
     title: "Amplifying the Female Voice",
     description:
       "We create platforms for girls and women to build confidence, speak up, and lead.",
+    footer: "Leadership Forums",
     accent: "coral" as const,
     iconBg: "bg-primary-fixed",
   },
@@ -38,7 +42,7 @@ const PROGRAMS = [
 
 export default function WhatWeDo() {
   return (
-    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden">
+    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden" id="what-we-do">
       <NoiseOverlay opacity={0.02} />
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
@@ -72,8 +76,23 @@ export default function WhatWeDo() {
                 <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
                   {program.description}
                 </p>
+                <div className="mt-auto pt-space-sm border-t border-outline-variant/20">
+                  <span className="font-label-sm text-on-surface-variant/70">{program.footer}</span>
+                </div>
               </Card>
             ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Global Virtual Support callout */}
+        <ScrollReveal animation="up" delay={200}>
+          <div className="mt-space-2xl text-center">
+            <p className="font-body text-body-md text-on-surface-variant">
+              Outside Nigeria?{" "}
+              <Link href="/our-work#global-support" className="text-primary font-semibold hover:underline">
+                Learn about our Global Virtual Support waitlist.
+              </Link>
+            </p>
           </div>
         </ScrollReveal>
       </div>

@@ -8,26 +8,26 @@ export default function ContactCards() {
   const contacts = [
     {
       icon: "mail",
-      label: "Email",
+      label: "Email Coordination",
       value: SITE.email,
       href: `mailto:${SITE.email}`,
-      description: "For general inquiries, partnerships, and support",
+      description: "Inquiries & Official Petitions",
       accent: "plum" as const,
     },
     {
       icon: "location_on",
-      label: "Field Office",
-      value: SITE.address,
+      label: "Nigeria Operations",
+      value: `${SITE.address} · Continental Network`,
       href: null,
-      description: "Visit us during working hours",
+      description: "Federal Capital Territory Hub",
       accent: "coral" as const,
     },
     {
       icon: "schedule",
-      label: "Working Hours",
+      label: "Office Schedule",
       value: "Mon-Fri, 9am-5pm WAT",
       href: null,
-      description: "We respond within 24 hours",
+      description: "West Africa Time Standard",
       accent: "gold" as const,
     },
   ];

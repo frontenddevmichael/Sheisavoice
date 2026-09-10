@@ -34,12 +34,20 @@ export default function SpecialNeeds() {
                   We advocate for children with special needs and support families navigating
                   developmental challenges such as autism, speech impairment, dyslexia, learning
                   difficulties, and related conditions. We partner with a network of qualified clinical
-                  providers to connect children with therapy, treatment, and developmental care.
+                  providers to connect children with therapy, treatment, and developmental care, and we
+                  work to reduce stigma by helping communities better understand the needs, abilities,
+                  and potential of children with special needs.
                 </p>
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
                   Every child communicates and develops at their own rhythm. Rather than treating
                   vulnerability as a deficit, our model pairs qualified pediatric therapists, speech
-                  pathologists, and occupational clinicians directly with families.
+                  pathologists, and occupational clinicians directly with families who would otherwise
+                  navigate these challenges in isolation.
+                </p>
+                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                  Beyond direct clinical intervention, our community workshops and school partnerships
+                  equip teachers and caregivers with practical sensory tools, non-stigmatizing
+                  communication strategies, and dignified advocacy principles.
                 </p>
               </div>
 
@@ -67,10 +75,10 @@ export default function SpecialNeeds() {
                     <span className="material-symbols-outlined text-[20px] text-primary">verified</span>
                   </div>
                   <div className="flex flex-col gap-space-xs">
-                    <h3 className="font-headline text-headline-sm text-on-primary">Zero Intermediary Burden</h3>
+                    <h3 className="font-headline text-headline-sm text-on-primary">Zero Intermediary Burden on Families</h3>
                     <p className="font-body text-body-md text-on-primary/85 leading-relaxed">
-                      Every referral moves directly from assessment to accredited clinical providers.
-                      No middlemen, no hidden costs.
+                      Clinical partnerships are fully subsidized with dignity, ensuring no cost or
+                      friction falls upon the caregiver.
                     </p>
                   </div>
                 </div>

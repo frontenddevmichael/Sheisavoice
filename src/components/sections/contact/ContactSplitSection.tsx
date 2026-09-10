@@ -16,7 +16,7 @@ export default function ContactSplitSection() {
 
   // Volunteer form state
   const [volunteerForm, setVolunteerForm] = useState({
-    name: "", email: "", phone: "", volunteerOutreach: "", financialSupport: "",
+    name: "", email: "", phone: "", areaOfInterest: "", volunteerOutreach: "", messagePosition: "",
   });
   const [volunteerSubmitted, setVolunteerSubmitted] = useState(false);
 
@@ -34,7 +34,7 @@ export default function ContactSplitSection() {
   const handleVolunteerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setVolunteerSubmitted(true);
-    setVolunteerForm({ name: "", email: "", phone: "", volunteerOutreach: "", financialSupport: "" });
+    setVolunteerForm({ name: "", email: "", phone: "", areaOfInterest: "", volunteerOutreach: "", messagePosition: "" });
     setTimeout(() => setVolunteerSubmitted(false), 4000);
   };
 
@@ -101,7 +101,7 @@ export default function ContactSplitSection() {
                         placeholder="+234 XXX XXX XXXX" className={inputClasses} />
                     </div>
                     <div className="flex flex-col gap-space-2xs">
-                      <label htmlFor="msg-interest" className="font-label-sm text-on-surface-variant font-semibold">Area of Interest</label>
+                      <label htmlFor="msg-interest" className="font-label-sm text-on-surface-variant font-semibold">How would you like to help?</label>
                       <select id="msg-interest" required value={messageForm.interest}
                         onChange={(e) => setMessageForm({ ...messageForm, interest: e.target.value })}
                         className={inputClasses}>
@@ -109,6 +109,8 @@ export default function ContactSplitSection() {
                         <option value="volunteer">Volunteer</option>
                         <option value="donate">Donate</option>
                         <option value="partner">Partner</option>
+                        <option value="advocacy">Child therapy advocacy</option>
+                        <option value="community">Community awareness</option>
                         <option value="other">Other</option>
                       </select>
                     </div>
@@ -160,8 +162,20 @@ export default function ContactSplitSection() {
                         onChange={(e) => setVolunteerForm({ ...volunteerForm, phone: e.target.value })}
                         placeholder="+234 XXX XXX XXXX" className={inputClasses} />
                     </div>
+                    <div className="flex flex-col gap-space-2xs">
+                      <label htmlFor="vol-area" className="font-label-sm text-on-surface-variant font-semibold">Area of Interest</label>
+                      <select id="vol-area" required value={volunteerForm.areaOfInterest}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, areaOfInterest: e.target.value })}
+                        className={inputClasses}>
+                        <option value="" disabled>Select your area of interest</option>
+                        <option value="therapy">Child therapy advocacy</option>
+                        <option value="community">Community awareness</option>
+                        <option value="volunteering">Strategic volunteering</option>
+                        <option value="corporate">Corporate partnerships</option>
+                      </select>
+                    </div>
                     <fieldset className="flex flex-col gap-space-xs border-0 p-0 m-0">
-                      <legend className="font-label-sm text-on-surface-variant font-semibold">Available for volunteer outreach?</legend>
+                      <legend className="font-label-sm text-on-surface-variant font-semibold">Available for volunteer outreach collaboration?</legend>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-xs">
                         {["Yes", "Open to discuss", "Not now"].map((option) => (
                           <label key={option} className={radioClasses}>
@@ -174,20 +188,13 @@ export default function ContactSplitSection() {
                         ))}
                       </div>
                     </fieldset>
-                    <fieldset className="flex flex-col gap-space-xs border-0 p-0 m-0">
-                      <legend className="font-label-sm text-on-surface-variant font-semibold">Open to financial support?</legend>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
-                        {["Yes", "Monthly pledge"].map((option) => (
-                          <label key={option} className={radioClasses}>
-                            <input type="radio" name="financialSupport" value={option}
-                              checked={volunteerForm.financialSupport === option}
-                              onChange={(e) => setVolunteerForm({ ...volunteerForm, financialSupport: e.target.value })}
-                              className="accent-secondary" />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    </fieldset>
+                    <div className="flex flex-col gap-space-2xs">
+                      <label htmlFor="vol-message" className="font-label-sm text-on-surface-variant font-semibold">Message or Position</label>
+                      <textarea id="vol-message" rows={3} value={volunteerForm.messagePosition}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, messagePosition: e.target.value })}
+                        placeholder="Tell us about your interest or proposed role..."
+                        className={`${inputClasses} resize-none`} />
+                    </div>
                     <button type="submit"
                       className="w-full mt-space-xs px-space-xl py-space-sm rounded-full bg-secondary text-on-secondary font-label-md font-bold hover:bg-secondary/90 transition-all duration-300 shadow-md hover:-translate-y-0.5">
                       Submit Registration

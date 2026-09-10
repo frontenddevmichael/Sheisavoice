@@ -20,8 +20,8 @@ export default function PathwaySteps() {
             </h2>
           </div>
           <p className="font-body text-body-lg text-on-surface-variant max-w-md leading-relaxed">
-            Every child is unique. Every pathway is different. But every journey
-            through our system follows five deliberate stages.
+            Every child with special needs and underserved student receives uninterrupted, tailored
+            backing via an intentional sequence of protective checkpoints.
           </p>
         </div>
       </ScrollReveal>
