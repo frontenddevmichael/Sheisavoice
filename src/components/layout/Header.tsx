@@ -113,7 +113,7 @@ export default function Header() {
         }`}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
-        {/* Backdrop */}
+        {/* Backdrop — fullscreen */}
         <div
           className="absolute inset-0 bg-surface/95 backdrop-blur-3xl"
           onClick={closeMenu}
@@ -133,10 +133,10 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Menu content — safe area aware */}
+        {/* Menu content — fullscreen centered */}
         <div className="relative h-full flex flex-col justify-center items-center px-6 sm:px-8 pt-safe-area-inset-top pb-safe-area-inset-bottom">
-          {/* Links container with background */}
-          <div className={`w-full max-w-sm rounded-3xl bg-surface/80 backdrop-blur-xl border border-outline-variant/15 p-6 sm:p-8 transition-all duration-500 ${
+          {/* Links card */}
+          <div className={`w-full max-w-sm rounded-3xl bg-surface/60 backdrop-blur-xl border border-outline-variant/15 p-6 sm:p-8 transition-all duration-500 ${
             mobileOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
           }`}>
             <nav className="flex flex-col items-center gap-1">
@@ -159,19 +159,16 @@ export default function Header() {
                       transitionDelay: mobileOpen ? `${i * 45 + 60}ms` : "0ms",
                     }}
                   >
-                    {/* Number */}
                     <span className={`font-label-xs font-bold tracking-widest transition-colors duration-300 ${
                       isActive ? "text-primary" : "text-outline-variant group-hover:text-primary"
                     }`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    {/* Dot separator */}
                     <span className={`w-1 h-1 rounded-full transition-colors duration-300 ${
                       isActive ? "bg-primary" : "bg-outline-variant/40 group-hover:bg-primary/50"
                     }`} />
 
-                    {/* Link text */}
                     <span className={`font-headline text-lg sm:text-xl font-bold transition-colors duration-200 ${
                       isActive
                         ? "text-primary"
@@ -185,7 +182,7 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* CTA — outside the card */}
+          {/* CTA */}
           <Link
             href="/contact"
             onClick={closeMenu}
