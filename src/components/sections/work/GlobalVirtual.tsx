@@ -101,7 +101,7 @@ export default function GlobalVirtual() {
                         message: "",
                       });
                     }}
-                    className="px-space-lg py-space-sm rounded-full bg-surface-mid text-on-surface font-label-md font-semibold hover:bg-surface-high transition-colors"
+                    className="px-7 py-3 rounded-xl bg-surface-mid text-on-surface font-label-md font-semibold hover:bg-surface-high transition-all duration-200"
                   >
                     Submit Another Registration
                   </button>
@@ -228,7 +228,7 @@ export default function GlobalVirtual() {
 
                     <button
                       type="submit"
-                      className="w-full px-space-xl py-space-sm rounded-full bg-primary text-on-primary font-label-md font-bold hover:bg-primary-container transition-all duration-300 shadow-md hover:-translate-y-0.5"
+                      className="w-full px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
                     >
                       Join the Global Waitlist
                     </button>

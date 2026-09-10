@@ -122,7 +122,7 @@ export default function ContactSplitSection() {
                         className={`${inputClasses} resize-none`} />
                     </div>
                     <button type="submit"
-                      className="w-full mt-space-xs px-space-xl py-space-sm rounded-full bg-primary-container text-surface-lowest font-label-md font-bold hover:bg-primary transition-all duration-300 shadow-md hover:-translate-y-0.5">
+                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200">
                       Send Message
                     </button>
                   </form>
@@ -196,7 +196,7 @@ export default function ContactSplitSection() {
                         className={`${inputClasses} resize-none`} />
                     </div>
                     <button type="submit"
-                      className="w-full mt-space-xs px-space-xl py-space-sm rounded-full bg-secondary text-on-secondary font-label-md font-bold hover:bg-secondary/90 transition-all duration-300 shadow-md hover:-translate-y-0.5">
+                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(200,100,50,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200">
                       Submit Registration
                     </button>
                   </form>

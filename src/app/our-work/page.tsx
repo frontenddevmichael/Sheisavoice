@@ -32,14 +32,15 @@ export default function OurWorkPage() {
         title={<>Action Rooted in Dignity. <span className="text-secondary">Care That Reaches.</span></>}
         subtitle="We focus our resources where systemic barriers are steepest: providing clinical developmental care for children with special needs, emergency academic lifelines for university students, and elevating the voices of girls and women."
       >
-        <div className="flex flex-col gap-space-xs p-space-sm rounded-card-lg bg-surface-low shadow-sm">
+        <div className="flex flex-col gap-1 p-space-sm rounded-card-lg bg-surface-low/60 backdrop-blur-sm border border-outline-variant/10">
           {JUMP_NAV.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="px-space-md py-space-xs rounded-full bg-surface text-primary font-label-sm hover:bg-primary-container hover:text-on-primary transition-all shadow-sm flex items-center gap-2"
+              className="group px-space-md py-space-xs rounded-xl text-on-surface-variant font-label-sm hover:text-primary hover:bg-surface-mid/60 transition-all duration-200 flex items-center gap-3 relative overflow-hidden"
             >
-              <span className={`w-2 h-2 rounded-full ${item.dot}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-full ${item.dot} transition-all duration-200 rounded-full`} />
+              <span className={`w-2 h-2 rounded-full ${item.dot} opacity-60 group-hover:opacity-100 transition-opacity`} />
               {item.label}
             </a>
           ))}

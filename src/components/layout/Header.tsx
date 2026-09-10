@@ -47,7 +47,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container text-on-primary font-label-md font-semibold hover:bg-primary transition-all duration-300 shadow-[var(--shadow-button)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(62,0,94,0.2)]"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary-container/80 backdrop-blur-md border border-primary/10 text-on-primary font-label-md font-semibold hover:bg-primary hover:shadow-lg transition-all duration-300"
           >
             Support Our Work
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -119,7 +119,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className={`mt-6 px-8 py-3 rounded-full bg-primary-container text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-lg ${
+              className={`mt-6 px-8 py-3 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-lg font-semibold transition-all duration-300 shadow-[0_2px_16px_rgba(62,0,94,0.15)] ${
                 mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{

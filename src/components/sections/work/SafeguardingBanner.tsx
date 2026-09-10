@@ -21,7 +21,7 @@ export default function SafeguardingBanner() {
 
         <Link
           href="/how-we-work#guardrails"
-          className="inline-flex items-center gap-2 px-space-lg py-space-sm rounded-full bg-primary text-on-primary font-label-md font-bold hover:bg-primary-container transition-all duration-300 shadow-md hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold tracking-wide shadow-[0_2px_16px_rgba(62,0,94,0.12)] hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
         >
           <span className="material-symbols-outlined text-[18px]">shield</span>
           Safeguarding Standards

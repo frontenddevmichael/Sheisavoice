@@ -59,7 +59,7 @@ export default function ContactCards() {
                 </p>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-surface text-primary font-label-lg font-bold hover:bg-surface-low transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-surface/90 backdrop-blur-sm text-primary font-label-lg font-semibold tracking-wide hover:bg-white hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   {SITE.email}
                   <span className="material-symbols-outlined text-[20px]">arrow_forward</span>

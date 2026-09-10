@@ -18,21 +18,21 @@ export default function Button({
   external = false,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300";
+    "inline-flex items-center justify-center gap-2 transition-all duration-200";
 
   const variants = {
     primary:
-      "bg-primary-container text-on-primary hover:bg-primary shadow-[var(--shadow-button)] hover:-translate-y-0.5",
+      "bg-gradient-to-r from-primary-container to-primary text-on-primary rounded-2xl shadow-[0_2px_16px_rgba(62,0,94,0.12)] hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:scale-[1.02] active:scale-[0.98]",
     secondary:
-      "bg-surface-low text-primary hover:bg-surface-high border border-outline-variant/30",
-    ghost: "bg-transparent text-primary hover:bg-surface-mid",
-    gold: "bg-tertiary-fixed-dim text-primary hover:bg-tertiary-fixed shadow-[var(--shadow-button)] hover:-translate-y-0.5",
+      "bg-transparent text-primary rounded-2xl border-[1.5px] border-outline-variant/40 hover:bg-surface-mid hover:border-outline-variant/60",
+    ghost: "bg-transparent text-primary rounded-xl hover:bg-surface-mid",
+    gold: "bg-gradient-to-r from-tertiary-fixed-dim to-tertiary-fixed text-primary rounded-2xl shadow-[0_2px_12px_rgba(200,150,50,0.12)] hover:shadow-[0_4px_20px_rgba(200,150,50,0.18)] hover:scale-[1.02] active:scale-[0.98]",
   };
 
   const sizes = {
-    sm: "px-5 py-2 text-label-md font-semibold",
-    md: "px-7 py-3 text-label-md font-semibold",
-    lg: "px-9 py-4 text-label-lg font-semibold",
+    sm: "px-5 py-2.5 text-label-sm font-semibold tracking-wide",
+    md: "px-7 py-3.5 text-label-md font-semibold tracking-wide",
+    lg: "px-8 py-4 text-label-lg font-semibold tracking-wide",
   };
 
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
