@@ -7,6 +7,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   external?: boolean;
+  "aria-label"?: string;
 }
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   children,
   className = "",
   external = false,
+  "aria-label": ariaLabel,
 }: ButtonProps) {
   const base =
     "inline-flex items-center justify-center gap-2 transition-all duration-200";
@@ -40,20 +42,20 @@ export default function Button({
   if (href) {
     if (external) {
       return (
-        <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+        <a href={href} className={classes} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}>
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} aria-label={ariaLabel}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={classes} type="button">
+    <button className={classes} type="button" aria-label={ariaLabel}>
       {children}
     </button>
   );

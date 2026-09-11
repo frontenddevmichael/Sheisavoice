@@ -38,7 +38,7 @@ export default function OurStory() {
             </div>
           </div>
 
-          <Card accent="gold" className="lg:col-span-5">
+          <Card className="lg:col-span-5">
             <div className="flex flex-col gap-space-md">
               <div className="flex items-center gap-space-sm">
                 <span className="w-3 h-3 rounded-full bg-tertiary-fixed-dim" />

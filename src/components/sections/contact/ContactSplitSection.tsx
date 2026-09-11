@@ -70,7 +70,7 @@ export default function ContactSplitSection() {
 
             <div className="flex flex-col gap-space-xl">
               {/* Send a Message */}
-              <Card accent="plum">
+              <Card>
                 <h3 className="font-headline text-headline-sm text-primary mb-space-lg">
                   Send a Message
                 </h3>
@@ -132,7 +132,7 @@ export default function ContactSplitSection() {
               </Card>
 
               {/* Volunteer */}
-              <Card accent="coral">
+              <Card>
                 <h3 className="font-headline text-headline-sm text-secondary mb-space-lg">
                   Volunteer & Partner
                 </h3>
@@ -238,7 +238,7 @@ export default function ContactSplitSection() {
             </div>
 
             {activeTab === "nigeria" ? (
-              <Card accent="plum" className="flex flex-col gap-space-lg">
+              <Card className="flex flex-col gap-space-lg">
                 <div className="flex items-center gap-space-md">
                   <span className="material-symbols-outlined text-[28px] text-primary">credit_card</span>
                   <h3 className="font-headline text-headline-sm text-primary">Online Contribution</h3>
@@ -246,7 +246,7 @@ export default function ContactSplitSection() {
                 <p className="font-body text-body-sm text-on-surface-variant">
                   Secure one-time or recurring contribution via Paystack. All major Nigerian debit cards, USSD, and bank transfers accepted.
                 </p>
-                <Button href="https://paystack.com" external variant="primary" size="md">
+                <Button href="https://paystack.com" external variant="primary" size="md" aria-label="Donate now via Paystack">
                   Donate Now
                   <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                 </Button>
@@ -272,7 +272,7 @@ export default function ContactSplitSection() {
                     <span className="font-body text-body-sm text-on-surface-variant">Account No.</span>
                     <div className="flex items-center gap-space-xs">
                       <span className="font-body text-body-md font-bold text-primary">{SITE.bankAccount}</span>
-                      <button onClick={handleCopyAccount} className="p-1 rounded-full hover:bg-surface-high transition-colors" aria-label="Copy">
+                      <button onClick={handleCopyAccount} className="p-1 rounded-full hover:bg-surface-high transition-colors" aria-label="Copy account number to clipboard">
                         <span className="material-symbols-outlined text-[16px] text-primary">{copied ? "check_circle" : "content_copy"}</span>
                       </button>
                     </div>
@@ -283,7 +283,7 @@ export default function ContactSplitSection() {
                 </p>
               </Card>
             ) : (
-              <Card accent="coral" className="flex flex-col gap-space-lg">
+              <Card className="flex flex-col gap-space-lg">
                 <div className="flex items-center gap-space-md">
                   <span className="material-symbols-outlined text-[28px] text-secondary">public</span>
                   <h3 className="font-headline text-headline-sm text-secondary">International Donation</h3>
@@ -291,7 +291,7 @@ export default function ContactSplitSection() {
                 <p className="font-body text-body-sm text-on-surface-variant">
                   Contribute securely via Paystack with Visa or Mastercard. All transactions processed in your local currency with full exchange rate transparency.
                 </p>
-                <Button href="https://paystack.com" external variant="secondary" size="md">
+                <Button href="https://paystack.com" external variant="secondary" size="md" aria-label="Donate internationally via Paystack">
                   Donate Internationally
                   <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                 </Button>

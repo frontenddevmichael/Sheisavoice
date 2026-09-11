@@ -24,22 +24,24 @@ export default function Footer() {
           {/* Quick Navigation */}
           <div className="md:col-span-3 flex flex-col gap-space-sm">
             <h4 className="font-headline text-headline-sm text-primary">Quick Navigation</h4>
-            <ul className="flex flex-col gap-space-xs font-body text-body-sm text-on-surface-variant">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Footer navigation">
+              <ul className="flex flex-col gap-space-xs font-body text-body-sm text-on-surface-variant">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="hover:text-primary transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Get in Touch */}
           <div className="md:col-span-4 flex flex-col gap-space-sm">
             <h4 className="font-headline text-headline-sm text-primary">Get in Touch</h4>
             <div className="flex flex-col gap-space-xs font-body text-body-sm text-on-surface-variant">
-              <a href={`mailto:${SITE.email}`} className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href={`mailto:${SITE.email}`} className="hover:text-primary transition-colors flex items-center gap-2" aria-label={`Send email to ${SITE.email}`}>
                 <span className="material-symbols-outlined text-[16px]">mail</span>
                 {SITE.email}
               </a>

@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import useInView from "@/hooks/useInView";
+import { useEffect, useRef, useState } from "react";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -45,24 +44,36 @@ export default function ScrollReveal({
   delay = 0,
   threshold = 0.15,
 }: ScrollRevealProps) {
-  const { ref, isInView } = useInView({ threshold });
-  const localRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    if (stagger === "deep" && localRef.current) {
-      assignDepths(localRef.current);
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold, rootMargin: "0px 0px -10px 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  useEffect(() => {
+    if (stagger === "deep" && ref.current) {
+      assignDepths(ref.current);
     }
   }, [stagger]);
 
-  // Merge refs
-  const setRef = (node: HTMLDivElement | null) => {
-    localRef.current = node;
-    (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
-  };
-
   return (
     <div
-      ref={setRef}
+      ref={ref}
       className={`${ANIMATIONS[animation]} ${stagger ? STAGGERS[stagger] : ""} ${isInView ? "is-visible" : ""} ${className}`}
       style={!stagger && delay ? { animationDelay: `${delay}ms` } : undefined}
     >

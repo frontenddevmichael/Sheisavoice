@@ -66,7 +66,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0.5 relative">
+          <nav className="hidden lg:flex items-center gap-0.5 relative" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
               <NavLink key={link.href} link={link} pathname={pathname} />
             ))}
@@ -150,7 +150,7 @@ export default function Header() {
           </button>
 
           {/* Nav link sections — each fills equal height */}
-          <nav className="flex-1 flex flex-col">
+          <nav className="flex-1 flex flex-col" aria-label="Mobile navigation">
             {NAV_LINKS.map((link, i) => {
               const isActive = pathname === link.href;
               return (

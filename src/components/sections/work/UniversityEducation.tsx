@@ -43,7 +43,7 @@ export default function UniversityEducation() {
                 </p>
               </div>
 
-              <Card accent="gold" className="mt-space-md">
+              <Card className="mt-space-md">
                 <div className="flex items-start gap-space-md">
                   <div className="w-10 h-10 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed shrink-0 mt-0.5">
                     <span className="material-symbols-outlined text-[20px]">menu_book</span>

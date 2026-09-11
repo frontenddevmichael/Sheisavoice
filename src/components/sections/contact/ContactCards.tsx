@@ -70,10 +70,7 @@ export default function ContactCards() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
               {contacts.map((item, i) => (
                 <ScrollReveal key={i} animation="up" delay={i * 100}>
-                  <Card
-                    accent={item.accent}
-                    className="flex flex-col gap-space-md pressable h-full"
-                  >
+                  <Card className="flex flex-col gap-space-md pressable h-full">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       item.accent === "plum" ? "bg-primary-fixed" : item.accent === "coral" ? "bg-secondary-fixed" : "bg-tertiary-fixed"
                     }`}>

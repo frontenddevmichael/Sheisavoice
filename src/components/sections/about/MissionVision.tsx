@@ -30,7 +30,7 @@ export default function MissionVision() {
 
         <ScrollReveal stagger="children">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
-            <Card accent="plum" className="flex flex-col gap-space-lg transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5">
+            <Card className="flex flex-col gap-space-lg transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5">
               <Badge variant="primary">OUR MISSION</Badge>
               <h3 className="font-headline text-headline-md text-primary leading-tight">
                 A Direct Avenue for Care and Education
@@ -43,7 +43,7 @@ export default function MissionVision() {
               </p>
             </Card>
 
-            <Card accent="coral" className="flex flex-col gap-space-lg transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5">
+            <Card className="flex flex-col gap-space-lg transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5">
               <Badge variant="coral">OUR VISION</Badge>
               <h3 className="font-headline text-headline-md text-secondary leading-tight">
                 An Africa Defined by Boundless Dignity
