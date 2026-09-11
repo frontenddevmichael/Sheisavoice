@@ -22,7 +22,6 @@ export const NAV_LINKS = [
   { label: "Our Work", href: "/our-work" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "Moments", href: "/moments" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const IMPACT_STATS = {

@@ -56,20 +56,20 @@ export default function Header() {
         }`}
       >
         <div
-          className={`mx-auto max-w-[900px] px-4 transition-all duration-300 ${
+          className={`mx-auto max-w-[1000px] px-5 transition-all duration-300 ${
             scrolled
               ? "bg-surface/80 backdrop-blur-2xl shadow-[0_8px_40px_rgba(62,0,94,0.1)] rounded-full"
               : "bg-transparent"
           }`}
         >
-          <div className="flex items-center justify-between h-14 px-5">
+          <div className="flex items-center justify-between h-16 px-6">
             {/* Logo */}
             <Link href="/" className="shrink-0 group">
-              <Logo className="h-6 w-auto transition-transform duration-300 group-hover:scale-105" />
+              <Logo className="h-7 w-auto transition-transform duration-300 group-hover:scale-105" />
             </Link>
 
-            {/* Nav links with soundwave active indicator */}
-            <nav className="flex items-center gap-1" aria-label="Main navigation">
+            {/* Nav links */}
+            <nav className="flex items-center gap-1.5" aria-label="Main navigation">
               {NAV_LINKS.map((link) => (
                 <NavLink key={link.href} link={link} pathname={pathname} />
               ))}
@@ -78,10 +78,10 @@ export default function Header() {
             {/* Contact/Support CTA */}
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary text-on-primary text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 hover:shadow-[0_4px_20px_rgba(62,0,94,0.2)]"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-on-primary text-[14px] font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 hover:shadow-[0_4px_20px_rgba(62,0,94,0.2)]"
             >
               Contact/Support
-              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>
         </div>
@@ -96,14 +96,14 @@ export default function Header() {
             </Link>
 
             {/* Quick nav pills */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 ${
+                    className={`px-3 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200 ${
                       isActive
                         ? "bg-primary text-on-primary"
                         : "text-on-surface-variant hover:bg-surface-mid"
@@ -184,7 +184,7 @@ export default function Header() {
                     isActive ? "bg-primary" : "bg-surface group-hover:bg-surface-mid/60"
                   }`} />
                   <span className="absolute top-0 left-0 right-0 h-px bg-outline-variant/15" />
-                  <span className={`relative font-headline text-3xl sm:text-4xl font-bold transition-colors duration-200 ${
+                  <span className={`relative font-headline text-4xl sm:text-5xl font-bold transition-colors duration-200 ${
                     isActive ? "text-on-primary" : "text-on-surface"
                   }`}>
                     {link.label}
@@ -229,7 +229,7 @@ function NavLink({
     <Link
       href={link.href}
       aria-current={isActive ? "page" : undefined}
-      className={`relative px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-200 ${
+      className={`relative px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 ${
         isActive
           ? "text-on-primary"
           : "text-on-surface-variant hover:text-on-surface"
