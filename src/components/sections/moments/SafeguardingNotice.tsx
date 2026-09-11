@@ -1,12 +1,11 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { SITE } from "@/lib/constants";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function SafeguardingNotice() {
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative overflow-hidden">
-      <NoiseOverlay />
-      <div className="absolute inset-0 dot-grid opacity-20" />
+      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center space-y-space-lg">
         <div className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-secondary-container/30 text-on-surface-variant mb-space-md">

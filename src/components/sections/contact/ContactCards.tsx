@@ -2,7 +2,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { SITE } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function ContactCards() {
   const contacts = [
@@ -34,8 +34,7 @@ export default function ContactCards() {
 
   return (
     <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
-      <NoiseOverlay />
-      <div className="absolute inset-0 dot-grid opacity-15 pointer-events-none" />
+      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="right">

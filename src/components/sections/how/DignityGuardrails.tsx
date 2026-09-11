@@ -2,7 +2,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 const GUARDRAILS = [
   {
@@ -31,8 +31,7 @@ const GUARDRAILS = [
 export default function DignityGuardrails() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="guardrails">
-      <NoiseOverlay />
-      <div className="absolute inset-0 dot-grid opacity-25" />
+      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="right">
