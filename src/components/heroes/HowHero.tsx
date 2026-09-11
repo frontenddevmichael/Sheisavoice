@@ -1,6 +1,7 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
 interface HowHeroProps {
@@ -73,6 +74,7 @@ export default function HowHero({ eyebrow, title, subtitle, steps = [] }: HowHer
         </div>
       </div>
 
+      <SoundwaveBottom />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
 interface MomentsHeroProps {
@@ -72,6 +73,7 @@ export default function MomentsHero({ eyebrow, title, subtitle }: MomentsHeroPro
         </div>
       </div>
 
+      <SoundwaveBottom dark />
     </section>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
 interface AboutHeroProps {
@@ -69,6 +70,7 @@ export default function AboutHero({ eyebrow, title, subtitle, children }: AboutH
         </div>
       </div>
 
+      <SoundwaveBottom />
     </section>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
 interface ContactHeroProps {
@@ -71,6 +72,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
         </div>
       </div>
 
+      <SoundwaveBottom />
     </section>
   );
 }

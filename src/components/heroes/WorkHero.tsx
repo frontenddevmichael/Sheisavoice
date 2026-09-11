@@ -1,6 +1,7 @@
 "use client";
 
 import FloatingElements from "@/components/ui/FloatingElements";
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
 interface WorkHeroProps {
@@ -66,6 +67,7 @@ export default function WorkHero({ eyebrow, title, subtitle, children }: WorkHer
         </div>
       </div>
 
+      <SoundwaveBottom />
     </section>
   );
 }
