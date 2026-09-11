@@ -4,9 +4,9 @@ export const SITE = {
   tagline: "Amplifying the Voice of the Unheard",
   description:
     "SHEISAVOICE is a social impact and advocacy organization committed to supporting children with special needs and students facing financial hardship, giving them access to care, education, and opportunity across Africa.",
-  email: "contact@sheisavoice.org",
+  email: "sheisavoice@gmail.com",
   phone: "+234 800 000 0000",
-  address: "Abuja, Nigeria",
+  address: "Lagos, Nigeria",
   cacReg: "180464",
   foundedYear: 2020,
   incorporatedYear: 2022,
