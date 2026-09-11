@@ -1,13 +1,12 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function UniversityEducation() {
   return (
     <SectionWrapper id="university-education" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
-      <NoiseOverlay />
-      <div className="absolute inset-0 dot-grid opacity-30" />
+      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="right">

@@ -1,12 +1,12 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import WaveDecoration from "@/components/ui/WaveDecoration";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function SpecialNeeds() {
   return (
     <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
-      <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
+      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="left">
@@ -124,8 +124,6 @@ export default function SpecialNeeds() {
           </ScrollReveal>
         </div>
       </div>
-
-      <WaveDecoration flip />
     </SectionWrapper>
   );
 }

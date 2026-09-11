@@ -2,13 +2,14 @@
 
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import useParallax from "@/hooks/useParallax";
-import WaveDecoration from "@/components/ui/WaveDecoration";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function WhyItMatters() {
   const { ref: decorRef, offset } = useParallax(0.15);
 
   return (
     <section className="relative w-full bg-primary text-on-primary py-space-5xl">
+      <FloatingShapes variant="sparse" />
       {/* Parallax decorative star */}
       <div
         ref={decorRef}
@@ -73,9 +74,6 @@ export default function WhyItMatters() {
           </div>
         </ScrollReveal>
       </div>
-
-      {/* Wave transition out */}
-      <WaveDecoration flip opacity={0.06} color="var(--color-surface)" />
     </section>
   );
 }

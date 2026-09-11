@@ -2,10 +2,14 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import FloatingShapes from "@/components/ui/FloatingShapes";
+import BackgroundPattern from "@/components/ui/BackgroundPattern";
 
 export default function FounderStory() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="founder-story">
+      <FloatingShapes variant="sparse" />
+      <BackgroundPattern variant="dots" />
       <div className="relative max-w-[var(--max-w-content)] mx-auto">
         {/* Header */}
         <ScrollReveal animation="up">
