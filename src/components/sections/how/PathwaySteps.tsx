@@ -86,7 +86,7 @@ export default function PathwaySteps() {
                 {/* Timeline rail */}
                 <div className="flex flex-col items-center">
                   <div
-                    className={`w-12 h-12 rounded-full ${step.accentBg} flex items-center justify-center shadow-md border-3 border-surface shrink-0 z-10`}
+                    className={`w-12 h-12 rounded-full ${step.accentBg} flex items-center justify-center shadow-md border-[3px] border-surface shrink-0 z-10`}
                     style={{
                       transform: lineVisible ? "scale(1)" : "scale(0)",
                       transition: `transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 150 + 200}ms`,

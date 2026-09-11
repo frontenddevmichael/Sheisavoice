@@ -85,7 +85,7 @@ export default function ContactCards() {
                       ) : (
                         <span className="font-body text-body-lg text-on-surface font-semibold">{item.value}</span>
                       )}
-                      <span className="font-body text-body-sm text-on-surface-variant/70 mt-space-xs">{item.description}</span>
+                      <span className="font-body text-body-sm text-on-surface-variant/80 mt-space-xs">{item.description}</span>
                     </div>
                   </Card>
                 </ScrollReveal>

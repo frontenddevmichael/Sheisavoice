@@ -61,7 +61,7 @@ export default function PhotoGrid() {
           ))}
         </div>
 
-        <p className="font-label-sm text-label-sm text-on-surface-variant/60">
+        <p className="font-label-sm text-label-sm text-on-surface-variant/80">
           Showing{" "}
           <span className="font-bold text-primary">{filtered.length}</span>{" "}
           {filtered.length === 1 ? "moment" : "moments"}
@@ -135,7 +135,7 @@ function PhotoCard({
 
       {/* Caption content */}
       <div className="p-space-lg space-y-space-sm">
-        <div className="flex items-center gap-space-sm text-on-surface-variant/60">
+        <div className="flex items-center gap-space-sm text-on-surface-variant/80">
           <span className="material-symbols-outlined text-sm">calendar_today</span>
           <span className="font-label-xs text-label-xs">{item.date}</span>
           <span className="text-on-surface-variant/30">|</span>

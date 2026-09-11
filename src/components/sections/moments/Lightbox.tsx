@@ -58,6 +58,7 @@ export default function Lightbox({
       aria-modal="true"
       aria-label="Image lightbox"
       aria-hidden={!isOpen}
+      onClick={onClose}
     >
       {/* Close button */}
       <button
@@ -87,7 +88,7 @@ export default function Lightbox({
       </button>
 
       {/* Main content */}
-      <div className="relative max-w-5xl w-full mx-4 md:mx-8 flex flex-col items-center gap-space-lg">
+      <div className="relative max-w-5xl w-full mx-4 md:mx-8 flex flex-col items-center gap-space-lg" onClick={(e) => e.stopPropagation()}>
         {/* Counter */}
         <div className="text-white/70 font-label-sm text-label-sm tracking-wider uppercase">
           {currentIndex + 1} of {items.length}

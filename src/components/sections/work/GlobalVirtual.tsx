@@ -67,7 +67,7 @@ export default function GlobalVirtual() {
                 </p>
               </div>
 
-              <p className="font-body text-body-sm text-on-surface-variant/70 pt-space-sm">
+              <p className="font-body text-body-sm text-on-surface-variant/80 pt-space-sm">
                 Privacy safeguarded. All family information remains strictly confidential and non-public.
               </p>
             </div>
@@ -195,20 +195,25 @@ export default function GlobalVirtual() {
                       <label htmlFor="global-supportType" className="font-label-md text-label-md text-on-surface font-semibold">
                         Type of Support Needed
                       </label>
-                      <select
-                        id="global-supportType"
-                        name="supportType"
-                        required
-                        value={formData.supportType}
-                        onChange={handleChange}
-                        className="w-full px-space-md py-space-sm rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
-                      >
-                        <option value="" disabled>Select the type of support needed</option>
-                        <option value="speech">Speech therapy guidance</option>
-                        <option value="autism">Autism resources and sensory coordination</option>
-                        <option value="sensory">Sensory &amp; behavioral support</option>
-                        <option value="general">General developmental consultation</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="global-supportType"
+                          name="supportType"
+                          required
+                          value={formData.supportType}
+                          onChange={handleChange}
+                          className="w-full px-space-md py-space-sm pr-10 rounded-xl border border-outline-variant/40 bg-surface-low text-on-surface font-body text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
+                        >
+                          <option value="" disabled>Select the type of support needed</option>
+                          <option value="speech">Speech therapy guidance</option>
+                          <option value="autism">Autism resources and sensory coordination</option>
+                          <option value="sensory">Sensory &amp; behavioral support</option>
+                          <option value="general">General developmental consultation</option>
+                        </select>
+                        <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">
+                          <span className="material-symbols-outlined text-[18px]">expand_more</span>
+                        </span>
+                      </div>
                     </div>
 
                     <div className="flex flex-col gap-space-2xs">
@@ -233,7 +238,7 @@ export default function GlobalVirtual() {
                       Join the Global Waitlist
                     </button>
 
-                    <p className="font-body text-body-xs text-on-surface-variant/60 text-center">
+                    <p className="font-body text-body-xs text-on-surface-variant/80 text-center">
                       Not a live booking flow. This registers your interest for future virtual services.
                     </p>
                   </form>

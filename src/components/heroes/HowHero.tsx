@@ -17,7 +17,7 @@ export default function HowHero({ eyebrow, title, subtitle, steps = [] }: HowHer
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
       <FloatingElements />
 
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-[100px] w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-16 md:pb-20 lg:pb-[100px] w-full flex-1 flex items-center">
         <div ref={heroRef} className="max-w-4xl mx-auto w-full flex flex-col items-center text-center">
           {eyebrow && (
             <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-lg`}>
@@ -54,16 +54,16 @@ export default function HowHero({ eyebrow, title, subtitle, steps = [] }: HowHer
           {steps.length > 0 && (
             <div className={`text-reveal ${isInView ? "is-visible" : ""} w-full max-w-3xl`} style={{ transitionDelay: "360ms" }}>
               <div className="text-reveal-inner">
-                <div className="flex items-center justify-between relative">
+                <div className="flex items-center justify-between relative overflow-x-auto gap-2">
                   {/* Connecting line */}
                   <div className="absolute top-3 left-0 right-0 h-px bg-outline-variant/40" />
 
                   {steps.map((step, i) => (
-                    <div key={i} className="flex flex-col items-center gap-space-xs relative z-10">
-                      <span className="w-6 h-6 rounded-full bg-tertiary-fixed-dim flex items-center justify-center">
+                    <div key={i} className="flex flex-col items-center gap-space-xs relative z-10 min-w-0">
+                      <span className="w-6 h-6 rounded-full bg-tertiary-fixed-dim flex items-center justify-center shrink-0">
                         <span className="material-symbols-outlined text-[14px] text-on-tertiary-fixed">{step.icon}</span>
                       </span>
-                      <span className="font-label-sm text-on-surface-variant whitespace-nowrap">{step.label}</span>
+                      <span className="font-label-sm text-on-surface-variant text-center leading-tight">{step.label}</span>
                     </div>
                   ))}
                 </div>

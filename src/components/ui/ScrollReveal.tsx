@@ -75,7 +75,7 @@ export default function ScrollReveal({
     <div
       ref={ref}
       className={`${ANIMATIONS[animation]} ${stagger ? STAGGERS[stagger] : ""} ${isInView ? "is-visible" : ""} ${className}`}
-      style={!stagger && delay ? { animationDelay: `${delay}ms` } : undefined}
+      style={!stagger && delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

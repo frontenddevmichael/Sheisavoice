@@ -57,7 +57,7 @@ export default function HeroSection() {
           <div className={`text-reveal ${isInView ? "is-visible" : ""} mb-space-3xl`} style={{ transitionDelay: "360ms" }}>
             <div className="text-reveal-inner">
               <div className="flex flex-wrap items-center gap-space-md">
-                <Button href="#support" variant="primary" size="lg">
+                <Button href="/contact" variant="primary" size="lg">
                   Support Our Work
                   <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                 </Button>

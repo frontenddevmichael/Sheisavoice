@@ -17,7 +17,7 @@ export default function WorkHero({ eyebrow, title, subtitle, children }: WorkHer
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
       <FloatingElements />
 
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-[100px] w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-16 md:pb-20 lg:pb-[100px] w-full flex-1 flex items-center">
         <div ref={heroRef} className="w-full">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-xl">
             {/* Left: text content */}

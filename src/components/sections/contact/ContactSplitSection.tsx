@@ -14,12 +14,14 @@ export default function ContactSplitSection() {
     name: "", email: "", phone: "", interest: "", message: "",
   });
   const [messageSubmitted, setMessageSubmitted] = useState(false);
+  const [messageSubmitting, setMessageSubmitting] = useState(false);
 
   // Volunteer form state
   const [volunteerForm, setVolunteerForm] = useState({
     name: "", email: "", phone: "", areaOfInterest: "", volunteerOutreach: "", messagePosition: "",
   });
   const [volunteerSubmitted, setVolunteerSubmitted] = useState(false);
+  const [volunteerSubmitting, setVolunteerSubmitting] = useState(false);
 
   // Donation state
   const [activeTab, setActiveTab] = useState<"nigeria" | "international">("nigeria");
@@ -27,23 +29,54 @@ export default function ContactSplitSection() {
 
   const handleMessageSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setMessageSubmitted(true);
-    setMessageForm({ name: "", email: "", phone: "", interest: "", message: "" });
-    setTimeout(() => setMessageSubmitted(false), 4000);
+    setMessageSubmitting(true);
+    // Simulate submission delay
+    setTimeout(() => {
+      setMessageSubmitted(true);
+      setMessageSubmitting(false);
+      setMessageForm({ name: "", email: "", phone: "", interest: "", message: "" });
+    }, 800);
   };
 
   const handleVolunteerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setVolunteerSubmitted(true);
-    setVolunteerForm({ name: "", email: "", phone: "", areaOfInterest: "", volunteerOutreach: "", messagePosition: "" });
-    setTimeout(() => setVolunteerSubmitted(false), 4000);
+    setVolunteerSubmitting(true);
+    // Simulate submission delay
+    setTimeout(() => {
+      setVolunteerSubmitted(true);
+      setVolunteerSubmitting(false);
+      setVolunteerForm({ name: "", email: "", phone: "", areaOfInterest: "", volunteerOutreach: "", messagePosition: "" });
+    }, 800);
   };
 
   const handleCopyAccount = () => {
-    navigator.clipboard.writeText(SITE.bankAccount).then(() => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(SITE.bankAccount).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }).catch(() => {
+        fallbackCopy(SITE.bankAccount);
+      });
+    } else {
+      fallbackCopy(SITE.bankAccount);
+    }
+  };
+
+  const fallbackCopy = (text: string) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    } catch {
+      // Silent fail
+    }
+    document.body.removeChild(textarea);
   };
 
   const inputClasses =
@@ -63,7 +96,7 @@ export default function ContactSplitSection() {
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 <span className="font-label-md text-label-md tracking-wider uppercase">Direct Engagement</span>
               </span>
-              <h2 className="font-headline text-headline-lg lg:text-[40px] text-primary tracking-tight">
+              <h2 className="font-headline text-headline-lg text-primary tracking-tight">
                 Connect With Our <span className="text-secondary">Team</span>
               </h2>
             </div>
@@ -104,17 +137,22 @@ export default function ContactSplitSection() {
                     </div>
                     <div className="flex flex-col gap-space-2xs">
                       <label htmlFor="msg-interest" className="font-label-sm text-on-surface-variant font-semibold">How would you like to help?</label>
-                      <select id="msg-interest" required value={messageForm.interest}
-                        onChange={(e) => setMessageForm({ ...messageForm, interest: e.target.value })}
-                        className={inputClasses}>
-                        <option value="" disabled>Select your interest</option>
-                        <option value="volunteer">Volunteer</option>
-                        <option value="donate">Donate</option>
-                        <option value="partner">Partner</option>
-                        <option value="advocacy">Child therapy advocacy</option>
-                        <option value="community">Community awareness</option>
-                        <option value="other">Other</option>
-                      </select>
+                      <div className="relative">
+                        <select id="msg-interest" required value={messageForm.interest}
+                          onChange={(e) => setMessageForm({ ...messageForm, interest: e.target.value })}
+                          className={`${inputClasses} appearance-none pr-10`}>
+                          <option value="" disabled>Select your interest</option>
+                          <option value="volunteer">Volunteer</option>
+                          <option value="donate">Donate</option>
+                          <option value="partner">Partner</option>
+                          <option value="advocacy">Child therapy advocacy</option>
+                          <option value="community">Community awareness</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">
+                          <span className="material-symbols-outlined text-[18px]">expand_more</span>
+                        </span>
+                      </div>
                     </div>
                     <div className="flex flex-col gap-space-2xs">
                       <label htmlFor="msg-message" className="font-label-sm text-on-surface-variant font-semibold">Message</label>
@@ -124,8 +162,14 @@ export default function ContactSplitSection() {
                         className={`${inputClasses} resize-none`} />
                     </div>
                     <button type="submit"
-                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200">
-                      Send Message
+                      disabled={messageSubmitting}
+                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_24px_rgba(62,0,94,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                      {messageSubmitting ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <span className="w-4 h-4 border-2 border-on-primary/30 border-t-on-primary rounded-full animate-spin" />
+                          Sending...
+                        </span>
+                      ) : "Send Message"}
                     </button>
                   </form>
                 )}
@@ -166,15 +210,20 @@ export default function ContactSplitSection() {
                     </div>
                     <div className="flex flex-col gap-space-2xs">
                       <label htmlFor="vol-area" className="font-label-sm text-on-surface-variant font-semibold">Area of Interest</label>
-                      <select id="vol-area" required value={volunteerForm.areaOfInterest}
-                        onChange={(e) => setVolunteerForm({ ...volunteerForm, areaOfInterest: e.target.value })}
-                        className={inputClasses}>
-                        <option value="" disabled>Select your area of interest</option>
-                        <option value="therapy">Child therapy advocacy</option>
-                        <option value="community">Community awareness</option>
-                        <option value="volunteering">Strategic volunteering</option>
-                        <option value="corporate">Corporate partnerships</option>
-                      </select>
+                      <div className="relative">
+                        <select id="vol-area" required value={volunteerForm.areaOfInterest}
+                          onChange={(e) => setVolunteerForm({ ...volunteerForm, areaOfInterest: e.target.value })}
+                          className={`${inputClasses} appearance-none pr-10`}>
+                          <option value="" disabled>Select your area of interest</option>
+                          <option value="therapy">Child therapy advocacy</option>
+                          <option value="community">Community awareness</option>
+                          <option value="volunteering">Strategic volunteering</option>
+                          <option value="corporate">Corporate partnerships</option>
+                        </select>
+                        <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">
+                          <span className="material-symbols-outlined text-[18px]">expand_more</span>
+                        </span>
+                      </div>
                     </div>
                     <fieldset className="flex flex-col gap-space-xs border-0 p-0 m-0">
                       <legend className="font-label-sm text-on-surface-variant font-semibold">Available for volunteer outreach collaboration?</legend>
@@ -198,8 +247,14 @@ export default function ContactSplitSection() {
                         className={`${inputClasses} resize-none`} />
                     </div>
                     <button type="submit"
-                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(200,100,50,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200">
-                      Submit Registration
+                      disabled={volunteerSubmitting}
+                      className="w-full mt-space-xs px-7 py-3.5 rounded-xl bg-gradient-to-r from-secondary to-secondary-fixed text-on-secondary font-label-md font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(200,100,50,0.18)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                      {volunteerSubmitting ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <span className="w-4 h-4 border-2 border-on-secondary/30 border-t-on-secondary rounded-full animate-spin" />
+                          Submitting...
+                        </span>
+                      ) : "Submit Registration"}
                     </button>
                   </form>
                 )}
@@ -278,7 +333,7 @@ export default function ContactSplitSection() {
                     </div>
                   </div>
                 </div>
-                <p className="font-body text-body-xs text-on-surface-variant/60">
+                <p className="font-body text-body-xs text-on-surface-variant/80">
                   {copied ? "Copied!" : "Tap copy icon to copy account number."}
                 </p>
               </Card>

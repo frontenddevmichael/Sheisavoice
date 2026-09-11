@@ -35,7 +35,7 @@ export default function MomentsHero({ eyebrow, title, subtitle }: MomentsHeroPro
         <span className="absolute bottom-[35%] right-[8%] w-1.5 h-1.5 rounded-full bg-white/25" />
       </div>
 
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-[100px] w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-16 md:pb-20 lg:pb-[100px] w-full flex-1 flex items-center">
         <div ref={heroRef} className="max-w-4xl mx-auto w-full">
           <div className="flex flex-col gap-space-lg max-w-2xl">
             {eyebrow && (

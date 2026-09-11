@@ -77,7 +77,7 @@ export default function WhatWeDo() {
                   {program.description}
                 </p>
                 <div className="mt-auto pt-space-sm border-t border-outline-variant/20">
-                  <span className="font-label-sm text-on-surface-variant/70">{program.footer}</span>
+                  <span className="font-label-sm text-on-surface-variant/80">{program.footer}</span>
                 </div>
               </Card>
             ))}

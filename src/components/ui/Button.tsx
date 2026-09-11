@@ -20,7 +20,7 @@ export default function Button({
   "aria-label": ariaLabel,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 transition-all duration-200";
+    "inline-flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer";
 
   const variants = {
     primary:

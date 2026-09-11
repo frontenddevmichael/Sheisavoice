@@ -75,13 +75,13 @@ export default function FounderStory() {
           <div className="lg:col-span-5 flex flex-col gap-space-2xl lg:sticky lg:top-32">
             {/* Large pull quote */}
             <ScrollReveal animation="right">
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 {/* Decorative quote mark */}
-                <span className="absolute -top-8 -left-4 text-[120px] font-headline text-primary/[0.06] leading-none select-none pointer-events-none">
+                <span className="absolute -top-8 -left-4 text-[80px] md:text-[100px] lg:text-[120px] font-headline text-primary/[0.06] leading-none select-none pointer-events-none">
                   &ldquo;
                 </span>
                 <div className="relative bg-gradient-to-br from-primary via-primary-container to-secondary p-space-2xl rounded-3xl shadow-[var(--shadow-elevated)]">
-                  <span className="block font-headline text-headline-xl lg:text-[3.5rem] text-on-primary font-bold leading-[1.1] tracking-tight">
+                  <span className="block font-headline text-headline-xl text-on-primary font-bold leading-[1.1] tracking-tight">
                     She is a voice.
                   </span>
                   {/* Soundwave decoration */}

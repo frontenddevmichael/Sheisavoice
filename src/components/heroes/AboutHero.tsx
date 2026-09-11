@@ -17,7 +17,7 @@ export default function AboutHero({ eyebrow, title, subtitle, children }: AboutH
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
       <FloatingElements />
 
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-[100px] w-full flex-1 flex items-center">
+      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-16 md:pb-20 lg:pb-[100px] w-full flex-1 flex items-center">
         <div ref={heroRef} className="max-w-4xl mx-auto w-full">
           {/* Editorial vertical line on left */}
           <div className="flex gap-space-xl lg:gap-space-2xl items-start">

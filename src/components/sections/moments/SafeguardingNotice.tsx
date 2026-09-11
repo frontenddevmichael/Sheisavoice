@@ -24,7 +24,7 @@ export default function SafeguardingNotice() {
           accompaniment, professional educators, and supportive caregivers.
         </p>
 
-        <p className="font-label-sm text-label-sm text-on-surface-variant/60 pt-space-sm">
+        <p className="font-label-sm text-label-sm text-on-surface-variant/80 pt-space-sm">
           CAC Registration Number #{SITE.cacReg}
         </p>
       </div>
