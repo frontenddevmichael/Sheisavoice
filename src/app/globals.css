@@ -92,12 +92,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     margin: 0;
     padding: 0;
     overscroll-behavior: none;
+    overflow-x: hidden;
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-family: var(--font-body);

@@ -54,7 +54,7 @@ export default function HowHero({ eyebrow, title, subtitle, steps = [] }: HowHer
           {steps.length > 0 && (
             <div className={`text-reveal ${isInView ? "is-visible" : ""} w-full max-w-3xl`} style={{ transitionDelay: "360ms" }}>
               <div className="text-reveal-inner">
-                <div className="flex items-center justify-between relative overflow-x-auto gap-2">
+                <div className="flex items-center justify-between relative gap-2 overflow-hidden">
                   {/* Connecting line */}
                   <div className="absolute top-3 left-0 right-0 h-px bg-outline-variant/40" />
 
