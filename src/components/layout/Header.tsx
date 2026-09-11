@@ -49,16 +49,16 @@ export default function Header() {
     <>
       {/* Desktop: Floating pill navbar */}
       <header
-        className={`hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "pt-3"
             : "pt-5"
         }`}
       >
         <div
-          className={`mx-auto max-w-[900px] px-4 transition-all duration-700 ${
+          className={`mx-auto max-w-[900px] px-4 transition-all duration-300 ${
             scrolled
-              ? "bg-surface/70 backdrop-blur-2xl shadow-[0_8px_40px_rgba(62,0,94,0.08)] border border-outline-variant/20 rounded-full"
+              ? "bg-surface/80 backdrop-blur-2xl shadow-[0_8px_40px_rgba(62,0,94,0.1)] rounded-full"
               : "bg-transparent"
           }`}
         >
@@ -132,10 +132,9 @@ export default function Header() {
 
       {/* Mobile fullscreen overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-[60] transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 z-[60] transition-all duration-300 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
         <div className="absolute inset-0 bg-surface" onClick={closeMenu} />
 
@@ -157,10 +156,10 @@ export default function Header() {
           {/* Close */}
           <button
             onClick={closeMenu}
-            className={`absolute top-5 right-5 z-[70] w-11 h-11 rounded-full bg-surface-mid/60 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${
+            className={`absolute top-5 right-5 z-[70] w-11 h-11 rounded-full bg-surface-mid/60 backdrop-blur-sm flex items-center justify-center transition-all duration-200 ${
               mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
-            style={{ transitionDelay: mobileOpen ? "200ms" : "0ms" }}
+            style={{ transitionDelay: mobileOpen ? "100ms" : "0ms" }}
             aria-label="Close menu"
           >
             <span className="material-symbols-outlined text-[20px] text-on-surface">close</span>
@@ -176,16 +175,16 @@ export default function Header() {
                   href={link.href}
                   onClick={closeMenu}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group flex-1 flex items-center justify-center relative overflow-hidden transition-all duration-500 ${
+                  className={`group flex-1 flex items-center justify-center relative overflow-hidden transition-all duration-200 ${
                     mobileOpen ? "opacity-100" : "opacity-0"
                   }`}
-                  style={{ transitionDelay: mobileOpen ? `${i * 50 + 30}ms` : "0ms" }}
+                  style={{ transitionDelay: mobileOpen ? `${i * 40 + 20}ms` : "0ms" }}
                 >
-                  <span className={`absolute inset-0 transition-all duration-500 ${
+                  <span className={`absolute inset-0 transition-all duration-200 ${
                     isActive ? "bg-primary" : "bg-surface group-hover:bg-surface-mid/60"
                   }`} />
                   <span className="absolute top-0 left-0 right-0 h-px bg-outline-variant/15" />
-                  <span className={`relative font-headline text-3xl sm:text-4xl font-bold transition-colors duration-300 ${
+                  <span className={`relative font-headline text-3xl sm:text-4xl font-bold transition-colors duration-200 ${
                     isActive ? "text-on-primary" : "text-on-surface"
                   }`}>
                     {link.label}
@@ -199,9 +198,9 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div className={`px-6 pb-8 pt-4 bg-surface transition-all duration-500 ${
+          <div className={`px-6 pb-8 pt-4 bg-surface transition-all duration-200 ${
             mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`} style={{ transitionDelay: mobileOpen ? `${NAV_LINKS.length * 50 + 60}ms` : "0ms" }}>
+          }`} style={{ transitionDelay: mobileOpen ? `${NAV_LINKS.length * 40 + 40}ms` : "0ms" }}>
             <Link
               href="/contact"
               onClick={closeMenu}
