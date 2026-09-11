@@ -8,11 +8,15 @@ import ClosingCTA from "@/components/sections/home/ClosingCTA";
 export const metadata: Metadata = {
   title: "SHEISAVOICE | Amplifying the Voice of the Unheard",
   description:
-    "A social impact and advocacy organization committed to supporting children with special needs and students facing financial hardship, giving them access to care, education, and opportunity across Africa.",
+    "SHEISAVOICE is a social impact and advocacy organization committed to supporting children with special needs and students facing financial hardship, giving them access to care, education, and opportunity across Africa.",
+  alternates: {
+    canonical: "https://sheisavoice.org",
+  },
   openGraph: {
     title: "SHEISAVOICE | Amplifying the Voice of the Unheard",
     description:
       "Supporting children with special needs and students facing financial hardship across Africa through clinical care, education, and advocacy.",
+    url: "https://sheisavoice.org",
   },
 };
 

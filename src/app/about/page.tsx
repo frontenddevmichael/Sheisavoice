@@ -6,13 +6,17 @@ import MissionVision from "@/components/sections/about/MissionVision";
 import RegistrationBlock from "@/components/sections/about/RegistrationBlock";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About | SHEISAVOICE Foundation",
   description:
     "Learn about SHEISAVOICE Foundation — a voice-forward advocacy sanctuary rooted in Nigeria, dedicated to the protection, dignity, and potential of children with special needs across Africa.",
+  alternates: {
+    canonical: "https://sheisavoice.org/about",
+  },
   openGraph: {
     title: "About SHEISAVOICE Foundation",
     description:
       "Built on a Quiet Truth. Carried by Purpose. Learn about our mission to amplify the voice of the unheard.",
+    url: "https://sheisavoice.org/about",
   },
 };
 

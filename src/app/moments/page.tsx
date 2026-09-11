@@ -4,13 +4,17 @@ import PhotoGrid from "@/components/sections/moments/PhotoGrid";
 import SafeguardingNotice from "@/components/sections/moments/SafeguardingNotice";
 
 export const metadata: Metadata = {
-  title: "Moments",
+  title: "Moments | SHEISAVOICE Foundation",
   description:
     "A visual record of care, community gatherings, and advocacy in action across Nigeria and partner regions. All photography honors non-identifiable representation and community consent.",
+  alternates: {
+    canonical: "https://sheisavoice.org/moments",
+  },
   openGraph: {
     title: "Moments From Our Work | SHEISAVOICE Foundation",
     description:
       "Documenting dignified action — care, community gatherings, and advocacy across Nigeria.",
+    url: "https://sheisavoice.org/moments",
   },
 };
 

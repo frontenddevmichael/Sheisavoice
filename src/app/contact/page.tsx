@@ -5,13 +5,17 @@ import ContactSplitSection from "@/components/sections/contact/ContactSplitSecti
 import ContactCards from "@/components/sections/contact/ContactCards";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact | SHEISAVOICE Foundation",
   description:
     "Connect with SHEISAVOICE Foundation. Reach out to volunteer, donate, or learn how we support children with special needs across Nigeria.",
+  alternates: {
+    canonical: "https://sheisavoice.org/contact",
+  },
   openGraph: {
     title: "Contact SHEISAVOICE Foundation",
     description:
       "Reach out for partnerships, volunteering, or inquiries. Every donation funds direct clinical care for children with special needs.",
+    url: "https://sheisavoice.org/contact",
   },
 };
 

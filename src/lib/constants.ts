@@ -13,7 +13,8 @@ export const SITE = {
   bankAccount: "5403445942",
   bankName: "Providus Bank",
   bankAccountName: "SHEISAVOICE Global Children Advocacy Foundation",
-  copyright: "2025",
+  paystackUrl: "https://paystack.shop/pay/9slrcw1z0u",
+  copyright: "2026",
 } as const;
 
 export const NAV_LINKS = [

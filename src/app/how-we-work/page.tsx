@@ -6,13 +6,17 @@ import ActionCTA from "@/components/sections/how/ActionCTA";
 import CacBanner from "@/components/sections/how/CacBanner";
 
 export const metadata: Metadata = {
-  title: "How We Work",
+  title: "How We Work | SHEISAVOICE Foundation",
   description:
     "A transparent, dignified pathway from application to ongoing support — every child safeguarded, every step accountable. Learn about our structured process.",
+  alternates: {
+    canonical: "https://sheisavoice.org/how-we-work",
+  },
   openGraph: {
     title: "How We Work | SHEISAVOICE Foundation",
     description:
       "A structured, transparent, and repeatable process built to scale across Nigeria and beyond.",
+    url: "https://sheisavoice.org/how-we-work",
   },
 };
 

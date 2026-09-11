@@ -301,7 +301,7 @@ export default function ContactSplitSection() {
                 <p className="font-body text-body-sm text-on-surface-variant">
                   Secure one-time or recurring contribution via Paystack. All major Nigerian debit cards, USSD, and bank transfers accepted.
                 </p>
-                <Button href="https://paystack.com" external variant="primary" size="md" aria-label="Donate now via Paystack">
+                <Button href={SITE.paystackUrl} external variant="primary" size="md" aria-label="Donate now via Paystack">
                   Donate Now
                   <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                 </Button>
@@ -346,7 +346,7 @@ export default function ContactSplitSection() {
                 <p className="font-body text-body-sm text-on-surface-variant">
                   Contribute securely via Paystack with Visa or Mastercard. All transactions processed in your local currency with full exchange rate transparency.
                 </p>
-                <Button href="https://paystack.com" external variant="secondary" size="md" aria-label="Donate internationally via Paystack">
+                <Button href={SITE.paystackUrl} external variant="secondary" size="md" aria-label="Donate internationally via Paystack">
                   Donate Internationally
                   <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                 </Button>

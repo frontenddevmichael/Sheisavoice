@@ -7,13 +7,17 @@ import FemaleVoice from "@/components/sections/work/FemaleVoice";
 import SafeguardingBanner from "@/components/sections/work/SafeguardingBanner";
 
 export const metadata: Metadata = {
-  title: "Our Work",
+  title: "Our Work | SHEISAVOICE Foundation",
   description:
     "Explore SHEISAVOICE Foundation core initiatives — clinical developmental care for children with special needs, emergency academic lifelines for university students, and elevating the voices of girls and women across Africa.",
+  alternates: {
+    canonical: "https://sheisavoice.org/our-work",
+  },
   openGraph: {
     title: "Our Work | SHEISAVOICE Foundation",
     description:
       "Action Rooted in Dignity. Care That Reaches. Our core programs supporting children and students across Africa.",
+    url: "https://sheisavoice.org/our-work",
   },
 };
 
