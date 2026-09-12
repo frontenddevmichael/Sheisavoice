@@ -4,6 +4,7 @@ import { IMPACT_STATS } from "@/lib/constants";
 import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, CountUp } from "@/components/ui/Motion";
 import { motion } from "framer-motion";
 import { StarBurst, ScribbleCircle, ScatteredDots } from "@/components/ui/Decorations";
+import useOnScreen from "@/hooks/useOnScreen";
 
 export default function ImpactStats() {
   return (
@@ -92,21 +93,7 @@ export default function ImpactStats() {
 
                     return (
                       <ScaleBlur key={item.label} delay={0.3 + i * 0.1} scale={0.98} blur={2}>
-                        <div className="flex flex-col gap-1">
-                          <div className="flex justify-between text-body-sm font-body">
-                            <span className="text-on-surface font-medium">{item.label}</span>
-                            <span className={`${textColor} font-bold`}>{label}</span>
-                          </div>
-                          <div className="w-full bg-surface-mid rounded-full h-3 overflow-hidden">
-                            <motion.div
-                              className={`${barColor} h-3 rounded-full`}
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${item.percent}%` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 1.2, delay: 0.5 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                            />
-                          </div>
-                        </div>
+                        <ProgressBar item={item} barColor={barColor} textColor={textColor} label={label} delay={0.5 + i * 0.15} />
                       </ScaleBlur>
                     );
                   })}
@@ -124,5 +111,38 @@ export default function ImpactStats() {
         </CurtainReveal>
       </div>
     </section>
+  );
+}
+
+function ProgressBar({
+  item,
+  barColor,
+  textColor,
+  label,
+  delay,
+}: {
+  item: { label: string; percent: number; color: string };
+  barColor: string;
+  textColor: string;
+  label: string;
+  delay: number;
+}) {
+  const { ref, visible } = useOnScreen();
+
+  return (
+    <div ref={ref} className="flex flex-col gap-1">
+      <div className="flex justify-between text-body-sm font-body">
+        <span className="text-on-surface font-medium">{item.label}</span>
+        <span className={`${textColor} font-bold`}>{label}</span>
+      </div>
+      <div className="w-full bg-surface-mid rounded-full h-3 overflow-hidden">
+        <motion.div
+          className={`${barColor} h-3 rounded-full`}
+          initial={{ width: 0 }}
+          animate={visible ? { width: `${item.percent}%` } : { width: 0 }}
+          transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
+        />
+      </div>
+    </div>
   );
 }

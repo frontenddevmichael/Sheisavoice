@@ -1,7 +1,8 @@
 "use client";
 
-import React, { ReactNode, useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useInView, Variants } from "framer-motion";
+import React, { ReactNode } from "react";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import useOnScreen from "@/hooks/useOnScreen";
 
 /* ============================================
    EASING
@@ -9,12 +10,6 @@ import { motion, useScroll, useTransform, useInView, Variants } from "framer-mot
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const easeOut = [0.33, 1, 0.68, 1] as const;
-
-/* ============================================
-   VIEWPORT CONFIG (lenient — trigger early)
-   ============================================ */
-
-const vp = { once: true, amount: 0.01 } as const;
 
 /* ============================================
    BASIC FADE VARIANTS
@@ -95,12 +90,13 @@ export default function MotionSection({
   staggerDelay = 0.08,
 }: MotionSectionProps) {
   const variants = presets[preset] || fadeUp;
+  const { ref, visible } = useOnScreen();
 
   return (
     <motion.div
+      ref={ref}
       initial="hidden"
-      whileInView="visible"
-      viewport={vp}
+      animate={visible ? "visible" : "hidden"}
       transition={{
         duration,
         delay,
@@ -168,12 +164,13 @@ interface TextRevealProps {
 }
 
 export function TextReveal({ children, delay = 0, className = "" }: TextRevealProps) {
+  const { ref, visible } = useOnScreen();
+
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div ref={ref} className={`overflow-hidden ${className}`}>
       <motion.div
         initial={{ y: "100%" }}
-        whileInView={{ y: "0%" }}
-        viewport={vp}
+        animate={visible ? { y: "0%" } : { y: "100%" }}
         transition={{ duration: 0.7, delay, ease }}
       >
         {children}
@@ -204,9 +201,10 @@ export function WordReveal({
   as: Tag = "h2",
 }: WordRevealProps) {
   const words = text.split(" ");
+  const { ref, visible } = useOnScreen();
 
   return (
-    <Tag className={className}>
+    <Tag ref={ref as any} className={className}>
       <span className="sr-only">{text}</span>
       <span aria-hidden="true" className="flex flex-wrap">
         {words.map((word, i) => (
@@ -214,8 +212,7 @@ export function WordReveal({
             <motion.span
               className={`inline-block ${wordClassName}`}
               initial={{ y: "100%" }}
-              whileInView={{ y: "0%" }}
-              viewport={vp}
+              animate={visible ? { y: "0%" } : { y: "100%" }}
               transition={{
                 duration: 0.45,
                 delay: delay + i * staggerDelay,
@@ -248,7 +245,7 @@ export function ParallaxY({
   speed = 50,
   offset = ["start end", "end start"],
 }: ParallaxYProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: offset as any,
@@ -287,12 +284,11 @@ export function CountUp({
   suffix = "",
   prefix = "",
 }: CountUpProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.01 });
-  const [display, setDisplay] = useState(from);
+  const { ref, visible } = useOnScreen();
+  const [display, setDisplay] = React.useState(from);
 
-  useEffect(() => {
-    if (!isInView) return;
+  React.useEffect(() => {
+    if (!visible) return;
     const timer = setTimeout(() => {
       const startTime = Date.now();
       const animate = () => {
@@ -305,7 +301,7 @@ export function CountUp({
       requestAnimationFrame(animate);
     }, delay * 1000);
     return () => clearTimeout(timer);
-  }, [isInView, from, to, duration, delay]);
+  }, [visible, from, to, duration, delay]);
 
   return (
     <span ref={ref} className={className}>
@@ -330,15 +326,15 @@ export function StaggerGrid({
   staggerDelay = 0.1,
 }: StaggerGridProps) {
   const items = React.Children.toArray(children);
+  const { ref, visible } = useOnScreen();
 
   return (
-    <div className={className}>
+    <div ref={ref} className={className}>
       {items.map((child, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={vp}
+          animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{
             duration: 0.5,
             delay: i * staggerDelay,
@@ -371,12 +367,18 @@ export function ScaleBlur({
   scale = 0.95,
   blur = 6,
 }: ScaleBlurProps) {
+  const { ref, visible } = useOnScreen();
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, scale, filter: `blur(${blur}px)` }}
-      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      viewport={vp}
+      animate={
+        visible
+          ? { opacity: 1, scale: 1, filter: "blur(0px)" }
+          : { opacity: 0, scale, filter: `blur(${blur}px)` }
+      }
       transition={{ duration: 0.7, delay, ease }}
     >
       {children}
@@ -401,12 +403,14 @@ export function SplitReveal({
   delay = 0,
   duration = 0.6,
 }: SplitRevealProps) {
+  const { ref, visible } = useOnScreen();
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={vp}
+      animate={visible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
       transition={{ duration, delay, ease }}
     >
       {children}
@@ -429,12 +433,14 @@ export function CurtainReveal({
   className = "",
   delay = 0,
 }: CurtainRevealProps) {
+  const { ref, visible } = useOnScreen();
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={vp}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.7, delay, ease }}
     >
       {children}

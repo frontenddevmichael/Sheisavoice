@@ -3,6 +3,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, ParallaxY } from "@/components/ui/Motion";
 import { motion } from "framer-motion";
+import useOnScreen from "@/hooks/useOnScreen";
 
 export default function FounderStory() {
   return (
@@ -69,25 +70,7 @@ export default function FounderStory() {
                     She is a voice.
                   </span>
                   {/* Soundwave decoration — floating */}
-                  <motion.div
-                    className="flex items-end gap-[3px] mt-space-lg h-6"
-                    aria-hidden="true"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.8 }}
-                  >
-                    {[12, 18, 8, 22, 14, 20, 10, 16, 24, 12, 18, 8, 14, 20, 16].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        className="w-[3px] bg-on-primary/30 rounded-full"
-                        initial={{ height: 0 }}
-                        whileInView={{ height: h }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.9 + i * 0.03, duration: 0.4 }}
-                      />
-                    ))}
-                  </motion.div>
+                  <SoundwaveBars />
                 </div>
               </div>
             </CurtainReveal>
@@ -172,5 +155,30 @@ export default function FounderStory() {
         </div>
       </div>
     </SectionWrapper>
+  );
+}
+
+function SoundwaveBars() {
+  const { ref, visible } = useOnScreen();
+
+  return (
+    <motion.div
+      ref={ref}
+      className="flex items-end gap-[3px] mt-space-lg h-6"
+      aria-hidden="true"
+      initial={{ opacity: 0 }}
+      animate={visible ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ delay: 0.8 }}
+    >
+      {[12, 18, 8, 22, 14, 20, 10, 16, 24, 12, 18, 8, 14, 20, 16].map((h, i) => (
+        <motion.div
+          key={i}
+          className="w-[3px] bg-on-primary/30 rounded-full"
+          initial={{ height: 0 }}
+          animate={visible ? { height: h } : { height: 0 }}
+          transition={{ delay: 0.9 + i * 0.03, duration: 0.4 }}
+        />
+      ))}
+    </motion.div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import useOnScreen from "@/hooks/useOnScreen";
 
 /* ============================================
    SCRIBBLE LINE (hand-drawn wavy divider)
@@ -20,8 +20,11 @@ export function ScribbleLine({
   width = 200,
   animate = true,
 }: ScribbleLineProps) {
+  const { ref, visible } = useOnScreen<SVGSVGElement>();
+
   return (
     <svg
+      ref={ref}
       viewBox={`0 0 ${width} 12`}
       fill="none"
       className={`h-3 ${className}`}
@@ -34,8 +37,7 @@ export function ScribbleLine({
         strokeWidth="2.5"
         strokeLinecap="round"
         initial={animate ? { pathLength: 0, opacity: 0 } : {}}
-        whileInView={animate ? { pathLength: 1, opacity: 1 } : {}}
-        viewport={{ once: true }}
+        animate={animate && visible ? { pathLength: 1, opacity: 1 } : animate ? { pathLength: 0, opacity: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
       />
     </svg>
@@ -79,8 +81,11 @@ export function ScatteredDots({
     delay: i * 0.05,
   }));
 
+  const { ref, visible } = useOnScreen();
+
   return (
     <div
+      ref={ref}
       className={`absolute ${positionClasses[position]} pointer-events-none ${className}`}
       aria-hidden="true"
     >
@@ -97,8 +102,7 @@ export function ScatteredDots({
               backgroundColor: dot.color,
             }}
             initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 0.6, scale: 1 }}
-            viewport={{ once: true, amount: 0.01 }}
+            animate={visible ? { opacity: 0.6, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ delay: dot.delay, duration: 0.4, ease: "easeOut" }}
           />
         ))}
@@ -124,16 +128,18 @@ export function StarBurst({
   color = "var(--color-tertiary-fixed-dim)",
   delay = 0,
 }: StarBurstProps) {
+  const { ref, visible } = useOnScreen<SVGSVGElement>();
+
   return (
     <motion.svg
+      ref={ref}
       viewBox="0 0 24 24"
       fill="none"
       className={className}
       style={{ width: size, height: size }}
       aria-hidden="true"
       initial={{ opacity: 0, scale: 0, rotate: -30 }}
-      whileInView={{ opacity: 0.7, scale: 1, rotate: 0 }}
-      viewport={{ once: true }}
+      animate={visible ? { opacity: 0.7, scale: 1, rotate: 0 } : { opacity: 0, scale: 0, rotate: -30 }}
       transition={{ delay, duration: 0.5, ease: "easeOut" }}
     >
       <path
@@ -166,14 +172,16 @@ export function ColorfulBlob({
   size = 120,
   delay = 0,
 }: ColorfulBlobProps) {
+  const { ref, visible } = useOnScreen();
+
   return (
     <motion.div
+      ref={ref}
       className={`absolute pointer-events-none ${className}`}
       aria-hidden="true"
       style={{ width: size, height: size }}
       initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 0.3, scale: 1 }}
-      viewport={{ once: true }}
+      animate={visible ? { opacity: 0.3, scale: 1 } : { opacity: 0, scale: 0.8 }}
       transition={{ delay, duration: 0.8, ease: "easeOut" }}
     >
       <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
@@ -203,16 +211,18 @@ export function ScribbleCircle({
   color = "var(--color-secondary-container)",
   delay = 0,
 }: ScribbleCircleProps) {
+  const { ref, visible } = useOnScreen<SVGSVGElement>();
+
   return (
     <motion.svg
+      ref={ref}
       viewBox="0 0 40 40"
       fill="none"
       className={className}
       style={{ width: size, height: size }}
       aria-hidden="true"
       initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 0.5, scale: 1 }}
-      viewport={{ once: true }}
+      animate={visible ? { opacity: 0.5, scale: 1 } : { opacity: 0, scale: 0.5 }}
       transition={{ delay, duration: 0.5, ease: "easeOut" }}
     >
       <path
@@ -243,16 +253,18 @@ export function HeartDecor({
   color = "var(--color-secondary)",
   delay = 0,
 }: HeartDecorProps) {
+  const { ref, visible } = useOnScreen<SVGSVGElement>();
+
   return (
     <motion.svg
+      ref={ref}
       viewBox="0 0 24 24"
       fill="none"
       className={className}
       style={{ width: size, height: size }}
       aria-hidden="true"
       initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 0.6, scale: 1 }}
-      viewport={{ once: true }}
+      animate={visible ? { opacity: 0.6, scale: 1 } : { opacity: 0, scale: 0 }}
       transition={{ delay, duration: 0.4, type: "spring", stiffness: 200 }}
     >
       <path
@@ -353,8 +365,11 @@ export function HandDrawnUnderline({
   color = "var(--color-secondary-container)",
   width = "100%",
 }: HandDrawnUnderlineProps) {
+  const { ref, visible } = useOnScreen<SVGSVGElement>();
+
   return (
     <svg
+      ref={ref}
       viewBox="0 0 200 8"
       fill="none"
       className={`absolute -bottom-1 left-0 h-2 ${className}`}
@@ -368,8 +383,7 @@ export function HandDrawnUnderline({
         strokeWidth="2"
         strokeLinecap="round"
         initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true }}
+        animate={visible ? { pathLength: 1 } : { pathLength: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       />
     </svg>
