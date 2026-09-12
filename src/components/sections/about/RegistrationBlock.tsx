@@ -1,11 +1,11 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection from "@/components/ui/Motion";
 
 export default function RegistrationBlock() {
   return (
     <SectionWrapper className="py-space-3xl bg-surface-lowest" id="registration">
-      <ScrollReveal animation="scale">
+      <MotionSection preset="scale">
         <div className="rounded-card-lg bg-surface-low border border-outline-variant/20 p-space-xl lg:p-space-2xl flex flex-col md:flex-row items-start md:items-center gap-space-lg">
           <div className="flex-1 flex flex-col gap-space-sm">
             <h3 className="font-headline text-headline-sm text-primary leading-tight">
@@ -19,7 +19,7 @@ export default function RegistrationBlock() {
           </div>
           <Badge variant="plum-light">High-Trust Safeguarded</Badge>
         </div>
-      </ScrollReveal>
+      </MotionSection>
     </SectionWrapper>
   );
 }

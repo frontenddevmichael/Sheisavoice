@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function GlobalVirtual() {
   const [submitted, setSubmitted] = useState(false);
@@ -41,7 +41,7 @@ export default function GlobalVirtual() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
           {/* Left: Narrative (6 cols) */}
-          <ScrollReveal className="lg:col-span-6" animation="up">
+          <MotionSection className="lg:col-span-6" preset="up">
             <div className="flex flex-col gap-space-lg">
               <h2 className="font-headline text-headline-lg text-primary">
                 Support for Families Outside Nigeria
@@ -67,10 +67,10 @@ export default function GlobalVirtual() {
                 Privacy safeguarded. All family information remains strictly confidential and non-public.
               </p>
             </div>
-          </ScrollReveal>
+          </MotionSection>
 
           {/* Right: Waitlist Form (6 cols) */}
-          <ScrollReveal className="lg:col-span-6" animation="right" delay={100}>
+          <MotionSection className="lg:col-span-6" preset="right" delay={0.1}>
             <div className="rounded-card-lg bg-surface-lowest p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">
               {submitted ? (
                 <div className="flex flex-col items-center text-center gap-space-lg py-space-xl">
@@ -241,7 +241,7 @@ export default function GlobalVirtual() {
                 </>
               )}
             </div>
-          </ScrollReveal>
+          </MotionSection>
         </div>
       </div>
     </SectionWrapper>

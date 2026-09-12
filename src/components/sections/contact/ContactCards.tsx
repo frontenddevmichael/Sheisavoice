@@ -1,7 +1,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { SITE } from "@/lib/constants";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function ContactCards() {
   const contacts = [
@@ -35,7 +35,7 @@ export default function ContactCards() {
     <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
 
       <div className="relative z-10">
-        <ScrollReveal animation="right">
+        <MotionSection preset="right">
           <div className="flex flex-col gap-space-2xl">
             {/* Large email CTA */}
             <div className="bg-primary rounded-card-lg p-space-2xl lg:p-space-3xl text-center relative overflow-hidden">
@@ -67,7 +67,7 @@ export default function ContactCards() {
             {/* Info cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
               {contacts.map((item, i) => (
-                <ScrollReveal key={i} animation="up" delay={i * 100}>
+                <MotionSection key={i} preset="up" delay={i * 0.1}>
                   <Card className="flex flex-col gap-space-md pressable h-full">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       item.accent === "plum" ? "bg-primary-fixed" : item.accent === "coral" ? "bg-secondary-fixed" : "bg-tertiary-fixed"
@@ -86,7 +86,7 @@ export default function ContactCards() {
                       <span className="font-body text-body-sm text-on-surface-variant/80 mt-space-xs">{item.description}</span>
                     </div>
                   </Card>
-                </ScrollReveal>
+                </MotionSection>
               ))}
             </div>
 
@@ -113,7 +113,7 @@ export default function ContactCards() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </MotionSection>
       </div>
     </SectionWrapper>
   );

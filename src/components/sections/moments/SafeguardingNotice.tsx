@@ -1,11 +1,12 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import MotionSection from "@/components/ui/Motion";
 import { SITE } from "@/lib/constants";
 
 export default function SafeguardingNotice() {
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative overflow-hidden">
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-space-lg">
+      <MotionSection preset="scale">
+        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-space-lg">
         <div className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-secondary-container/30 text-on-surface-variant mb-space-md">
           <span className="material-symbols-outlined text-lg">verified_user</span>
           <span className="font-label-sm text-label-sm tracking-wider uppercase">Ethical Standards</span>
@@ -25,7 +26,8 @@ export default function SafeguardingNotice() {
         <p className="font-label-sm text-label-sm text-on-surface-variant/80 pt-space-sm">
           CAC Registration Number #{SITE.cacReg}
         </p>
-      </div>
+        </div>
+      </MotionSection>
     </SectionWrapper>
   );
 }

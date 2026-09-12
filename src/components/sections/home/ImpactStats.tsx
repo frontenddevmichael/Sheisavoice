@@ -1,7 +1,7 @@
 "use client";
 
 import { IMPACT_STATS } from "@/lib/constants";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 import useCounter from "@/hooks/useCounter";
 
 export default function ImpactStats() {
@@ -10,7 +10,7 @@ export default function ImpactStats() {
   return (
     <section className="w-full bg-surface-lowest py-space-5xl" id="impact-counter">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
-        <ScrollReveal animation="scale">
+        <MotionSection preset="scale">
           <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
               <div className="lg:col-span-5 flex flex-col gap-space-md" ref={counterRef}>
@@ -105,7 +105,7 @@ export default function ImpactStats() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </MotionSection>
       </div>
     </section>
   );

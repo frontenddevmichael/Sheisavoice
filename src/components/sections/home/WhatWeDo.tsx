@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Card from "@/components/ui/Card";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 const PROGRAMS = [
   {
@@ -43,7 +43,7 @@ export default function WhatWeDo() {
     <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden" id="what-we-do">
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
-        <ScrollReveal animation="left">
+        <MotionSection preset="left">
           <div className="max-w-2xl mb-space-3xl">
             <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
               WHAT WE DO
@@ -55,34 +55,36 @@ export default function WhatWeDo() {
               We focus our resources where intervention creates lasting stability and dignity.
             </p>
           </div>
-        </ScrollReveal>
+        </MotionSection>
 
-        <ScrollReveal stagger="children">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-            {PROGRAMS.map((program) => (
-              <Card key={program.number} className="flex flex-col gap-space-md pressable">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-mid text-primary font-label-sm text-label-sm font-semibold">
-                    {program.number} / {program.label}
-                  </span>
-                  <div className={`w-10 h-10 rounded-full ${program.iconBg} flex items-center justify-center`}>
-                    <span className="material-symbols-outlined text-[20px] text-primary">{program.icon}</span>
+        <MotionSection stagger>
+          <MotionChild>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+              {PROGRAMS.map((program) => (
+                <Card key={program.number} className="flex flex-col gap-space-md pressable">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-mid text-primary font-label-sm text-label-sm font-semibold">
+                      {program.number} / {program.label}
+                    </span>
+                    <div className={`w-10 h-10 rounded-full ${program.iconBg} flex items-center justify-center`}>
+                      <span className="material-symbols-outlined text-[20px] text-primary">{program.icon}</span>
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-headline text-headline-sm text-primary">{program.title}</h3>
-                <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
-                  {program.description}
-                </p>
-                <div className="mt-auto pt-space-sm border-t border-outline-variant/20">
-                  <span className="font-label-sm text-on-surface-variant/80">{program.footer}</span>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </ScrollReveal>
+                  <h3 className="font-headline text-headline-sm text-primary">{program.title}</h3>
+                  <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
+                    {program.description}
+                  </p>
+                  <div className="mt-auto pt-space-sm border-t border-outline-variant/20">
+                    <span className="font-label-sm text-on-surface-variant/80">{program.footer}</span>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </MotionChild>
+        </MotionSection>
 
         {/* Global Virtual Support callout */}
-        <ScrollReveal animation="up" delay={200}>
+        <MotionSection preset="up" delay={0.2}>
           <div className="mt-space-2xl text-center">
             <p className="font-body text-body-md text-on-surface-variant">
               Outside Nigeria?{" "}
@@ -91,7 +93,7 @@ export default function WhatWeDo() {
               </Link>
             </p>
           </div>
-        </ScrollReveal>
+        </MotionSection>
       </div>
     </section>
   );

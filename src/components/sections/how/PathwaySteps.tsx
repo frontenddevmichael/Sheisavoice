@@ -3,7 +3,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import { PATHWAY_STEPS } from "@/lib/constants";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 import useInView from "@/hooks/useInView";
 
 export default function PathwaySteps() {
@@ -11,7 +11,7 @@ export default function PathwaySteps() {
 
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="pathway">
-      <ScrollReveal animation="left">
+      <MotionSection preset="left">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
           <div className="max-w-xl">
             <Badge variant="plum-light" className="mb-space-md">Sequential Architecture</Badge>
@@ -24,7 +24,7 @@ export default function PathwaySteps() {
             backing via an intentional sequence of protective checkpoints.
           </p>
         </div>
-      </ScrollReveal>
+      </MotionSection>
 
       {/* Timeline */}
       <div className="relative max-w-4xl mx-auto" ref={lineRef}>

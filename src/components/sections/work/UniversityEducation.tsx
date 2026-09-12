@@ -1,20 +1,20 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function UniversityEducation() {
   return (
     <SectionWrapper id="university-education" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
 
       <div className="relative z-10">
-        <ScrollReveal animation="right">
+        <MotionSection preset="right">
           <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold mb-space-lg">
             02 / Academic Continuity
           </span>
-        </ScrollReveal>
+        </MotionSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
-          <ScrollReveal className="lg:col-span-7 order-1 lg:order-1" animation="left" delay={60}>
+          <MotionSection className="lg:col-span-7 order-1 lg:order-1" preset="left" delay={0.06}>
             <div className="flex flex-col gap-space-lg">
               <h2 className="font-headline text-headline-lg text-primary">
                 University Education Support Program
@@ -58,9 +58,9 @@ export default function UniversityEducation() {
                 </div>
               </Card>
             </div>
-          </ScrollReveal>
+          </MotionSection>
 
-          <ScrollReveal className="lg:col-span-5 order-2 lg:order-2" animation="right" delay={120}>
+          <MotionSection className="lg:col-span-5 order-2 lg:order-2" preset="right" delay={0.12}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
               {[
                 { icon: "account_balance", title: "Direct Subsidies", desc: "Semester tuition relief, capstone project funding, and examination fees covered promptly." },
@@ -75,7 +75,7 @@ export default function UniversityEducation() {
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          </MotionSection>
         </div>
       </div>
     </SectionWrapper>

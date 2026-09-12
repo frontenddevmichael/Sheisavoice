@@ -1,12 +1,12 @@
 "use client";
 
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function WhyItMatters() {
   return (
     <section className="relative w-full bg-surface-lowest py-space-5xl">
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
-        <ScrollReveal animation="right">
+        <MotionSection preset="right">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
             <div className="lg:col-span-4 flex flex-col gap-space-md">
               <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
@@ -52,7 +52,7 @@ export default function WhyItMatters() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </MotionSection>
       </div>
     </section>
   );

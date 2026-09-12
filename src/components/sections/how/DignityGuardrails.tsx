@@ -1,7 +1,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 const GUARDRAILS = [
   {
@@ -32,7 +32,7 @@ export default function DignityGuardrails() {
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="guardrails">
 
       <div className="relative z-10">
-        <ScrollReveal animation="right">
+        <MotionSection preset="right">
           <div className="flex flex-col items-center mb-space-3xl">
             <Badge variant="coral-light" className="mb-space-md">Systemic Integrity</Badge>
             <h2 className="font-headline text-headline-lg text-primary text-center max-w-3xl leading-tight">
@@ -42,10 +42,11 @@ export default function DignityGuardrails() {
               Our three foundational architecture guardrails ensure sustainable, non-stigmatizing advocacy that families can rely on without hesitation.
             </p>
           </div>
-        </ScrollReveal>
+        </MotionSection>
 
-        <ScrollReveal stagger="children">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
+        <MotionSection stagger>
+          <MotionChild>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl">
             {GUARDRAILS.map((item) => (
               <Card key={item.title} className="flex flex-col gap-space-md pressable">
                 <div className="flex items-center gap-space-md">
@@ -60,7 +61,8 @@ export default function DignityGuardrails() {
               </Card>
             ))}
           </div>
-        </ScrollReveal>
+          </MotionChild>
+        </MotionSection>
       </div>
     </SectionWrapper>
   );

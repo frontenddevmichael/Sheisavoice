@@ -1,11 +1,11 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 import WaveDecoration from "@/components/ui/WaveDecoration";
 
 export default function FemaleVoice() {
   return (
     <SectionWrapper id="female-voice" className="relative bg-surface-lowest py-space-5xl">
-      <ScrollReveal animation="scale">
+      <MotionSection preset="scale">
         <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold mb-space-lg">
           04 / Voice &amp; Leadership
         </span>
@@ -23,11 +23,12 @@ export default function FemaleVoice() {
             </p>
           </div>
         </div>
-      </ScrollReveal>
+      </MotionSection>
 
-      <ScrollReveal stagger="children">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-          {[
+      <MotionSection stagger>
+        <MotionChild>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+            {[
             {
               icon: "groups",
               title: "Mentorship Circles",
@@ -63,7 +64,8 @@ export default function FemaleVoice() {
             </div>
           ))}
         </div>
-      </ScrollReveal>
+        </MotionChild>
+      </MotionSection>
 
       <WaveDecoration />
     </SectionWrapper>

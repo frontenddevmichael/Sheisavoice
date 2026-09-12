@@ -1,14 +1,14 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function MissionVision() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="mission-vision">
 
       <div className="relative">
-        <ScrollReveal animation="right">
+        <MotionSection preset="right">
           <div className="flex flex-col gap-space-md items-center text-center mb-space-3xl">
             <span className="inline-flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-mid text-primary w-fit">
               <span className="w-2 h-2 rounded-full bg-secondary" />
@@ -24,37 +24,41 @@ export default function MissionVision() {
               continental aspirations.
             </p>
           </div>
-        </ScrollReveal>
+        </MotionSection>
 
-        <ScrollReveal stagger="children">
+        <MotionSection stagger>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
-            <Card className="flex flex-col gap-space-lg">
-              <Badge variant="primary">OUR MISSION</Badge>
-              <h3 className="font-headline text-headline-md text-primary leading-tight">
-                A Direct Avenue for Care and Education
-              </h3>
-              <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                Our mission is to support children with special needs and students
-                facing financial hardship by providing access to care, education,
-                and opportunity, while creating platforms for girls and women to
-                find and use their voice.
-              </p>
-            </Card>
+            <MotionChild>
+              <Card className="flex flex-col gap-space-lg">
+                <Badge variant="primary">OUR MISSION</Badge>
+                <h3 className="font-headline text-headline-md text-primary leading-tight">
+                  A Direct Avenue for Care and Education
+                </h3>
+                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                  Our mission is to support children with special needs and students
+                  facing financial hardship by providing access to care, education,
+                  and opportunity, while creating platforms for girls and women to
+                  find and use their voice.
+                </p>
+              </Card>
+            </MotionChild>
 
-            <Card className="flex flex-col gap-space-lg">
-              <Badge variant="coral">OUR VISION</Badge>
-              <h3 className="font-headline text-headline-md text-secondary leading-tight">
-                An Africa Defined by Boundless Dignity
-              </h3>
-              <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                Our vision is an Africa where every child with special needs has
-                access to transformative care, every student can complete their
-                education regardless of financial circumstance, and every girl and
-                woman has the opportunity to reach her full potential.
-              </p>
-            </Card>
+            <MotionChild>
+              <Card className="flex flex-col gap-space-lg">
+                <Badge variant="coral">OUR VISION</Badge>
+                <h3 className="font-headline text-headline-md text-secondary leading-tight">
+                  An Africa Defined by Boundless Dignity
+                </h3>
+                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                  Our vision is an Africa where every child with special needs has
+                  access to transformative care, every student can complete their
+                  education regardless of financial circumstance, and every girl and
+                  woman has the opportunity to reach her full potential.
+                </p>
+              </Card>
+            </MotionChild>
           </div>
-        </ScrollReveal>
+        </MotionSection>
       </div>
     </SectionWrapper>
   );

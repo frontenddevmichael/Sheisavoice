@@ -1,13 +1,13 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function SpecialNeeds() {
   return (
     <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
 
       <div className="relative z-10">
-        <ScrollReveal animation="left">
+        <MotionSection preset="left">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-md mb-space-2xl">
             <div className="flex flex-col gap-space-sm">
               <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold w-fit">
@@ -22,10 +22,10 @@ export default function SpecialNeeds() {
               Comprehensive therapeutic routing, developmental diagnostics, and community caregiver accompaniment.
             </p>
           </div>
-        </ScrollReveal>
+        </MotionSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
-          <ScrollReveal className="lg:col-span-7" animation="left">
+          <MotionSection className="lg:col-span-7" preset="left">
             <div className="rounded-3xl bg-surface-lowest p-space-xl shadow-[var(--shadow-card)]">
               <div className="flex flex-col gap-space-md mb-space-xl">
                 <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
@@ -93,9 +93,9 @@ export default function SpecialNeeds() {
                 </Button>
               </div>
             </div>
-          </ScrollReveal>
+          </MotionSection>
 
-          <ScrollReveal className="lg:col-span-5" animation="right" delay={100}>
+          <MotionSection className="lg:col-span-5" preset="right" delay={0.1}>
             <div className="rounded-card-lg bg-surface-lowest p-space-xl shadow-[var(--shadow-card)]">
               <div className="flex items-center justify-between mb-space-md">
                 <span className="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Clinical Pathway</span>
@@ -119,7 +119,7 @@ export default function SpecialNeeds() {
                 ))}
               </div>
             </div>
-          </ScrollReveal>
+          </MotionSection>
         </div>
       </div>
     </SectionWrapper>

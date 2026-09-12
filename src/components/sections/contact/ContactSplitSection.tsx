@@ -5,7 +5,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { SITE } from "@/lib/constants";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import MotionSection, { MotionChild } from "@/components/ui/Motion";
 
 export default function ContactSplitSection() {
   // Message form state
@@ -85,9 +85,10 @@ export default function ContactSplitSection() {
 
   return (
     <SectionWrapper className="bg-surface-lowest py-space-5xl relative">
-      <ScrollReveal stagger="children" animation="up">
+      <MotionSection stagger preset="up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
           {/* LEFT: Forms (60%) */}
+          <MotionChild>
           <div className="lg:col-span-7 flex flex-col gap-space-xl">
             <div>
               <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary shadow-sm mb-space-md">
@@ -259,8 +260,10 @@ export default function ContactSplitSection() {
               </Card>
             </div>
           </div>
+          </MotionChild>
 
           {/* RIGHT: Donation (40%) */}
+          <MotionChild>
           <div className="lg:col-span-5 flex flex-col gap-space-xl">
             <div>
               <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary shadow-sm mb-space-md">
@@ -377,8 +380,9 @@ export default function ContactSplitSection() {
               </p>
             </div>
           </div>
+          </MotionChild>
         </div>
-      </ScrollReveal>
+      </MotionSection>
     </SectionWrapper>
   );
 }
