@@ -15,7 +15,10 @@ interface WorkHeroProps {
 
 export default function WorkHero({ eyebrow, title, subtitle, children }: WorkHeroProps) {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 150);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">

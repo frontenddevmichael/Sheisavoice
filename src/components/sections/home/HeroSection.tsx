@@ -9,7 +9,10 @@ const ease = [0.33, 1, 0.68, 1] as const;
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 150);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section className="relative w-full bg-surface min-h-[85vh] flex flex-col justify-between overflow-hidden">

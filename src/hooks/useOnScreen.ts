@@ -3,32 +3,40 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Returns true once the element is in the viewport — either immediately
- * on mount (already visible) or when it scrolls into view.
+ * Returns true once the element is in the viewport — either shortly
+ * after mount (already visible) or when it scrolls into view.
  *
- * Uses a generous rootMargin so elements near the edges are caught early.
- * The observer fires its callback as soon as the element is ANY amount visible.
+ * Has a small mount delay (150ms) so animations don't fire instantly
+ * when navigating to a new page. This gives the user time to see
+ * the hero content animate in rather than it already being done.
  */
 export default function useOnScreen<T extends Element = HTMLDivElement>(rootMargin = "100px") {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
+  const mounted = useRef(false);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const timer = setTimeout(() => {
+      mounted.current = true;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0, rootMargin }
-    );
+      const el = ref.current;
+      if (!el) return;
 
-    observer.observe(el);
-    return () => observer.disconnect();
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(el);
+          }
+        },
+        { threshold: 0, rootMargin }
+      );
+
+      observer.observe(el);
+      return () => observer.disconnect();
+    }, 150);
+
+    return () => clearTimeout(timer);
   }, [rootMargin]);
 
   return { ref, visible };
