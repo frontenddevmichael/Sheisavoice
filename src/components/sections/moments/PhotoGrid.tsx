@@ -5,7 +5,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Lightbox from "./Lightbox";
 import { MOMENTS_DATA } from "@/lib/constants";
 import type { MomentData } from "@/lib/types";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 const FILTER_TABS = [
   { key: "all", label: "All Moments" },
@@ -40,7 +39,6 @@ export default function PhotoGrid() {
 
   return (
     <SectionWrapper className="py-space-5xl relative">
-      <FloatingShapes variant="sparse" />
       {/* Filter controls */}
       <div className="flex flex-col items-center gap-space-lg mb-space-3xl">
         <div className="flex flex-wrap justify-center gap-space-sm" role="tablist" aria-label="Filter moments">

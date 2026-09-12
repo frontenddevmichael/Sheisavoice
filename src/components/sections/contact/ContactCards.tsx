@@ -2,7 +2,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { SITE } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function ContactCards() {
   const contacts = [
@@ -34,13 +33,12 @@ export default function ContactCards() {
 
   return (
     <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
-      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="right">
           <div className="flex flex-col gap-space-2xl">
             {/* Large email CTA */}
-            <div className="bg-gradient-to-br from-primary via-primary-container to-secondary rounded-card-lg p-space-2xl lg:p-space-3xl text-center grain relative overflow-hidden">
+            <div className="bg-primary rounded-card-lg p-space-2xl lg:p-space-3xl text-center relative overflow-hidden">
               <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                 <svg className="absolute top-0 right-0 w-64 h-64 opacity-10" viewBox="0 0 200 200" fill="none">
                   <circle cx="100" cy="100" r="80" stroke="white" strokeWidth="0.5" />

@@ -5,14 +5,12 @@ import Badge from "@/components/ui/Badge";
 import { PATHWAY_STEPS } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import useInView from "@/hooks/useInView";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function PathwaySteps() {
   const { ref: lineRef, isInView: lineVisible } = useInView({ threshold: 0.1 });
 
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="pathway">
-      <FloatingShapes variant="sparse" />
       <ScrollReveal animation="left">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
           <div className="max-w-xl">

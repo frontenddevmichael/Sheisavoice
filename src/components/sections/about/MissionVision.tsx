@@ -2,12 +2,10 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function MissionVision() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="mission-vision">
-      <FloatingShapes variant="sparse" />
 
       <div className="relative">
         <ScrollReveal animation="right">

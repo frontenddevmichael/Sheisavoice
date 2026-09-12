@@ -6,7 +6,6 @@ import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { SITE } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function ContactSplitSection() {
   // Message form state
@@ -86,7 +85,6 @@ export default function ContactSplitSection() {
 
   return (
     <SectionWrapper className="bg-surface-lowest py-space-5xl relative">
-      <FloatingShapes variant="sparse" />
       <ScrollReveal stagger="children" animation="up">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
           {/* LEFT: Forms (60%) */}

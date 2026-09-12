@@ -4,7 +4,6 @@ import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 export default function GlobalVirtual() {
   const [submitted, setSubmitted] = useState(false);
@@ -33,9 +32,6 @@ export default function GlobalVirtual() {
       id="global-support"
       className="relative bg-surface-lowest py-space-5xl overflow-hidden"
     >
-      <NoiseOverlay />
-      <div className="absolute inset-0 dot-grid opacity-25" />
-
       <div className="relative z-10">
         <div className="flex items-center gap-space-xs mb-space-lg">
           <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">

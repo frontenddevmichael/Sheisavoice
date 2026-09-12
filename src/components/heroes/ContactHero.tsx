@@ -1,6 +1,5 @@
 "use client";
 
-import FloatingElements from "@/components/ui/FloatingElements";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import useInView from "@/hooks/useInView";
 
@@ -15,8 +14,6 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
 
   return (
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
-      <FloatingElements />
-
       {/* Large decorative soundwave on right */}
       <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none" aria-hidden="true">
         <svg

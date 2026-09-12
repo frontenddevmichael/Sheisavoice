@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
-import SoundwaveDivider from "@/components/ui/SoundwaveDivider";
 
 const PROGRAMS = [
   {
@@ -43,7 +41,6 @@ const PROGRAMS = [
 export default function WhatWeDo() {
   return (
     <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden" id="what-we-do">
-      <NoiseOverlay opacity={0.02} />
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <ScrollReveal animation="left">
@@ -96,8 +93,6 @@ export default function WhatWeDo() {
           </div>
         </ScrollReveal>
       </div>
-
-      <SoundwaveDivider className="mt-space-3xl" />
     </section>
   );
 }

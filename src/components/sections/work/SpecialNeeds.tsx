@@ -1,12 +1,10 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import FloatingShapes from "@/components/ui/FloatingShapes";
 
 export default function SpecialNeeds() {
   return (
     <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
-      <FloatingShapes variant="sparse" />
 
       <div className="relative z-10">
         <ScrollReveal animation="left">
