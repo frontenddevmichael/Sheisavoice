@@ -21,16 +21,16 @@ export default function FemaleVoice() {
 
       {/* Main block — curtain reveal */}
       <CurtainReveal delay={0.15}>
-        <div className="glass relative rounded-card-lg bg-primary p-space-xl lg:p-space-2xl mb-space-2xl overflow-hidden">
+        <div className="glass relative rounded-card-lg p-space-xl lg:p-space-2xl mb-space-2xl overflow-hidden">
           <div className="relative z-10 flex flex-col gap-space-md max-w-3xl">
             <WordReveal
               text="Amplifying the Female Voice"
               as="h2"
-              className="font-headline text-headline-lg text-on-primary leading-tight"
+              className="font-headline text-headline-lg text-primary leading-tight"
               staggerDelay={0.05}
             />
             <SplitReveal delay={0.4}>
-              <p className="font-body text-body-lg text-on-primary/90 leading-relaxed">
+              <p className="font-body text-body-lg text-on-surface leading-relaxed">
                 SHEISAVOICE creates platforms for girls and women to discover, strengthen, and use
                 their voices, through advocacy, mentorship, and opportunities for confidence and
                 leadership. Whether she is a mother, a young woman finding her place, or a girl just
