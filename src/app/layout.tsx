@@ -3,6 +3,7 @@ import { Epilogue, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const epilogue = Epilogue({
   subsets: ["latin"],
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
+        <ScrollToTop />
         <Header />
         <main id="main-content" className="min-h-screen pt-16 lg:pt-20">{children}</main>
         <Footer />
