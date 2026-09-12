@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
+import FloatingElements from "@/components/ui/FloatingElements";
+import { LeafFlow } from "@/components/ui/AnkaraPatterns";
 import { motion } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -18,6 +20,10 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
 
   return (
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
+      <FloatingElements />
+
+      <LeafFlow color="primary" opacity={0.06} className="absolute top-0 left-0 w-1/2 h-full pointer-events-none" />
+
       <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none" aria-hidden="true">
         <svg
           viewBox="0 0 200 600"

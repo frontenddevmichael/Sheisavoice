@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
+import FloatingElements from "@/components/ui/FloatingElements";
+import { AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
 import { motion } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -19,6 +21,10 @@ export default function HowHero({ eyebrow, title, subtitle, steps = [] }: HowHer
 
   return (
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
+      <FloatingElements />
+
+      <AnkaraDiamonds color="primary" opacity={0.06} className="absolute top-0 left-0 w-1/2 h-full pointer-events-none" />
+
       <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-5xl lg:pt-[8rem] pb-16 md:pb-20 lg:pb-[100px] w-full flex-1 flex items-center">
         <div className="max-w-4xl mx-auto w-full flex flex-col items-center text-center">
           {eyebrow && (

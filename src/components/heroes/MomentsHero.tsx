@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
 import { motion } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -20,6 +21,8 @@ export default function MomentsHero({ eyebrow, title, subtitle }: MomentsHeroPro
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between overflow-hidden bg-on-surface">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-on-surface/80 to-secondary/40" />
       <div className="absolute inset-0 grain opacity-40" />
+
+      <AdireCircles color="white" opacity={0.05} className="absolute inset-0 pointer-events-none" />
 
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <svg className="absolute top-[15%] right-[10%] w-40 h-40 opacity-10" viewBox="0 0 100 100" fill="none">
