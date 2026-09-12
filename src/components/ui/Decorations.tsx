@@ -98,7 +98,7 @@ export function ScatteredDots({
             }}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 0.6, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.01 }}
             transition={{ delay: dot.delay, duration: 0.4, ease: "easeOut" }}
           />
         ))}

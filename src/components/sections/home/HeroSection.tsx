@@ -35,9 +35,9 @@ export default function HeroSection() {
                   <span key={i} className="overflow-hidden mr-[0.3em]">
                     <motion.span
                       className={`inline-block ${word === "Unheard" ? "text-secondary relative" : ""}`}
-                      initial={{ y: "110%", rotateX: -40 }}
-                      whileInView={{ y: "0%", rotateX: 0 }}
-                      viewport={{ once: true, amount: 0.8 }}
+                      initial={{ y: "110%" }}
+                      whileInView={{ y: "0%" }}
+                      viewport={{ once: true, amount: 0.01 }}
                       transition={{ duration: 0.5, delay: 0.3 + i * 0.06, ease: [0.33, 1, 0.68, 1] }}
                     >
                       {word}

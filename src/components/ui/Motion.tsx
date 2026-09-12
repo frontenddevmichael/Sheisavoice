@@ -11,6 +11,12 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const easeOut = [0.33, 1, 0.68, 1] as const;
 
 /* ============================================
+   VIEWPORT CONFIG (lenient — trigger early)
+   ============================================ */
+
+const vp = { once: true, amount: 0.01 } as const;
+
+/* ============================================
    BASIC FADE VARIANTS
    ============================================ */
 
@@ -77,7 +83,6 @@ interface MotionSectionProps {
   className?: string;
   stagger?: boolean;
   staggerDelay?: number;
-  viewportMargin?: string;
 }
 
 export default function MotionSection({
@@ -88,7 +93,6 @@ export default function MotionSection({
   className = "",
   stagger = false,
   staggerDelay = 0.08,
-  viewportMargin = "0px 0px -60px 0px",
 }: MotionSectionProps) {
   const variants = presets[preset] || fadeUp;
 
@@ -96,7 +100,7 @@ export default function MotionSection({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15, margin: viewportMargin as `${number}px ${number}px ${number}px ${number}px` }}
+      viewport={vp}
       transition={{
         duration,
         delay,
@@ -169,7 +173,7 @@ export function TextReveal({ children, delay = 0, className = "" }: TextRevealPr
       <motion.div
         initial={{ y: "100%" }}
         whileInView={{ y: "0%" }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={vp}
         transition={{ duration: 0.7, delay, ease }}
       >
         {children}
@@ -179,7 +183,7 @@ export function TextReveal({ children, delay = 0, className = "" }: TextRevealPr
 }
 
 /* ============================================
-   WORD REVEAL (each word appears from mask)
+   WORD REVEAL (each word slides up)
    ============================================ */
 
 interface WordRevealProps {
@@ -211,7 +215,7 @@ export function WordReveal({
               className={`inline-block ${wordClassName}`}
               initial={{ y: "100%" }}
               whileInView={{ y: "0%" }}
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={vp}
               transition={{
                 duration: 0.45,
                 delay: delay + i * staggerDelay,
@@ -284,7 +288,7 @@ export function CountUp({
   prefix = "",
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.01 });
   const [display, setDisplay] = useState(from);
 
   useEffect(() => {
@@ -311,7 +315,7 @@ export function CountUp({
 }
 
 /* ============================================
-   STAGGER GRID (items from different directions)
+   STAGGER GRID (items fade in with stagger)
    ============================================ */
 
 interface StaggerGridProps {
@@ -334,7 +338,7 @@ export function StaggerGrid({
           key={i}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={vp}
           transition={{
             duration: 0.5,
             delay: i * staggerDelay,
@@ -349,7 +353,7 @@ export function StaggerGrid({
 }
 
 /* ============================================
-   SCALE BLUR (dramatic scale + blur combo)
+   SCALE BLUR (scale + blur combo)
    ============================================ */
 
 interface ScaleBlurProps {
@@ -372,7 +376,7 @@ export function ScaleBlur({
       className={className}
       initial={{ opacity: 0, scale, filter: `blur(${blur}px)` }}
       whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={vp}
       transition={{ duration: 0.7, delay, ease }}
     >
       {children}
@@ -381,7 +385,7 @@ export function ScaleBlur({
 }
 
 /* ============================================
-   SPLIT REVEAL (clip from left edge)
+   SPLIT REVEAL (fade + slide from left)
    ============================================ */
 
 interface SplitRevealProps {
@@ -402,7 +406,7 @@ export function SplitReveal({
       className={className}
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={vp}
       transition={{ duration, delay, ease }}
     >
       {children}
@@ -411,7 +415,7 @@ export function SplitReveal({
 }
 
 /* ============================================
-   CURTAIN REVEAL (overlay slides away)
+   CURTAIN REVEAL (fade + slide up)
    ============================================ */
 
 interface CurtainRevealProps {
@@ -430,7 +434,7 @@ export function CurtainReveal({
       className={className}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={vp}
       transition={{ duration: 0.7, delay, ease }}
     >
       {children}
