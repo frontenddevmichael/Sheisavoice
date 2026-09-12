@@ -97,8 +97,14 @@ export default function FounderStory() {
             {/* Author attribution — scale blur */}
             <ScaleBlur delay={0.4} scale={0.9}>
               <div className="flex items-center gap-space-md">
-                <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[20px] text-primary">person</span>
+                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+                  <Image
+                    src="/founder.jpg"
+                    alt="Shola Amaraibi"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <span className="block font-headline text-headline-sm text-primary">Shola Amaraibi</span>
