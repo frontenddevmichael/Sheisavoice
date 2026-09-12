@@ -384,6 +384,19 @@
   transform-origin: left;
 }
 
+/* Frosted glass — for content over patterns */
+.glass {
+  background: rgba(254, 249, 242, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-dense {
+  background: rgba(254, 249, 242, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
 /* ============================================
    REDUCED MOTION
    ============================================ */

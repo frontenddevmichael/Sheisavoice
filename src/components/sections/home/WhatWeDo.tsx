@@ -50,7 +50,7 @@ export default function WhatWeDo() {
       <ColorfulBlob className="top-20 -right-20 opacity-15" size={160} color="var(--color-secondary-fixed)" />
       <ColorfulBlob className="bottom-10 -left-16 opacity-10" size={120} color="var(--color-tertiary-fixed)" />
 
-      <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
+      <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 glass rounded-card-lg p-space-xl">
         {/* Header */}
         <div className="max-w-2xl mb-space-3xl relative">
           <SplitReveal delay={0.1}>

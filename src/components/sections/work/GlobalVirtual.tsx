@@ -87,7 +87,7 @@ export default function GlobalVirtual() {
                   </div>
                   <div className="flex flex-col gap-space-xs">
                     <h3 className="font-headline text-headline-sm text-primary">
-                      You&apos;re on the Waitlist
+                      You're on the Waitlist
                     </h3>
                     <p className="font-body text-body-md text-on-surface-variant leading-relaxed max-w-sm">
                       Thank you. Your family has been securely placed on our international consultation list.
@@ -180,7 +180,7 @@ export default function GlobalVirtual() {
                       </div>
                       <div className="flex flex-col gap-space-2xs">
                         <label htmlFor="global-childAge" className="font-label-md text-label-md text-on-surface font-semibold">
-                          Child&apos;s Age
+                          Child's Age
                         </label>
                         <input
                           id="global-childAge"

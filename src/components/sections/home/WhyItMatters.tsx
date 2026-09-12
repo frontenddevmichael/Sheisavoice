@@ -14,7 +14,7 @@ export default function WhyItMatters() {
       <HeartDecor className="absolute top-8 right-16" size={14} delay={0.8} />
       <StarBurst className="absolute bottom-12 left-8" size={20} color="var(--color-tertiary-fixed-dim)" delay={0.6} />
 
-      <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
+      <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 glass rounded-card-lg p-space-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
           {/* Left: heading */}
           <div className="lg:col-span-4 flex flex-col gap-space-md relative">

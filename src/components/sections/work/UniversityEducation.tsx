@@ -8,7 +8,7 @@ export default function UniversityEducation() {
     <SectionWrapper id="university-education" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
       <AdireCircles color="secondary" opacity={0.04} className="absolute inset-0 pointer-events-none" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 glass rounded-card-lg p-space-xl">
         <SplitReveal delay={0.1}>
           <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold mb-space-lg">
             02 / Academic Continuity

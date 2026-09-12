@@ -40,7 +40,7 @@ export default function PathwaySteps() {
       </div>
 
       {/* Timeline */}
-      <div className="relative max-w-4xl mx-auto" ref={lineRef}>
+      <div className="relative max-w-4xl mx-auto glass rounded-card-lg p-space-xl" ref={lineRef}>
         {/* Central connecting line — animated draw */}
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
           <div

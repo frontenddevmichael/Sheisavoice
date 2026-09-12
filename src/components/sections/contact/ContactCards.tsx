@@ -41,7 +41,7 @@ export default function ContactCards() {
       <StarBurst className="absolute top-16 left-10" size={18} color="var(--color-secondary-container)" delay={0.4} />
       <HeartDecor className="absolute bottom-20 right-12" size={12} delay={0.5} />
 
-      <div className="relative z-10 flex flex-col gap-space-2xl">
+      <div className="relative z-10 flex flex-col gap-space-2xl glass rounded-card-lg p-space-xl">
         {/* Large email CTA — curtain reveal */}
         <CurtainReveal delay={0.1}>
           <div className="bg-primary rounded-card-lg p-space-2xl lg:p-space-3xl text-center relative overflow-hidden">
@@ -62,7 +62,7 @@ export default function ContactCards() {
               />
               <SplitReveal delay={0.4}>
                 <p className="font-body text-body-lg text-on-primary/80 max-w-xl">
-                  Whether you&apos;re a family seeking support, a clinical provider, or a partner — we&apos;re here to help.
+                  Whether you're a family seeking support, a clinical provider, or a partner — we're here to help.
                 </p>
               </SplitReveal>
               <ScaleBlur delay={0.5} scale={0.9}>

@@ -14,7 +14,7 @@ export default function MissionVision() {
       <ColorfulBlob className="bottom-0 -right-16 opacity-10" size={130} color="var(--color-primary-fixed)" />
       <StarBurst className="absolute top-20 left-12" size={18} color="var(--color-secondary-container)" delay={0.4} />
 
-      <div className="relative">
+      <div className="relative glass rounded-card-lg p-space-xl">
         {/* Header */}
         <div className="flex flex-col gap-space-md items-center text-center mb-space-3xl">
           <SplitReveal delay={0.1}>

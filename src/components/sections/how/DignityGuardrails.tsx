@@ -34,7 +34,7 @@ export default function DignityGuardrails() {
       <StarBurst className="absolute top-16 left-12" size={18} color="var(--color-tertiary-fixed-dim)" delay={0.5} />
       <HeartDecor className="absolute bottom-20 right-16" size={12} delay={0.6} />
 
-      <div className="relative z-10">
+      <div className="relative z-10 glass rounded-card-lg p-space-xl">
         {/* Header */}
         <div className="flex flex-col items-center mb-space-3xl">
           <SplitReveal delay={0.1}>

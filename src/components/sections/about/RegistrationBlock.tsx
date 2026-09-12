@@ -8,7 +8,7 @@ export default function RegistrationBlock() {
       <AnkaraDiamonds className="absolute inset-0 w-full h-full pointer-events-none" color="primary" opacity={0.05} />
 
       <ScaleBlur scale={0.96} blur={4}>
-        <div className="rounded-card-lg bg-surface-low border border-outline-variant/20 p-space-xl lg:p-space-2xl flex flex-col md:flex-row items-start md:items-center gap-space-lg">
+        <div className="glass rounded-card-lg bg-surface-low border border-outline-variant/20 p-space-xl lg:p-space-2xl flex flex-col md:flex-row items-start md:items-center gap-space-lg">
           <div className="flex-1 flex flex-col gap-space-sm">
             <SplitReveal delay={0.1}>
               <h3 className="font-headline text-headline-sm text-primary leading-tight">

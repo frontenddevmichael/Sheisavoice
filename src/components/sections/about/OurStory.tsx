@@ -47,7 +47,7 @@ export default function OurStory() {
                     Commission of Nigeria in 2022 (CAC Registration Number: 180464),
                     SHEISAVOICE Global Children Advocacy Foundation began as a response
                     to a simple, hard truth: children with special needs and capable
-                    students were being failed by circumstances they didn&apos;t choose, and
+                    students were being failed by circumstances they didn't choose, and
                     no one was building the bridge to help them.
                   </p>
                 </SplitReveal>

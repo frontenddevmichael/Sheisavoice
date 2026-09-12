@@ -21,7 +21,7 @@ export default function FemaleVoice() {
 
       {/* Main block — curtain reveal */}
       <CurtainReveal delay={0.15}>
-        <div className="relative rounded-card-lg bg-primary p-space-xl lg:p-space-2xl mb-space-2xl overflow-hidden">
+        <div className="glass relative rounded-card-lg bg-primary p-space-xl lg:p-space-2xl mb-space-2xl overflow-hidden">
           <div className="relative z-10 flex flex-col gap-space-md max-w-3xl">
             <WordReveal
               text="Amplifying the Female Voice"

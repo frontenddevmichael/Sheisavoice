@@ -13,7 +13,7 @@ export default function SpecialNeeds() {
       <StarBurst className="absolute top-16 right-20" size={20} color="var(--color-secondary-container)" delay={0.4} />
       <HeartDecor className="absolute bottom-24 left-10" size={12} delay={0.6} />
 
-      <div className="relative z-10">
+      <div className="relative z-10 glass rounded-card-lg p-space-xl">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-md mb-space-2xl">
           <div className="flex flex-col gap-space-sm">

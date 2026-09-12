@@ -13,13 +13,13 @@ export default function FounderStory() {
 
       <AdireCircles color="var(--color-primary)" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
 
-      <div className="relative max-w-[var(--max-w-content)] mx-auto">
+      <div className="relative max-w-[var(--max-w-content)] mx-auto glass rounded-card-lg p-space-xl">
         {/* Header — word reveal */}
         <div className="flex flex-col items-center text-center mb-space-3xl">
           <SplitReveal delay={0.1}>
             <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary mb-space-md">
               <span className="material-symbols-outlined text-secondary text-[16px]">mic_external_on</span>
-              <span className="font-label-md text-label-md font-bold">Founder&apos;s Voice</span>
+              <span className="font-label-md text-label-md font-bold">Founder's Voice</span>
             </span>
           </SplitReveal>
           <WordReveal
@@ -35,8 +35,8 @@ export default function FounderStory() {
           {/* Left: main text — each paragraph reveals from different direction */}
           <div className="lg:col-span-7 flex flex-col gap-space-xl">
             {[
-              "I&apos;ve often wondered how getting the right support as a child would have shaped me. Whether I would have understood myself sooner. Whether I would have found my voice earlier.",
-              "I can&apos;t go back and answer that for myself. But I can answer it for a child standing where I once stood.",
+              "I've often wondered how getting the right support as a child would have shaped me. Whether I would have understood myself sooner. Whether I would have found my voice earlier.",
+              "I can't go back and answer that for myself. But I can answer it for a child standing where I once stood.",
               "I spent time outside Nigeria and saw what happens when children with special needs get the support they need. Systems built to help them learn, communicate and take part in life. Therapists who knew what to look for. Families who did not have to carry every challenge alone.",
               "Then I thought about children back home. Children who communicate in ways the world is not always patient enough to hear. Girls with something inside them and no room to say it. Families doing their best with no map and no help.",
               "These children were never without a voice. Their voices were unheard, misunderstood or unsupported. That is a different problem, and it is a solvable one.",
@@ -127,7 +127,7 @@ export default function FounderStory() {
 
               <SplitReveal delay={0.18}>
                 <p className="font-body text-body-lg text-on-surface leading-[1.9]">
-                  In May 2020 I began the work of SHEISAVOICE. In 2022 it was registered with Nigeria&apos;s Corporate Affairs Commission. But it did not begin with registration papers. It began with a question, a whisper and a decision.
+                  In May 2020 I began the work of SHEISAVOICE. In 2022 it was registered with Nigeria's Corporate Affairs Commission. But it did not begin with registration papers. It began with a question, a whisper and a decision.
                 </p>
               </SplitReveal>
 
