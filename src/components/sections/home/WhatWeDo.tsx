@@ -42,7 +42,7 @@ const PROGRAMS = [
 
 export default function WhatWeDo() {
   return (
-    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden -mt-16 z-20 rounded-t-3xl shadow-[0_-8px_32px_rgba(62,0,94,0.06)]" id="what-we-do">
+    <section className="relative w-full bg-surface-lowest py-space-5xl -mt-16 z-20 rounded-t-3xl shadow-[0_-8px_32px_rgba(62,0,94,0.06)]" id="what-we-do">
       <KenteZigzag color="var(--color-secondary)" opacity={0.05} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-right" count={5} className="opacity-40" />

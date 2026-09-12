@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import FloatingElements from "@/components/ui/FloatingElements";
 import { LeafFlow } from "@/components/ui/AnkaraPatterns";
 import { motion } from "framer-motion";
-import { useElementScrollProgress } from "@/hooks/useScrollParallax";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -17,28 +16,19 @@ interface ContactHeroProps {
 
 export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroProps) {
   const [mounted, setMounted] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const progress = useElementScrollProgress(sectionRef);
   useEffect(() => { setMounted(true); }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-        style={{
-          background: `linear-gradient(${140 + progress * 40}deg, rgba(62,0,94,${0.03 + progress * 0.04}) 0%, rgba(200,100,50,${0.02 + progress * 0.03}) 100%)`,
-        }}
-      />
+    <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
       <FloatingElements />
 
-      <LeafFlow color="primary" opacity={0.06 - progress * 0.03} className="absolute top-0 left-0 w-1/2 h-full pointer-events-none" />
+      <LeafFlow color="primary" opacity={0.06} className="absolute top-0 left-0 w-1/2 h-full pointer-events-none" />
 
       <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none" aria-hidden="true">
         <svg
           viewBox="0 0 200 600"
           className="absolute right-[5%] top-[15%] h-[70%] w-auto opacity-[0.06]"
           fill="none"
-          style={{ transform: `translateY(${progress * 40}px)` }}
         >
           <path d="M100 50 Q140 100 100 150 Q60 200 100 250 Q140 300 100 350 Q60 400 100 450 Q140 500 100 550" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" />
           <path d="M120 30 Q160 80 120 130 Q80 180 120 230 Q160 280 120 330 Q80 380 120 430 Q160 480 120 530" stroke="var(--color-secondary)" strokeWidth="1.5" strokeLinecap="round" />
@@ -55,7 +45,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
             {eyebrow && (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
-                animate={mounted ? { opacity: 1 - progress * 0.8, y: 40 - progress * 60 } : {}}
+                animate={mounted ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0, ease }}
               >
                 <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-primary-container/20 text-primary">
@@ -69,7 +59,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
-              animate={mounted ? { opacity: 1 - progress * 0.9, y: 40 - progress * 50 } : {}}
+              animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.12, ease }}
             >
               <h1 className="font-headline text-headline-lg lg:text-headline-xl text-primary leading-[1.05] tracking-tight">
@@ -80,7 +70,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
             {subtitle && (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
-                animate={mounted ? { opacity: 1 - progress, y: 40 - progress * 40 } : {}}
+                animate={mounted ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.24, ease }}
               >
                 <p className="font-body text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">

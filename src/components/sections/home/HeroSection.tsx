@@ -33,22 +33,11 @@ export default function HeroSection() {
   const progress = useElementScrollProgress(sectionRef);
   useEffect(() => { setMounted(true); }, []);
 
-  // Gradient hue shifts as you scroll
-  const gradientAngle = 135 + progress * 45;
-  const gradientOpacity = 0.04 + progress * 0.06;
-
   return (
     <section ref={sectionRef} className="relative w-full bg-surface min-h-[85vh] flex flex-col justify-between overflow-hidden">
-      {/* Dynamic gradient that shifts on scroll */}
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-        style={{
-          background: `linear-gradient(${gradientAngle}deg, rgba(62,0,94,${gradientOpacity}) 0%, rgba(200,100,50,${gradientOpacity * 0.6}) 50%, rgba(220,180,50,${gradientOpacity * 0.4}) 100%)`,
-        }}
-      />
       <LeafFlow
         color="var(--color-primary)"
-        opacity={0.08 - progress * 0.04}
+        opacity={0.08}
         className="absolute top-0 right-0 w-[400px] h-[400px] -translate-y-1/4 translate-x-1/4"
       />
       <FloatingElements />
@@ -59,7 +48,7 @@ export default function HeroSection() {
           <motion.div
             className="mb-space-xl"
             initial={{ opacity: 0, y: 20 }}
-            animate={mounted ? { opacity: 1 - progress * 0.8, y: 20 - progress * 40 } : {}}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2, ease }}
           >
             <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary">
@@ -80,7 +69,7 @@ export default function HeroSection() {
                     <motion.span
                       className={`inline-block ${word === "Unheard" ? "text-secondary relative" : ""}`}
                       initial={{ y: "110%" }}
-                      animate={mounted ? { y: `${progress * -30}%` } : {}}
+                      animate={mounted ? { y: "0%" } : {}}
                       transition={{ duration: 0.5, delay: 0.35 + i * 0.07, ease }}
                     >
                       {word}
@@ -100,7 +89,7 @@ export default function HeroSection() {
           <motion.div
             className="mb-space-2xl"
             initial={{ opacity: 0, y: 20 }}
-            animate={mounted ? { opacity: 1 - progress * 0.9, y: 20 - progress * 50 } : {}}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8, ease }}
           >
             <p className="font-body text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
@@ -114,7 +103,7 @@ export default function HeroSection() {
           <motion.div
             className="mb-space-3xl"
             initial={{ opacity: 0, y: 20 }}
-            animate={mounted ? { opacity: 1 - progress * 0.9, y: 20 - progress * 60 } : {}}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.95, ease }}
           >
             <div className="flex flex-wrap items-center gap-space-md">
@@ -131,7 +120,7 @@ export default function HeroSection() {
           {/* Trust indicators */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={mounted ? { opacity: 1 - progress, y: 20 - progress * 70 } : {}}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 1.1, ease }}
           >
             <div className="flex flex-wrap items-center gap-space-sm text-on-surface-variant text-label-md font-medium">
