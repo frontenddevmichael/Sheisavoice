@@ -5,7 +5,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { SITE } from "@/lib/constants";
-import MotionSection, { MotionChild } from "@/components/ui/Motion";
+import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal } from "@/components/ui/Motion";
 
 export default function ContactSplitSection() {
   // Message form state
@@ -29,7 +29,6 @@ export default function ContactSplitSection() {
   const handleMessageSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setMessageSubmitting(true);
-    // Simulate submission delay
     setTimeout(() => {
       setMessageSubmitted(true);
       setMessageSubmitting(false);
@@ -40,7 +39,6 @@ export default function ContactSplitSection() {
   const handleVolunteerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setVolunteerSubmitting(true);
-    // Simulate submission delay
     setTimeout(() => {
       setVolunteerSubmitted(true);
       setVolunteerSubmitting(false);
@@ -85,23 +83,27 @@ export default function ContactSplitSection() {
 
   return (
     <SectionWrapper className="bg-surface-lowest py-space-5xl relative">
-      <MotionSection stagger preset="up">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
-          {/* LEFT: Forms (60%) */}
-          <MotionChild>
-          <div className="lg:col-span-7 flex flex-col gap-space-xl">
-            <div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+        {/* LEFT: Forms (60%) */}
+        <div className="lg:col-span-7 flex flex-col gap-space-xl">
+          <div>
+            <SplitReveal delay={0.1}>
               <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary shadow-sm mb-space-md">
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 <span className="font-label-md text-label-md tracking-wider uppercase">Direct Engagement</span>
               </span>
-              <h2 className="font-headline text-headline-lg text-primary tracking-tight">
-                Connect With Our <span className="text-secondary">Team</span>
-              </h2>
-            </div>
+            </SplitReveal>
+            <WordReveal
+              text="Connect With Our Team"
+              as="h2"
+              className="font-headline text-headline-lg text-primary tracking-tight"
+              staggerDelay={0.06}
+            />
+          </div>
 
-            <div className="flex flex-col gap-space-xl">
-              {/* Send a Message */}
+          <div className="flex flex-col gap-space-xl">
+            {/* Send a Message — scale blur */}
+            <ScaleBlur delay={0.2} scale={0.96} blur={3}>
               <Card>
                 <h3 className="font-headline text-headline-sm text-primary mb-space-lg">
                   Send a Message
@@ -173,8 +175,10 @@ export default function ContactSplitSection() {
                   </form>
                 )}
               </Card>
+            </ScaleBlur>
 
-              {/* Volunteer */}
+            {/* Volunteer — scale blur with delay */}
+            <ScaleBlur delay={0.35} scale={0.96} blur={3}>
               <Card>
                 <h3 className="font-headline text-headline-sm text-secondary mb-space-lg">
                   Volunteer & Partner
@@ -258,24 +262,29 @@ export default function ContactSplitSection() {
                   </form>
                 )}
               </Card>
-            </div>
+            </ScaleBlur>
           </div>
-          </MotionChild>
+        </div>
 
-          {/* RIGHT: Donation (40%) */}
-          <MotionChild>
-          <div className="lg:col-span-5 flex flex-col gap-space-xl">
-            <div>
+        {/* RIGHT: Donation (40%) */}
+        <div className="lg:col-span-5 flex flex-col gap-space-xl">
+          <div>
+            <SplitReveal delay={0.15}>
               <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-mid text-primary shadow-sm mb-space-md">
                 <span className="w-2 h-2 rounded-full bg-tertiary-fixed-dim" />
                 <span className="font-label-md text-label-md tracking-wider uppercase">Support Our Work</span>
               </span>
-              <h2 className="font-headline text-headline-md text-primary tracking-tight">
-                Make a <span className="text-secondary">Difference</span>
-              </h2>
-            </div>
+            </SplitReveal>
+            <WordReveal
+              text="Make a Difference"
+              as="h2"
+              className="font-headline text-headline-md text-primary tracking-tight"
+              staggerDelay={0.06}
+            />
+          </div>
 
-            {/* Tab switcher */}
+          {/* Tab switcher */}
+          <SplitReveal delay={0.25}>
             <div className="inline-flex bg-surface-mid rounded-full p-1 shadow-sm w-fit" role="tablist">
               <button role="tab" aria-selected={activeTab === "nigeria"}
                 onClick={() => setActiveTab("nigeria")}
@@ -292,7 +301,10 @@ export default function ContactSplitSection() {
                 International
               </button>
             </div>
+          </SplitReveal>
 
+          {/* Donation cards — scale blur */}
+          <ScaleBlur delay={0.3} scale={0.96} blur={3}>
             {activeTab === "nigeria" ? (
               <Card className="flex flex-col gap-space-lg">
                 <div className="flex items-center gap-space-md">
@@ -371,18 +383,19 @@ export default function ContactSplitSection() {
                 </div>
               </Card>
             )}
+          </ScaleBlur>
 
-            {/* Accountability */}
+          {/* Accountability */}
+          <SplitReveal delay={0.4}>
             <div className="rounded-card bg-primary-fixed/20 border border-primary-fixed/30 p-space-md flex items-center gap-space-sm">
               <span className="material-symbols-outlined text-[20px] text-primary">verified</span>
               <p className="font-body text-body-sm text-on-surface">
                 100% of donations support clinical therapy, education, and verified community programs.
               </p>
             </div>
-          </div>
-          </MotionChild>
+          </SplitReveal>
         </div>
-      </MotionSection>
+      </div>
     </SectionWrapper>
   );
 }

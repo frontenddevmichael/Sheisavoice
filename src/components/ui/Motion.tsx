@@ -1,10 +1,17 @@
 "use client";
 
-import { ReactNode } from "react";
-import { motion, Variants } from "framer-motion";
+import { ReactNode, useEffect, useRef, useState, useCallback } from "react";
+import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, Variants } from "framer-motion";
 
 /* ============================================
-   ANIMATION VARIANTS
+   EASING
+   ============================================ */
+
+const ease = [0.16, 1, 0.3, 1] as const;
+const easeOut = [0.33, 1, 0.68, 1] as const;
+
+/* ============================================
+   BASIC FADE VARIANTS
    ============================================ */
 
 const fadeUp: Variants = {
@@ -59,13 +66,7 @@ const presets = {
 type Preset = keyof typeof presets;
 
 /* ============================================
-   EASING
-   ============================================ */
-
-const ease = [0.16, 1, 0.3, 1] as const;
-
-/* ============================================
-   SECTION WRAPPER
+   SECTION WRAPPER (stagger + preset)
    ============================================ */
 
 interface MotionSectionProps {
@@ -174,5 +175,393 @@ export function TextReveal({ children, delay = 0, className = "" }: TextRevealPr
         {children}
       </motion.div>
     </div>
+  );
+}
+
+/* ============================================
+   WORD REVEAL (each word appears from mask)
+   ============================================ */
+
+interface WordRevealProps {
+  text: string;
+  className?: string;
+  wordClassName?: string;
+  delay?: number;
+  staggerDelay?: number;
+  as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
+}
+
+export function WordReveal({
+  text,
+  className = "",
+  wordClassName = "",
+  delay = 0,
+  staggerDelay = 0.04,
+  as: Tag = "h2",
+}: WordRevealProps) {
+  const words = text.split(" ");
+
+  return (
+    <Tag className={className}>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true" className="flex flex-wrap">
+        {words.map((word, i) => (
+          <span key={i} className="overflow-hidden mr-[0.3em]">
+            <motion.span
+              className={`inline-block ${wordClassName}`}
+              initial={{ y: "110%", rotateX: -40 }}
+              whileInView={{ y: "0%", rotateX: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{
+                duration: 0.5,
+                delay: delay + i * staggerDelay,
+                ease: easeOut,
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+        ))}
+      </span>
+    </Tag>
+  );
+}
+
+/* ============================================
+   PARALLAX WRAPPER (scroll-linked movement)
+   ============================================ */
+
+interface ParallaxYProps {
+  children: ReactNode;
+  className?: string;
+  speed?: number; // pixels of movement per scroll unit (negative = opposite direction)
+  offset?: [string, string]; // scroll offset range ["start end", "end start"]
+}
+
+export function ParallaxY({
+  children,
+  className = "",
+  speed = 50,
+  offset = ["start end", "end start"],
+}: ParallaxYProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: offset as any,
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [speed, -speed]);
+
+  return (
+    <div ref={ref} className={className}>
+      <motion.div style={{ y }}>
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+/* ============================================
+   COUNT UP (animated number)
+   ============================================ */
+
+interface CountUpProps {
+  from?: number;
+  to: number;
+  duration?: number;
+  delay?: number;
+  className?: string;
+  suffix?: string;
+  prefix?: string;
+}
+
+export function CountUp({
+  from = 0,
+  to,
+  duration = 1.8,
+  delay = 0,
+  className = "",
+  suffix = "",
+  prefix = "",
+}: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [display, setDisplay] = useState(from);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timer = setTimeout(() => {
+      const startTime = Date.now();
+      const animate = () => {
+        const elapsed = (Date.now() - startTime) / 1000;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutExpo
+        const eased = 1 - Math.pow(2, -10 * progress);
+        setDisplay(Math.round(from + (to - from) * eased));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }, delay * 1000);
+    return () => clearTimeout(timer);
+  }, [isInView, from, to, duration, delay]);
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}{display}{suffix}
+    </span>
+  );
+}
+
+/* ============================================
+   STAGGER GRID (items from different directions)
+   ============================================ */
+
+interface StaggerGridProps {
+  children: ReactNode;
+  className?: string;
+  columns?: number;
+  staggerDelay?: number;
+}
+
+const gridItemVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.1,
+      ease,
+    },
+  }),
+};
+
+export function StaggerGrid({
+  children,
+  className = "",
+  staggerDelay = 0.1,
+}: StaggerGridProps) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+    >
+      {Array.isArray(children)
+        ? children.map((child, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              variants={gridItemVariants}
+              transition={{ staggerChildren: staggerDelay }}
+            >
+              {child}
+            </motion.div>
+          ))
+        : children}
+    </motion.div>
+  );
+}
+
+/* ============================================
+   SLIDE REVEAL (content revealed by sliding mask)
+   ============================================ */
+
+interface SlideRevealProps {
+  children: ReactNode;
+  className?: string;
+  direction?: "left" | "right" | "up" | "down";
+  delay?: number;
+}
+
+export function SlideReveal({
+  children,
+  className = "",
+  direction = "left",
+  delay = 0,
+}: SlideRevealProps) {
+  const clipPaths: Record<string, string> = {
+    left: "inset(0 100% 0 0)",
+    right: "inset(0 0 0 100%)",
+    up: "inset(100% 0 0 0)",
+    down: "inset(0 0 100% 0)",
+  };
+
+  return (
+    <motion.div
+      className={`relative overflow-hidden ${className}`}
+      initial={{ clipPath: clipPaths[direction] }}
+      whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, delay, ease: easeOut }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ============================================
+   SCALE BLUR (dramatic scale + blur combo)
+   ============================================ */
+
+interface ScaleBlurProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  scale?: number;
+  blur?: number;
+}
+
+export function ScaleBlur({
+  children,
+  className = "",
+  delay = 0,
+  scale = 0.85,
+  blur = 8,
+}: ScaleBlurProps) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, scale, filter: `blur(${blur}px)` }}
+      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, delay, ease }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ============================================
+   ROTATE IN (subtle rotation on entry)
+   ============================================ */
+
+interface RotateInProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  rotate?: number; // degrees
+}
+
+export function RotateIn({
+  children,
+  className = "",
+  delay = 0,
+  rotate = -3,
+}: RotateInProps) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, rotate, y: 30 }}
+      whileInView={{ opacity: 1, rotate: 0, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.7, delay, ease }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ============================================
+   CURTAIN REVEAL (two-part sliding curtain)
+   ============================================ */
+
+interface CurtainRevealProps {
+  children: ReactNode;
+  className?: string;
+  color?: string;
+  delay?: number;
+}
+
+export function CurtainReveal({
+  children,
+  className = "",
+  color = "bg-primary",
+  delay = 0,
+}: CurtainRevealProps) {
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      {/* Curtain overlay */}
+      <motion.div
+        className={`absolute inset-0 z-10 ${color}`}
+        initial={{ scaleX: 1 }}
+        whileInView={{ scaleX: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, delay, ease: easeOut }}
+        style={{ transformOrigin: "right" }}
+      />
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.05 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, delay: delay + 0.3, ease }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+/* ============================================
+   SPLIT TEXT REVEAL (left/right halves)
+   ============================================ */
+
+interface SplitRevealProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  duration?: number;
+}
+
+export function SplitReveal({
+  children,
+  className = "",
+  delay = 0,
+  duration = 0.8,
+}: SplitRevealProps) {
+  return (
+    <motion.div
+      className={`relative overflow-hidden ${className}`}
+      initial={{ clipPath: "inset(0 50% 0 50%)" }}
+      whileInView={{ clipPath: "inset(0 0% 0 0%)" }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration, delay, ease: easeOut }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ============================================
+   FLOATING ELEMENT (continuous subtle motion)
+   ============================================ */
+
+interface FloatingProps {
+  children: ReactNode;
+  className?: string;
+  amplitude?: number;
+  duration?: number;
+}
+
+export function Floating({
+  children,
+  className = "",
+  amplitude = 8,
+  duration = 3,
+}: FloatingProps) {
+  return (
+    <motion.div
+      className={className}
+      animate={{ y: [-amplitude, amplitude, -amplitude] }}
+      transition={{
+        duration,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      {children}
+    </motion.div>
   );
 }

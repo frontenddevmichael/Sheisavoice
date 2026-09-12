@@ -3,7 +3,8 @@
 import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
-import MotionSection, { MotionChild } from "@/components/ui/Motion";
+import { WordReveal, SplitReveal, ScaleBlur } from "@/components/ui/Motion";
+import MotionSection from "@/components/ui/Motion";
 
 export default function GlobalVirtual() {
   const [submitted, setSubmitted] = useState(false);
@@ -33,44 +34,51 @@ export default function GlobalVirtual() {
       className="relative bg-surface-lowest py-space-5xl overflow-hidden"
     >
       <div className="relative z-10">
-        <div className="flex items-center gap-space-xs mb-space-lg">
-          <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
-            03 / Continental &amp; Diaspora Reach
-          </span>
-        </div>
+        <SplitReveal delay={0.1}>
+          <div className="flex items-center gap-space-xs mb-space-lg">
+            <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
+              03 / Continental &amp; Diaspora Reach
+            </span>
+          </div>
+        </SplitReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
-          {/* Left: Narrative (6 cols) */}
-          <MotionSection className="lg:col-span-6" preset="up">
-            <div className="flex flex-col gap-space-lg">
-              <h2 className="font-headline text-headline-lg text-primary">
-                Support for Families Outside Nigeria
-              </h2>
+          {/* Left: Narrative */}
+          <div className="lg:col-span-6 flex flex-col gap-space-lg">
+            <WordReveal
+              text="Support for Families Outside Nigeria"
+              as="h2"
+              className="font-headline text-headline-lg text-primary"
+              staggerDelay={0.05}
+            />
+            <SplitReveal delay={0.3}>
               <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
                 A continental and diaspora bridge for families seeking guidance.
               </p>
+            </SplitReveal>
 
-              <div className="flex flex-col gap-space-md">
-                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                  SHEISAVOICE was built with a global vision. While our in-person therapy partnerships
-                  are currently based in Nigeria, we are building toward virtual consultation and
-                  support options for special needs families anywhere in the diaspora or beyond.
-                </p>
-                <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                  If you are outside Nigeria and would like guidance, a virtual consultation, or to
-                  be notified when direct support opens in your region, register your interest below
-                  and our team will reach out.
-                </p>
-              </div>
+            <div className="flex flex-col gap-space-md">
+              {[
+                "SHEISAVOICE was built with a global vision. While our in-person therapy partnerships are currently based in Nigeria, we are building toward virtual consultation and support options for special needs families anywhere in the diaspora or beyond.",
+                "If you are outside Nigeria and would like guidance, a virtual consultation, or to be notified when direct support opens in your region, register your interest below and our team will reach out.",
+              ].map((text, i) => (
+                <SplitReveal key={i} delay={0.35 + i * 0.08}>
+                  <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                    {text}
+                  </p>
+                </SplitReveal>
+              ))}
+            </div>
 
+            <SplitReveal delay={0.5}>
               <p className="font-body text-body-sm text-on-surface-variant/80 pt-space-sm">
                 Privacy safeguarded. All family information remains strictly confidential and non-public.
               </p>
-            </div>
-          </MotionSection>
+            </SplitReveal>
+          </div>
 
-          {/* Right: Waitlist Form (6 cols) */}
-          <MotionSection className="lg:col-span-6" preset="right" delay={0.1}>
+          {/* Right: Waitlist Form — scale blur */}
+          <ScaleBlur delay={0.2} scale={0.96} blur={4} className="lg:col-span-6">
             <div className="rounded-card-lg bg-surface-lowest p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">
               {submitted ? (
                 <div className="flex flex-col items-center text-center gap-space-lg py-space-xl">
@@ -241,7 +249,7 @@ export default function GlobalVirtual() {
                 </>
               )}
             </div>
-          </MotionSection>
+          </ScaleBlur>
         </div>
       </div>
     </SectionWrapper>

@@ -3,7 +3,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import { PATHWAY_STEPS } from "@/lib/constants";
-import MotionSection, { MotionChild } from "@/components/ui/Motion";
+import { WordReveal, SplitReveal } from "@/components/ui/Motion";
 import useInView from "@/hooks/useInView";
 
 export default function PathwaySteps() {
@@ -11,20 +11,26 @@ export default function PathwaySteps() {
 
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="pathway">
-      <MotionSection preset="left">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
-          <div className="max-w-xl">
+      {/* Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
+        <div className="max-w-xl">
+          <SplitReveal delay={0.1}>
             <Badge variant="plum-light" className="mb-space-md">Sequential Architecture</Badge>
-            <h2 className="font-headline text-headline-lg text-primary leading-tight">
-              The 5-Stage Pathway to Care
-            </h2>
-          </div>
+          </SplitReveal>
+          <WordReveal
+            text="The 5-Stage Pathway to Care"
+            as="h2"
+            className="font-headline text-headline-lg text-primary leading-tight"
+            staggerDelay={0.06}
+          />
+        </div>
+        <SplitReveal delay={0.3}>
           <p className="font-body text-body-lg text-on-surface-variant max-w-md leading-relaxed">
             Every child with special needs and underserved student receives uninterrupted, tailored
             backing via an intentional sequence of protective checkpoints.
           </p>
-        </div>
-      </MotionSection>
+        </SplitReveal>
+      </div>
 
       {/* Timeline */}
       <div className="relative max-w-4xl mx-auto" ref={lineRef}>
@@ -48,9 +54,9 @@ export default function PathwaySteps() {
                 {/* Left content (odd steps) */}
                 <div className={`${i % 2 === 0 ? "" : "order-3"}`}>
                   {i % 2 === 0 ? (
-                    <StepContent step={step} align="right" />
+                    <StepContent step={step} align="right" index={i} lineVisible={lineVisible} />
                   ) : (
-                    <StepMeta step={step} />
+                    <StepMeta step={step} index={i} lineVisible={lineVisible} />
                   )}
                 </div>
 
@@ -72,9 +78,9 @@ export default function PathwaySteps() {
                 {/* Right content (even steps) */}
                 <div className={`${i % 2 === 0 ? "order-3" : ""}`}>
                   {i % 2 === 0 ? (
-                    <StepMeta step={step} />
+                    <StepMeta step={step} index={i} lineVisible={lineVisible} />
                   ) : (
-                    <StepContent step={step} align="left" />
+                    <StepContent step={step} align="left" index={i} lineVisible={lineVisible} />
                   )}
                 </div>
               </div>
@@ -99,9 +105,9 @@ export default function PathwaySteps() {
 
                 {/* Content */}
                 <div className="flex-1 pb-space-md">
-                  <StepContent step={step} align="left" />
+                  <StepContent step={step} align="left" index={i} lineVisible={lineVisible} />
                   <div className="mt-space-md">
-                    <StepMeta step={step} />
+                    <StepMeta step={step} index={i} lineVisible={lineVisible} />
                   </div>
                 </div>
               </div>
@@ -113,9 +119,16 @@ export default function PathwaySteps() {
   );
 }
 
-function StepContent({ step, align }: { step: typeof PATHWAY_STEPS[number]; align: "left" | "right" }) {
+function StepContent({ step, align, index, lineVisible }: { step: typeof PATHWAY_STEPS[number]; align: "left" | "right"; index: number; lineVisible: boolean }) {
   return (
-    <div className={`flex flex-col gap-space-sm ${align === "right" ? "text-right" : ""}`}>
+    <div
+      className={`flex flex-col gap-space-sm ${align === "right" ? "text-right" : ""}`}
+      style={{
+        opacity: lineVisible ? 1 : 0,
+        transform: lineVisible ? "translateY(0)" : "translateY(20px)",
+        transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 150 + 300}ms`,
+      }}
+    >
       <Badge variant="plum-light" className={align === "right" ? "self-end" : ""}>{step.phase}</Badge>
       <h3 className="font-headline text-headline-sm text-primary">{step.title}</h3>
       <p className="font-body text-body-md text-on-surface-variant leading-relaxed">{step.description}</p>
@@ -123,9 +136,16 @@ function StepContent({ step, align }: { step: typeof PATHWAY_STEPS[number]; alig
   );
 }
 
-function StepMeta({ step }: { step: typeof PATHWAY_STEPS[number] }) {
+function StepMeta({ step, index, lineVisible }: { step: typeof PATHWAY_STEPS[number]; index: number; lineVisible: boolean }) {
   return (
-    <div className="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-low border border-outline-variant/20 w-fit">
+    <div
+      className="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-low border border-outline-variant/20 w-fit"
+      style={{
+        opacity: lineVisible ? 1 : 0,
+        transform: lineVisible ? "translateX(0)" : "translateX(-10px)",
+        transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${index * 150 + 400}ms`,
+      }}
+    >
       <span className="material-symbols-outlined text-primary text-[20px]">{step.meta.icon}</span>
       <div className="flex flex-col">
         <span className="font-label-sm text-label-sm font-bold text-primary">{step.meta.label}</span>
