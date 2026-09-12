@@ -45,8 +45,9 @@
   --color-on-error: #ffffff;
 
   /* === Typography === */
-  --font-headline: var(--font-epilogue), sans-serif;
+  --font-headline: var(--font-fraunces), serif;
   --font-body: var(--font-manrope), sans-serif;
+  --font-display: var(--font-playfair), serif;
 
   --text-headline-xl: 3.5rem;
   --text-headline-lg: 2.5rem;
@@ -327,6 +328,60 @@
 
 .link-underline:hover::after {
   width: 100%;
+}
+
+/* Card tilt on hover */
+.card-tilt {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Button ripple effect */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-container .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-expand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Icon bounce on hover */
+.icon-bounce {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.icon-bounce:hover {
+  transform: translateY(-3px);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-tertiary-fixed-dim)
+  );
+  z-index: 9999;
+  transform-origin: left;
 }
 
 /* ============================================

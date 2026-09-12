@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Button from "@/components/ui/Button";
 import FloatingElements from "@/components/ui/FloatingElements";
+import { LeafFlow } from "@/components/ui/AnkaraPatterns";
 import { motion } from "framer-motion";
 
 const ease = [0.33, 1, 0.68, 1] as const;
@@ -13,6 +14,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full bg-surface min-h-[85vh] flex flex-col justify-between overflow-hidden">
+      <LeafFlow
+        color="var(--color-primary)"
+        opacity={0.08}
+        className="absolute top-0 right-0 w-[400px] h-[400px] -translate-y-1/4 translate-x-1/4"
+      />
       <FloatingElements />
 
       <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 pt-space-3xl lg:pt-[10rem] pb-[80px] lg:pb-[120px] w-full flex-1 flex items-center">

@@ -3,10 +3,16 @@ import { NAV_LINKS, SITE } from "@/lib/constants";
 import Logo from "@/components/svgs/Logo";
 import StackedMonogram from "@/components/ui/StackedMonogram";
 import SoundwaveStrip from "@/components/ui/SoundwaveStrip";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-primary/[0.04]">
+    <footer className="relative w-full bg-primary/[0.04] overflow-hidden">
+      <AdireCircles
+        color="var(--color-primary)"
+        opacity={0.04}
+        className="absolute inset-0 w-full h-full"
+      />
       {/* Full-width soundwave */}
       <div className="border-b border-outline-variant/15">
         <SoundwaveStrip />

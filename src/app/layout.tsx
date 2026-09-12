@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Epilogue, Manrope } from "next/font/google";
+import { Fraunces, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
-const epilogue = Epilogue({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-epilogue",
+  variable: "--font-fraunces",
   display: "swap",
-  weight: ["600", "700"],
+  weight: ["600", "700", "800", "900"],
 });
 
 const manrope = Manrope({
@@ -17,6 +18,13 @@ const manrope = Manrope({
   variable: "--font-manrope",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["700", "800", "900"],
 });
 
 const SITE_URL = "https://sheisavoice.org";
@@ -102,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
-        className={`${epilogue.variable} ${manrope.variable} font-body bg-surface text-on-surface antialiased`}
+        className={`${fraunces.variable} ${manrope.variable} ${playfair.variable} font-body bg-surface text-on-surface antialiased`}
       >
         <a
           href="#main-content"
@@ -110,6 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
+        <ScrollProgress />
         <ScrollToTop />
         <Header />
         <main id="main-content" className="min-h-screen pt-16 lg:pt-20">{children}</main>

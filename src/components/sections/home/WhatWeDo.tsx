@@ -2,6 +2,7 @@ import Link from "next/link";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, ScribbleLine, ColorfulBlob } from "@/components/ui/Decorations";
+import { KenteZigzag } from "@/components/ui/AnkaraPatterns";
 
 const PROGRAMS = [
   {
@@ -42,6 +43,7 @@ const PROGRAMS = [
 export default function WhatWeDo() {
   return (
     <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden" id="what-we-do">
+      <KenteZigzag color="var(--color-secondary)" opacity={0.05} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-right" count={5} className="opacity-40" />
       <ScatteredDots position="bottom-left" count={4} className="opacity-30" />

@@ -2,10 +2,12 @@
 
 import { WordReveal, SplitReveal, ParallaxY, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor, ColorfulBlob } from "@/components/ui/Decorations";
+import { AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
 
 export default function WhyItMatters() {
   return (
-    <section className="relative w-full bg-surface-lowest py-space-5xl">
+    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden">
+      <AnkaraDiamonds color="var(--color-primary)" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-left" count={5} className="opacity-30" />
       <ColorfulBlob className="top-0 -left-24 opacity-10" size={180} color="var(--color-primary-fixed)" />

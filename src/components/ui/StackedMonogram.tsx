@@ -3,7 +3,8 @@ export default function StackedMonogram({ className = "" }: { className?: string
     <div className={`flex flex-col items-center select-none overflow-hidden ${className}`} aria-label="SHE IS A VOICE">
       {/* SHE */}
       <span
-        className="font-headline text-[3rem] sm:text-[4rem] lg:text-[6rem] leading-[0.85] tracking-[0.18em] text-primary"
+        className="text-[3rem] sm:text-[4rem] lg:text-[6rem] leading-[0.85] tracking-[0.18em] text-primary"
+        style={{ fontFamily: "var(--font-display)" }}
       >
         SHE
       </span>
@@ -19,8 +20,9 @@ export default function StackedMonogram({ className = "" }: { className?: string
 
       {/* VOICE */}
       <span
-        className="font-headline text-[3rem] sm:text-[4rem] lg:text-[6rem] leading-[0.85] tracking-[0.12em]"
+        className="text-[3rem] sm:text-[4rem] lg:text-[6rem] leading-[0.85] tracking-[0.12em]"
         style={{
+          fontFamily: "var(--font-display)",
           background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
