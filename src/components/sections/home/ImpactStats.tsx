@@ -9,7 +9,7 @@ export default function ImpactStats() {
   return (
     <section className="w-full bg-surface-lowest py-space-5xl" id="impact-counter">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
-        <CurtainReveal color="bg-primary/[0.03]">
+        <CurtainReveal>
           <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
               {/* Left: counter — dramatic count up */}

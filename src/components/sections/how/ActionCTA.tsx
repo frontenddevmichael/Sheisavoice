@@ -5,7 +5,7 @@ export default function ActionCTA() {
   return (
     <section className="w-full bg-primary text-on-primary py-space-3xl lg:py-space-5xl relative overflow-hidden">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative z-10">
-        <CurtainReveal color="bg-primary/80" delay={0.1}>
+        <CurtainReveal delay={0.1}>
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             <SplitReveal delay={0.3}>
               <span className="inline-flex items-center gap-2 px-space-sm py-1 rounded-full bg-on-primary/10 text-on-primary w-fit mb-space-md">

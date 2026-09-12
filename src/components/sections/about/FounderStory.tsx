@@ -1,8 +1,7 @@
 "use client";
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, ParallaxY, SplitReveal as Split } from "@/components/ui/Motion";
-import MotionSection from "@/components/ui/Motion";
+import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, ParallaxY } from "@/components/ui/Motion";
 import { motion } from "framer-motion";
 
 export default function FounderStory() {
@@ -60,7 +59,7 @@ export default function FounderStory() {
           {/* Right: pull quote — scale blur + curtain */}
           <div className="lg:col-span-5 flex flex-col gap-space-2xl lg:sticky lg:top-32">
             {/* Large pull quote — curtain reveal */}
-            <CurtainReveal color="bg-primary" delay={0.2}>
+            <CurtainReveal delay={0.2}>
               <div className="relative overflow-hidden">
                 <span className="absolute -top-8 -left-4 text-[80px] md:text-[100px] lg:text-[120px] font-headline text-primary/[0.06] leading-none select-none pointer-events-none">
                   &ldquo;

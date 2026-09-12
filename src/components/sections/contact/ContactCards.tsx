@@ -36,7 +36,7 @@ export default function ContactCards() {
 
       <div className="relative z-10 flex flex-col gap-space-2xl">
         {/* Large email CTA — curtain reveal */}
-        <CurtainReveal color="bg-primary" delay={0.1}>
+        <CurtainReveal delay={0.1}>
           <div className="bg-primary rounded-card-lg p-space-2xl lg:p-space-3xl text-center relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
               <svg className="absolute top-0 right-0 w-64 h-64 opacity-10" viewBox="0 0 200 200" fill="none">

@@ -35,7 +35,7 @@ export default function MissionVision() {
 
         {/* Cards — curtain reveal from different directions */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
-          <CurtainReveal color="bg-secondary-fixed/30" delay={0.2}>
+          <CurtainReveal delay={0.2}>
             <Card className="flex flex-col gap-space-lg">
               <Badge variant="primary">OUR MISSION</Badge>
               <h3 className="font-headline text-headline-md text-primary leading-tight">
@@ -50,7 +50,7 @@ export default function MissionVision() {
             </Card>
           </CurtainReveal>
 
-          <CurtainReveal color="bg-primary-fixed/30" delay={0.35}>
+          <CurtainReveal delay={0.35}>
             <Card className="flex flex-col gap-space-lg">
               <Badge variant="coral">OUR VISION</Badge>
               <h3 className="font-headline text-headline-md text-secondary leading-tight">
