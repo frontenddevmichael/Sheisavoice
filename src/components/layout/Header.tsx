@@ -6,6 +6,23 @@ import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
 import Logo from "@/components/svgs/Logo";
 
+function SoundwaveMini() {
+  return (
+    <div className="flex items-end gap-[2px] h-4 mx-3 opacity-40" aria-hidden="true">
+      {[6, 10, 4, 12, 7, 9, 5].map((h, i) => (
+        <span
+          key={i}
+          className="w-[2px] rounded-full bg-primary"
+          style={{
+            height: `${h}px`,
+            animationDelay: `${i * 0.12}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +52,7 @@ export default function Header() {
   return (
     <>
       {/* ============================================
-          DESKTOP: Full-width top bar (lg+)
+          DESKTOP: Artistic top bar (lg+)
           ============================================ */}
       <header
         className={`hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,26 +61,42 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
+        {/* Gradient accent line at very top */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-tertiary-fixed-dim via-secondary to-primary" />
+
         <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="shrink-0 group">
+            {/* Logo + soundwave */}
+            <Link href="/" className="shrink-0 group flex items-center">
               <Logo className="h-7 w-auto transition-transform duration-300 group-hover:scale-105" />
+              <SoundwaveMini />
             </Link>
 
+            {/* Nav links */}
             <nav className="flex items-center gap-1" aria-label="Main navigation">
               {NAV_LINKS.map((link) => (
                 <NavLink key={link.href} link={link} pathname={pathname} />
               ))}
             </nav>
 
+            {/* CTA with gradient border */}
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-on-primary text-[14px] font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 hover:shadow-[0_4px_20px_rgba(62,0,94,0.2)]"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded-full text-[14px] font-semibold transition-all duration-300 relative group overflow-hidden"
             >
-              Contact/Support
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-full" />
+              <span className="absolute inset-[1.5px] bg-on-primary rounded-full group-hover:bg-primary-container transition-colors duration-300" />
+              <span className="relative z-10 text-primary group-hover:text-on-primary-container transition-colors duration-300 flex items-center gap-2">
+                Contact/Support
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </span>
             </Link>
           </div>
+        </div>
+
+        {/* Bottom decorative line */}
+        <div className={`h-px w-full transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}>
+          <div className="h-full bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent" />
         </div>
       </header>
 
@@ -206,7 +239,7 @@ function NavLink({
     <Link
       href={link.href}
       aria-current={isActive ? "page" : undefined}
-      className={`relative px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 ${
+      className={`relative px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 group ${
         isActive
           ? "text-on-primary"
           : "text-on-surface-variant hover:text-on-surface"
@@ -219,6 +252,10 @@ function NavLink({
         <span className="absolute inset-0 bg-surface-mid/0 hover:bg-surface-mid/60 rounded-full transition-colors duration-200 -z-10" />
       )}
       <span className="relative z-10">{link.label}</span>
+      {/* Hand-drawn underline on hover for non-active links */}
+      {!isActive && (
+        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] rounded-full bg-secondary group-hover:w-3/4 transition-all duration-300" />
+      )}
     </Link>
   );
 }
