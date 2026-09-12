@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import { WordReveal, CurtainReveal } from "@/components/ui/Motion";
+import { StarBurst, HeartDecor, ScatteredDots, ScribbleLine } from "@/components/ui/Decorations";
 
 export default function ClosingCTA() {
   return (
@@ -7,6 +8,15 @@ export default function ClosingCTA() {
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <CurtainReveal delay={0.1}>
           <div className="relative w-full rounded-card-lg bg-primary p-space-2xl lg:p-space-3xl text-center flex flex-col items-center justify-center gap-space-lg overflow-hidden">
+            {/* Decorations inside CTA */}
+            <StarBurst className="absolute top-6 left-8" size={24} color="var(--color-on-primary)" delay={0.6} />
+            <StarBurst className="absolute bottom-8 right-10" size={18} color="var(--color-on-primary)" delay={0.7} />
+            <HeartDecor className="absolute top-10 right-16" size={14} color="var(--color-on-primary)" delay={0.5} />
+            <ScatteredDots position="bottom-left" count={3} className="opacity-20" />
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <ScribbleLine color="var(--color-on-primary)" width={120} animate={false} />
+            </div>
+
             <WordReveal
               text="Be the voice a child cannot yet speak."
               as="h2"

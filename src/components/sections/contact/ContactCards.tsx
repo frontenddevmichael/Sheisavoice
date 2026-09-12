@@ -2,6 +2,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { SITE } from "@/lib/constants";
 import { WordReveal, SplitReveal, CurtainReveal, ScaleBlur, StaggerGrid } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, HeartDecor } from "@/components/ui/Decorations";
 
 export default function ContactCards() {
   const contacts = [
@@ -33,6 +34,10 @@ export default function ContactCards() {
 
   return (
     <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
+      {/* Decorations */}
+      <ScatteredDots position="top-right" count={4} className="opacity-25" />
+      <StarBurst className="absolute top-16 left-10" size={18} color="var(--color-secondary-container)" delay={0.4} />
+      <HeartDecor className="absolute bottom-20 right-12" size={12} delay={0.5} />
 
       <div className="relative z-10 flex flex-col gap-space-2xl">
         {/* Large email CTA — curtain reveal */}

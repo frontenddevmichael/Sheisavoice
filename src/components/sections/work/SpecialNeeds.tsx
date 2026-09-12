@@ -1,10 +1,15 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 import { WordReveal, SplitReveal, ScaleBlur, StaggerGrid, ParallaxY } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, HeartDecor } from "@/components/ui/Decorations";
 
 export default function SpecialNeeds() {
   return (
     <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
+      {/* Decorations */}
+      <ScatteredDots position="top-right" count={4} className="opacity-30" />
+      <StarBurst className="absolute top-16 right-20" size={20} color="var(--color-secondary-container)" delay={0.4} />
+      <HeartDecor className="absolute bottom-24 left-10" size={12} delay={0.6} />
 
       <div className="relative z-10">
         {/* Header */}

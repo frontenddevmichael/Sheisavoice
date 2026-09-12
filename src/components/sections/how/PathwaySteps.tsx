@@ -4,6 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import { PATHWAY_STEPS } from "@/lib/constants";
 import { WordReveal, SplitReveal } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst } from "@/components/ui/Decorations";
 import useInView from "@/hooks/useInView";
 
 export default function PathwaySteps() {
@@ -11,6 +12,10 @@ export default function PathwaySteps() {
 
   return (
     <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="pathway">
+      {/* Decorations */}
+      <ScatteredDots position="top-left" count={4} className="opacity-25" />
+      <StarBurst className="absolute top-20 right-16" size={22} color="var(--color-secondary-container)" delay={0.4} />
+
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-space-lg mb-space-3xl">
         <div className="max-w-xl">

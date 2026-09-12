@@ -1,10 +1,18 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { WordReveal, SplitReveal, ParallaxY, StaggerGrid } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, HeartDecor, ScribbleLine, ColorfulBlob } from "@/components/ui/Decorations";
 
 export default function OurStory() {
   return (
-    <SectionWrapper className="py-space-5xl bg-surface-lowest" id="our-story">
-      <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
+    <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="our-story">
+      {/* Decorations */}
+      <ScatteredDots position="top-right" count={5} className="opacity-30" />
+      <ScatteredDots position="bottom-left" count={4} className="opacity-25" />
+      <ColorfulBlob className="top-10 -right-20 opacity-10" size={140} color="var(--color-secondary-fixed)" />
+      <HeartDecor className="absolute top-16 left-8" size={12} delay={0.7} />
+      <StarBurst className="absolute bottom-20 right-12" size={20} color="var(--color-tertiary-fixed-dim)" delay={0.5} />
+
+      <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-3xl items-start">
           {/* Left: Story */}
           <div className="lg:col-span-7 flex flex-col gap-space-xl">
@@ -18,15 +26,19 @@ export default function OurStory() {
               </div>
             </SplitReveal>
 
-            {/* Heading — word by word */}
-            <WordReveal
-              text="Our Story"
-              as="h2"
-              className="font-headline text-headline-xl lg:text-[3.25rem] text-primary leading-[1.05] tracking-tight"
-              staggerDelay={0.08}
-            />
+            {/* Heading */}
+            <div className="relative inline-block">
+              <WordReveal
+                text="Our Story"
+                as="h2"
+                className="font-headline text-headline-xl lg:text-[3.25rem] text-primary leading-[1.05] tracking-tight"
+                staggerDelay={0.08}
+              />
+              <ScribbleLine className="mt-1" width={100} color="var(--color-primary-fixed-dim)" />
+              <StarBurst className="absolute -top-4 -right-6" size={20} delay={0.5} />
+            </div>
 
-            {/* Body text — staggered paragraphs */}
+            {/* Body text */}
             <ParallaxY speed={15}>
               <div className="flex flex-col gap-space-lg">
                 <SplitReveal delay={0.3}>
@@ -64,9 +76,10 @@ export default function OurStory() {
             </StaggerGrid>
           </div>
 
-          {/* Right: Accent card — scale blur reveal */}
+          {/* Right: Accent card */}
           <ParallaxY speed={-20} className="lg:col-span-5">
-            <div className="lg:sticky lg:top-32">
+            <div className="lg:sticky lg:top-32 relative">
+              <HeartDecor className="absolute -top-3 -left-2" size={14} color="var(--color-secondary)" delay={0.6} />
               <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl relative overflow-hidden">
                 <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none" aria-hidden="true" />
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, StaggerGrid } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, ScribbleLine, ColorfulBlob } from "@/components/ui/Decorations";
 
 const PROGRAMS = [
   {
@@ -41,32 +42,41 @@ const PROGRAMS = [
 export default function WhatWeDo() {
   return (
     <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden" id="what-we-do">
+      {/* Decorations */}
+      <ScatteredDots position="top-right" count={5} className="opacity-40" />
+      <ScatteredDots position="bottom-left" count={4} className="opacity-30" />
+      <ColorfulBlob className="top-20 -right-20 opacity-15" size={160} color="var(--color-secondary-fixed)" />
+      <ColorfulBlob className="bottom-10 -left-16 opacity-10" size={120} color="var(--color-tertiary-fixed)" />
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
-        {/* Header — word reveal */}
-        <div className="max-w-2xl mb-space-3xl">
+        {/* Header */}
+        <div className="max-w-2xl mb-space-3xl relative">
           <SplitReveal delay={0.1}>
             <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
               WHAT WE DO
             </span>
           </SplitReveal>
-          <WordReveal
-            text="Targeted support where the barriers are highest."
-            as="h2"
-            className="font-headline text-headline-lg text-primary mt-space-xs"
-            staggerDelay={0.04}
-          />
+          <div className="relative inline-block">
+            <WordReveal
+              text="Targeted support where the barriers are highest."
+              as="h2"
+              className="font-headline text-headline-lg text-primary mt-space-xs"
+              staggerDelay={0.04}
+            />
+            <ScribbleLine className="mt-1" width={180} />
+          </div>
           <SplitReveal delay={0.3}>
             <p className="font-body text-body-lg text-on-surface-variant mt-space-sm">
               We focus our resources where intervention creates lasting stability and dignity.
             </p>
           </SplitReveal>
+          <StarBurst className="absolute -top-4 -right-8" size={28} delay={0.5} />
         </div>
 
-        {/* Cards — stagger from different directions */}
+        {/* Cards */}
         <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
           {PROGRAMS.map((program) => (
-            <Card key={program.number} className="flex flex-col gap-space-md pressable">
+            <Card key={program.number} className="flex flex-col gap-space-md pressable relative">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-mid text-primary font-label-sm text-label-sm font-semibold">
                   {program.number} / {program.label}
@@ -88,7 +98,8 @@ export default function WhatWeDo() {
 
         {/* Global Virtual Support callout */}
         <SplitReveal delay={0.2}>
-          <div className="mt-space-2xl text-center">
+          <div className="mt-space-2xl text-center relative">
+            <StarBurst className="absolute -left-6 top-0" size={18} color="var(--color-secondary-container)" delay={0.6} />
             <p className="font-body text-body-md text-on-surface-variant">
               Outside Nigeria?{" "}
               <Link href="/our-work#global-support" className="text-primary font-semibold hover:underline">

@@ -1,10 +1,15 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { WordReveal, SplitReveal, CurtainReveal, StaggerGrid } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, HeartDecor, ScribbleLine } from "@/components/ui/Decorations";
 import WaveDecoration from "@/components/ui/WaveDecoration";
 
 export default function FemaleVoice() {
   return (
     <SectionWrapper id="female-voice" className="relative bg-surface-lowest py-space-5xl">
+      {/* Decorations */}
+      <ScatteredDots position="bottom-right" count={5} className="opacity-30" />
+      <HeartDecor className="absolute top-12 right-16" size={14} color="var(--color-secondary)" delay={0.5} />
+      <StarBurst className="absolute top-20 left-8" size={18} color="var(--color-tertiary-fixed-dim)" delay={0.4} />
       {/* Header badge */}
       <SplitReveal delay={0.1}>
         <span className="inline-flex items-center gap-1.5 px-space-md py-space-2xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold mb-space-lg">

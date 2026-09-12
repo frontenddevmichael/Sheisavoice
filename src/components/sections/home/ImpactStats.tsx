@@ -2,18 +2,23 @@
 
 import { IMPACT_STATS } from "@/lib/constants";
 import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, CountUp } from "@/components/ui/Motion";
-import MotionSection from "@/components/ui/Motion";
 import { motion } from "framer-motion";
+import { StarBurst, ScribbleCircle, ScatteredDots } from "@/components/ui/Decorations";
 
 export default function ImpactStats() {
   return (
-    <section className="w-full bg-surface-lowest py-space-5xl" id="impact-counter">
-      <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
+    <section className="w-full bg-surface-lowest py-space-5xl relative" id="impact-counter">
+      {/* Decorations */}
+      <ScatteredDots position="bottom-right" count={4} className="opacity-30" />
+      <StarBurst className="absolute top-12 right-20" size={22} color="var(--color-tertiary-fixed-dim)" delay={0.4} />
+      <ScribbleCircle className="absolute bottom-16 left-12" size={32} color="var(--color-secondary-container)" delay={0.5} />
+
+      <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative">
         <CurtainReveal>
-          <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)]">
+          <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)] relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-              {/* Left: counter — dramatic count up */}
-              <div className="lg:col-span-5 flex flex-col gap-space-md">
+              {/* Left: counter */}
+              <div className="lg:col-span-5 flex flex-col gap-space-md relative">
                 <SplitReveal delay={0.2}>
                   <span className="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-surface-lowest shadow-sm w-fit">
                     <span className="relative flex h-3 w-3">
@@ -38,6 +43,7 @@ export default function ImpactStats() {
                       Active Onboarding
                     </span>
                   </div>
+                  <StarBurst className="ml-2" size={20} color="var(--color-secondary)" delay={0.8} />
                 </div>
 
                 <SplitReveal delay={0.5}>
@@ -49,7 +55,7 @@ export default function ImpactStats() {
                 </SplitReveal>
               </div>
 
-              {/* Right: pipeline — staggered bars */}
+              {/* Right: pipeline */}
               <div className="lg:col-span-7 flex flex-col gap-space-md bg-surface-lowest p-space-lg lg:p-space-xl rounded-card-md shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">

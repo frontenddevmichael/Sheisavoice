@@ -1,14 +1,21 @@
 "use client";
 
-import { WordReveal, SplitReveal, ParallaxY, StaggerGrid, CurtainReveal } from "@/components/ui/Motion";
+import { WordReveal, SplitReveal, ParallaxY, StaggerGrid } from "@/components/ui/Motion";
+import { ScatteredDots, StarBurst, HeartDecor, ColorfulBlob } from "@/components/ui/Decorations";
 
 export default function WhyItMatters() {
   return (
     <section className="relative w-full bg-surface-lowest py-space-5xl">
+      {/* Decorations */}
+      <ScatteredDots position="top-left" count={5} className="opacity-30" />
+      <ColorfulBlob className="top-0 -left-24 opacity-10" size={180} color="var(--color-primary-fixed)" />
+      <HeartDecor className="absolute top-8 right-16" size={14} delay={0.8} />
+      <StarBurst className="absolute bottom-12 left-8" size={20} color="var(--color-tertiary-fixed-dim)" delay={0.6} />
+
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
-          {/* Left: heading — word reveal */}
-          <div className="lg:col-span-4 flex flex-col gap-space-md">
+          {/* Left: heading */}
+          <div className="lg:col-span-4 flex flex-col gap-space-md relative">
             <SplitReveal delay={0.1}>
               <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
                 Our Founding Conviction
@@ -20,9 +27,10 @@ export default function WhyItMatters() {
               className="font-headline text-headline-lg text-primary leading-tight"
               staggerDelay={0.06}
             />
+            <HeartDecor className="absolute -top-3 -left-2" size={12} color="var(--color-secondary)" delay={0.4} />
           </div>
 
-          {/* Right: content — staggered from different directions */}
+          {/* Right: content */}
           <div className="lg:col-span-8 flex flex-col gap-space-lg">
             <ParallaxY speed={10}>
               <div className="relative pl-space-lg">
@@ -41,7 +49,8 @@ export default function WhyItMatters() {
             </ParallaxY>
 
             <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1">
+              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative">
+                <StarBurst className="absolute -top-2 -right-2" size={16} color="var(--color-secondary-container)" delay={0.5} />
                 <span className="font-label-lg text-label-lg text-primary flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[18px]">handshake</span>
                   Direct Community Partnership
@@ -50,7 +59,8 @@ export default function WhyItMatters() {
                   We work side by side with caregivers, teachers, and clinics to build permanent local capacity.
                 </p>
               </div>
-              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1">
+              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative">
+                <HeartDecor className="absolute -top-1 -right-1" size={10} color="var(--color-secondary)" delay={0.6} />
                 <span className="font-label-lg text-label-lg text-secondary flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[18px]">lock_reset</span>
                   Safeguarding Priority

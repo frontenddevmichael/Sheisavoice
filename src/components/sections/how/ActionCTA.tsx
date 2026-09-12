@@ -1,9 +1,15 @@
 import Button from "@/components/ui/Button";
 import { WordReveal, SplitReveal, CurtainReveal } from "@/components/ui/Motion";
+import { StarBurst, HeartDecor, ScatteredDots } from "@/components/ui/Decorations";
 
 export default function ActionCTA() {
   return (
     <section className="w-full bg-primary text-on-primary py-space-3xl lg:py-space-5xl relative overflow-hidden">
+      {/* Decorations */}
+      <StarBurst className="absolute top-10 left-12" size={22} color="var(--color-on-primary)" delay={0.4} />
+      <StarBurst className="absolute bottom-12 right-16" size={16} color="var(--color-on-primary)" delay={0.6} />
+      <HeartDecor className="absolute top-16 right-20" size={14} color="var(--color-on-primary)" delay={0.5} />
+      <ScatteredDots position="bottom-left" count={3} className="opacity-15" />
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative z-10">
         <CurtainReveal delay={0.1}>
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
