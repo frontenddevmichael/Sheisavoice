@@ -2,10 +2,12 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import { WordReveal, SplitReveal, CurtainReveal, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor, ScribbleLine } from "@/components/ui/Decorations";
 import WaveDecoration from "@/components/ui/WaveDecoration";
+import { KenteZigzag } from "@/components/ui/AnkaraPatterns";
 
 export default function FemaleVoice() {
   return (
-    <SectionWrapper id="female-voice" className="relative bg-surface-lowest py-space-5xl">
+    <SectionWrapper id="female-voice" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
+      <KenteZigzag color="tertiary-fixed-dim" opacity={0.05} className="absolute inset-0 pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="bottom-right" count={5} className="opacity-30" />
       <HeartDecor className="absolute top-12 right-16" size={14} color="var(--color-secondary)" delay={0.5} />

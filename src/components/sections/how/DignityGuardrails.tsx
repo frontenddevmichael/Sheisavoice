@@ -2,6 +2,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, ScaleBlur, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor } from "@/components/ui/Decorations";
+import { LeafFlow } from "@/components/ui/AnkaraPatterns";
 
 const GUARDRAILS = [
   {
@@ -27,6 +28,7 @@ const GUARDRAILS = [
 export default function DignityGuardrails() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="guardrails">
+      <LeafFlow color="secondary" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="bottom-right" count={4} className="opacity-25" />
       <StarBurst className="absolute top-16 left-12" size={18} color="var(--color-tertiary-fixed-dim)" delay={0.5} />

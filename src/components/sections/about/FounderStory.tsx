@@ -4,10 +4,14 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, ParallaxY } from "@/components/ui/Motion";
 import { motion } from "framer-motion";
 import useOnScreen from "@/hooks/useOnScreen";
+import Image from "next/image";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
 
 export default function FounderStory() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="founder-story">
+
+      <AdireCircles color="var(--color-primary)" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto">
         {/* Header — word reveal */}
@@ -57,8 +61,23 @@ export default function FounderStory() {
             </SplitReveal>
           </div>
 
-          {/* Right: pull quote — scale blur + curtain */}
+          {/* Right: founder image + pull quote */}
           <div className="lg:col-span-5 flex flex-col gap-space-2xl lg:sticky lg:top-32">
+            {/* Founder portrait */}
+            <ScaleBlur delay={0.15} scale={0.95}>
+              <div className="relative overflow-hidden rounded-card-lg">
+                <Image
+                  src="/founder.jpg"
+                  alt="Shola Amaraibi — Founder, Poet & Advocate"
+                  width={600}
+                  height={750}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+              </div>
+            </ScaleBlur>
+
             {/* Large pull quote — curtain reveal */}
             <CurtainReveal delay={0.2}>
               <div className="relative overflow-hidden">

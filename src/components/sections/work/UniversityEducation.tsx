@@ -1,10 +1,12 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, ScaleBlur, StaggerGrid, CurtainReveal } from "@/components/ui/Motion";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
 
 export default function UniversityEducation() {
   return (
     <SectionWrapper id="university-education" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
+      <AdireCircles color="secondary" opacity={0.04} className="absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10">
         <SplitReveal delay={0.1}>

@@ -2,10 +2,13 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, CurtainReveal } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, ScribbleLine, ColorfulBlob } from "@/components/ui/Decorations";
+import { KenteZigzag } from "@/components/ui/AnkaraPatterns";
 
 export default function MissionVision() {
   return (
     <SectionWrapper className="relative py-space-5xl bg-surface-lowest overflow-hidden" id="mission-vision">
+      <KenteZigzag className="absolute inset-0 w-full h-full pointer-events-none" color="secondary" opacity={0.04} />
+
       {/* Decorations */}
       <ScatteredDots position="top-left" count={4} className="opacity-30" />
       <ColorfulBlob className="bottom-0 -right-16 opacity-10" size={130} color="var(--color-primary-fixed)" />

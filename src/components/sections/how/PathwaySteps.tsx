@@ -5,13 +5,15 @@ import Badge from "@/components/ui/Badge";
 import { PATHWAY_STEPS } from "@/lib/constants";
 import { WordReveal, SplitReveal } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst } from "@/components/ui/Decorations";
+import { AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
 import useInView from "@/hooks/useInView";
 
 export default function PathwaySteps() {
   const { ref: lineRef, isInView: lineVisible } = useInView({ threshold: 0.1 });
 
   return (
-    <SectionWrapper className="py-space-5xl bg-surface-lowest relative" id="pathway">
+    <SectionWrapper className="py-space-5xl bg-surface-lowest relative overflow-hidden" id="pathway">
+      <AnkaraDiamonds color="primary" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-left" count={4} className="opacity-25" />
       <StarBurst className="absolute top-20 right-16" size={22} color="var(--color-secondary-container)" delay={0.4} />

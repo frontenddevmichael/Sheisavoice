@@ -2,10 +2,12 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 import { WordReveal, SplitReveal, ScaleBlur, StaggerGrid, ParallaxY } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor } from "@/components/ui/Decorations";
+import { LeafFlow } from "@/components/ui/AnkaraPatterns";
 
 export default function SpecialNeeds() {
   return (
-    <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl">
+    <SectionWrapper id="special-needs" className="relative bg-surface-lowest py-space-5xl overflow-hidden">
+      <LeafFlow color="primary" opacity={0.04} className="absolute inset-0 pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-right" count={4} className="opacity-30" />
       <StarBurst className="absolute top-16 right-20" size={20} color="var(--color-secondary-container)" delay={0.4} />

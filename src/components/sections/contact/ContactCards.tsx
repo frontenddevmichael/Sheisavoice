@@ -3,6 +3,7 @@ import Card from "@/components/ui/Card";
 import { SITE } from "@/lib/constants";
 import { WordReveal, SplitReveal, CurtainReveal, ScaleBlur, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor } from "@/components/ui/Decorations";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
 
 export default function ContactCards() {
   const contacts = [
@@ -34,6 +35,7 @@ export default function ContactCards() {
 
   return (
     <SectionWrapper className="relative bg-surface-lowest py-space-5xl overflow-hidden">
+      <AdireCircles color="primary" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-right" count={4} className="opacity-25" />
       <StarBurst className="absolute top-16 left-10" size={18} color="var(--color-secondary-container)" delay={0.4} />
