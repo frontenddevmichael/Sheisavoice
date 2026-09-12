@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 import { motion } from "framer-motion";
 
@@ -12,20 +13,20 @@ interface ContactHeroProps {
 }
 
 export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <section className="relative w-full min-h-[70vh] flex flex-col justify-between bg-surface overflow-hidden">
-      {/* Large decorative soundwave on right */}
       <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none" aria-hidden="true">
         <svg
           viewBox="0 0 200 600"
           className="absolute right-[5%] top-[15%] h-[70%] w-auto opacity-[0.06]"
           fill="none"
         >
-          {/* Large soundwave arcs */}
           <path d="M100 50 Q140 100 100 150 Q60 200 100 250 Q140 300 100 350 Q60 400 100 450 Q140 500 100 550" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" />
           <path d="M120 30 Q160 80 120 130 Q80 180 120 230 Q160 280 120 330 Q80 380 120 430 Q160 480 120 530" stroke="var(--color-secondary)" strokeWidth="1.5" strokeLinecap="round" />
           <path d="M80 70 Q120 120 80 170 Q40 220 80 270 Q120 320 80 370 Q40 420 80 470 Q120 520 80 570" stroke="var(--color-tertiary-fixed-dim)" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Vertical bars */}
           {[40, 70, 100, 130, 160].map((y, i) => (
             <line key={i} x1="30" y1={y} x2="30" y2={y + 20 + i * 5} stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
           ))}
@@ -38,8 +39,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
             {eyebrow && (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                animate={mounted ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0, ease }}
               >
                 <span className="inline-flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-primary-container/20 text-primary">
@@ -53,8 +53,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.12, ease }}
             >
               <h1 className="font-headline text-headline-lg lg:text-headline-xl text-primary leading-[1.05] tracking-tight">
@@ -65,8 +64,7 @@ export default function ContactHero({ eyebrow, title, subtitle }: ContactHeroPro
             {subtitle && (
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                animate={mounted ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.24, ease }}
               >
                 <p className="font-body text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
