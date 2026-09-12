@@ -4,7 +4,7 @@ import { StarBurst, HeartDecor, ScatteredDots, ScribbleLine } from "@/components
 
 export default function ClosingCTA() {
   return (
-    <section className="relative w-full bg-surface-lowest pb-space-3xl lg:pb-space-5xl pt-space-md">
+    <section className="relative w-full bg-surface-lowest pb-space-3xl lg:pb-space-5xl pt-space-md -mt-8 z-50">
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <CurtainReveal delay={0.1}>
           <div className="relative w-full rounded-card-lg bg-primary p-space-2xl lg:p-space-3xl text-center flex flex-col items-center justify-center gap-space-lg overflow-hidden">

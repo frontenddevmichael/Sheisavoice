@@ -104,6 +104,8 @@ export default function Header() {
           MOBILE: Top bar with hamburger (< lg)
           ============================================ */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50">
+        {/* Gradient accent line */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-tertiary-fixed-dim via-secondary to-primary" />
         <div
           className={`flex items-center justify-between h-14 px-4 transition-all duration-300 ${
             scrolled || menuOpen
@@ -111,8 +113,14 @@ export default function Header() {
               : "bg-transparent"
           }`}
         >
-          <Link href="/" className="shrink-0" onClick={closeMenu}>
-            <Logo className="h-6 w-auto" />
+          <Link href="/" className="shrink-0 group flex items-center" onClick={closeMenu}>
+            <Logo className="h-6 w-auto transition-transform duration-300 group-hover:scale-105" />
+            {/* Mini soundwave */}
+            <div className="flex items-end gap-[2px] h-3 ml-2 opacity-40" aria-hidden="true">
+              {[6, 10, 4, 12, 7].map((h, i) => (
+                <span key={i} className="w-[2px] rounded-full bg-primary" style={{ height: `${h * 0.5}px` }} />
+              ))}
+            </div>
           </Link>
 
           <button
@@ -175,7 +183,7 @@ export default function Header() {
                       href={link.href}
                       onClick={closeMenu}
                       style={{ transitionDelay: menuOpen ? `${80 + i * 50}ms` : "0ms" }}
-                      className={`block px-4 py-4 rounded-2xl transition-all duration-200 ${
+                      className={`block px-4 py-4 rounded-2xl transition-all duration-200 relative group ${
                         menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                       } ${
                         isActive
@@ -189,6 +197,9 @@ export default function Header() {
                       {isActive && (
                         <span className="ml-3 inline-block w-2 h-2 rounded-full bg-primary align-middle" />
                       )}
+                      {!isActive && (
+                        <span className="absolute bottom-2 left-4 w-0 h-[2px] rounded-full bg-secondary group-hover:w-12 transition-all duration-300" />
+                      )}
                     </Link>
                   </li>
                 );
@@ -197,20 +208,24 @@ export default function Header() {
           </nav>
 
           {/* Divider */}
-          <div className="mx-6 h-px bg-outline-variant/15" />
+          <div className="mx-6 h-px bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent" />
 
-          {/* Contact/Support CTA */}
+          {/* Contact/Support CTA with gradient border */}
           <div className="px-6 py-6">
             <Link
               href="/contact"
               onClick={closeMenu}
               style={{ transitionDelay: menuOpen ? `${80 + NAV_LINKS.length * 50}ms` : "0ms" }}
-              className={`flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-primary text-on-primary text-[16px] font-semibold transition-all duration-200 shadow-[0_4px_24px_rgba(62,0,94,0.18)] ${
+              className={`flex items-center justify-center gap-3 w-full py-4 rounded-2xl text-[16px] font-semibold transition-all duration-200 relative overflow-hidden ${
                 menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Contact/Support
-              <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl" />
+              <span className="absolute inset-[1.5px] bg-on-primary rounded-2xl" />
+              <span className="relative z-10 text-primary flex items-center gap-3">
+                Contact/Support
+                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </span>
             </Link>
           </div>
 

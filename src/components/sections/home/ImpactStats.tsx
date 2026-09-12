@@ -8,7 +8,7 @@ import useOnScreen from "@/hooks/useOnScreen";
 
 export default function ImpactStats() {
   return (
-    <section className="w-full bg-surface-lowest py-space-5xl relative" id="impact-counter">
+    <section className="w-full bg-surface-lowest py-space-5xl relative -mt-10 z-40" id="impact-counter">
       {/* Decorations */}
       <ScatteredDots position="bottom-right" count={4} className="opacity-30" />
       <StarBurst className="absolute top-12 right-20" size={22} color="var(--color-tertiary-fixed-dim)" delay={0.4} />

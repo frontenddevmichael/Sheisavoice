@@ -6,7 +6,7 @@ import { AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
 
 export default function WhyItMatters() {
   return (
-    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden">
+    <section className="relative w-full bg-surface-lowest py-space-5xl overflow-hidden -mt-12 z-30">
       <AnkaraDiamonds color="var(--color-primary)" opacity={0.04} className="absolute inset-0 w-full h-full pointer-events-none" />
       {/* Decorations */}
       <ScatteredDots position="top-left" count={5} className="opacity-30" />
