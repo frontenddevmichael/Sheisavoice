@@ -4,12 +4,15 @@ import { IMPACT_STATS } from "@/lib/constants";
 import { WordReveal, SplitReveal, ScaleBlur, CurtainReveal, CountUp } from "@/components/ui/Motion";
 import { motion } from "framer-motion";
 import { StarBurst, ScribbleCircle, ScatteredDots } from "@/components/ui/Decorations";
+import { KenteZigzag } from "@/components/ui/AnkaraPatterns";
+import AnimatedSoundwave from "@/components/ui/AnimatedSoundwave";
 import useOnScreen from "@/hooks/useOnScreen";
 
 export default function ImpactStats() {
   return (
-    <section className="w-full bg-surface-lowest py-space-5xl relative" id="impact-counter">
+    <section className="w-full bg-surface-lowest py-space-5xl relative overflow-hidden" id="impact-counter">
       {/* Decorations */}
+      <KenteZigzag color="var(--color-primary)" opacity={0.04} className="absolute inset-0 pointer-events-none" />
       <ScatteredDots position="bottom-right" count={4} className="opacity-30" />
       <StarBurst className="absolute top-12 right-20" size={22} color="var(--color-tertiary-fixed-dim)" delay={0.4} />
       <ScribbleCircle className="absolute bottom-16 left-12" size={32} color="var(--color-secondary-container)" delay={0.5} />
@@ -17,6 +20,7 @@ export default function ImpactStats() {
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 relative">
         <CurtainReveal>
           <div className="rounded-card-lg bg-surface-low p-space-xl lg:p-space-2xl shadow-[var(--shadow-card)] relative">
+            <div className="absolute left-0 top-8 bottom-8 w-1 rounded-full bg-gradient-to-b from-secondary via-primary to-tertiary-fixed-dim" />
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
               {/* Left: counter */}
               <div className="lg:col-span-5 flex flex-col gap-space-md relative">
@@ -28,6 +32,7 @@ export default function ImpactStats() {
                     <span className="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary">
                       LIVE Clinical Registry
                     </span>
+                    <AnimatedSoundwave className="w-12 h-3" bars={8} />
                   </span>
                 </SplitReveal>
 

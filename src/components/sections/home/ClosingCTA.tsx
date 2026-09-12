@@ -1,10 +1,13 @@
 import Button from "@/components/ui/Button";
 import { WordReveal, CurtainReveal } from "@/components/ui/Motion";
 import { StarBurst, HeartDecor, ScatteredDots, ScribbleLine } from "@/components/ui/Decorations";
+import { AdireCircles } from "@/components/ui/AnkaraPatterns";
+import SoundwaveBottom from "@/components/ui/SoundwaveBottom";
 
 export default function ClosingCTA() {
   return (
-    <section className="relative w-full bg-surface-lowest pb-space-3xl lg:pb-space-5xl pt-space-md">
+    <section className="relative w-full bg-surface-lowest pb-space-3xl lg:pb-space-5xl pt-space-md overflow-hidden">
+      <AdireCircles color="var(--color-on-primary)" opacity={0.06} className="absolute inset-0 w-full h-full pointer-events-none" />
       <div className="max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12">
         <CurtainReveal delay={0.1}>
           <div className="relative w-full rounded-card-lg bg-primary p-space-2xl lg:p-space-3xl text-center flex flex-col items-center justify-center gap-space-lg overflow-hidden">
@@ -33,6 +36,7 @@ export default function ClosingCTA() {
           </div>
         </CurtainReveal>
       </div>
+      <SoundwaveBottom />
     </section>
   );
 }

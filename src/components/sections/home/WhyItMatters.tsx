@@ -3,6 +3,7 @@
 import { WordReveal, SplitReveal, ParallaxY, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, HeartDecor, ColorfulBlob } from "@/components/ui/Decorations";
 import { AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
+import AnimatedSoundwave from "@/components/ui/AnimatedSoundwave";
 
 export default function WhyItMatters() {
   return (
@@ -17,10 +18,11 @@ export default function WhyItMatters() {
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 glass rounded-card-lg p-space-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
           {/* Left: heading */}
-          <div className="lg:col-span-4 flex flex-col gap-space-md relative">
+          <div className="lg:col-span-4 flex flex-col gap-space-md relative accent-line">
             <SplitReveal delay={0.1}>
-              <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
+              <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold inline-flex items-center gap-2">
                 Our Founding Conviction
+                <AnimatedSoundwave className="w-12 h-3 text-secondary" />
               </span>
             </SplitReveal>
             <WordReveal
@@ -51,7 +53,8 @@ export default function WhyItMatters() {
             </ParallaxY>
 
             <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative">
+              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative overflow-hidden">
+                <div className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-secondary to-primary-fixed-dim" />
                 <StarBurst className="absolute -top-2 -right-2" size={16} color="var(--color-secondary-container)" delay={0.5} />
                 <span className="font-label-lg text-label-lg text-primary flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[18px]">handshake</span>
@@ -61,7 +64,8 @@ export default function WhyItMatters() {
                   We work side by side with caregivers, teachers, and clinics to build permanent local capacity.
                 </p>
               </div>
-              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative">
+              <div className="rounded-card-md bg-surface-low p-space-md flex flex-col gap-1 relative overflow-hidden">
+                <div className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-secondary to-primary-fixed-dim" />
                 <HeartDecor className="absolute -top-1 -right-1" size={10} color="var(--color-secondary)" delay={0.6} />
                 <span className="font-label-lg text-label-lg text-secondary flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[18px]">lock_reset</span>
