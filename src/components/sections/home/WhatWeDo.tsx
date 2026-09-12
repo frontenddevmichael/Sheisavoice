@@ -2,8 +2,7 @@ import Link from "next/link";
 import Card from "@/components/ui/Card";
 import { WordReveal, SplitReveal, StaggerGrid } from "@/components/ui/Motion";
 import { ScatteredDots, StarBurst, ScribbleLine, ColorfulBlob } from "@/components/ui/Decorations";
-import { KenteZigzag, AnkaraDiamonds } from "@/components/ui/AnkaraPatterns";
-import AnimatedSoundwave from "@/components/ui/AnimatedSoundwave";
+import { KenteZigzag } from "@/components/ui/AnkaraPatterns";
 
 const PROGRAMS = [
   {
@@ -53,14 +52,11 @@ export default function WhatWeDo() {
 
       <div className="relative max-w-[var(--max-w-content)] mx-auto px-5 lg:px-12 glass rounded-card-lg p-space-xl">
         {/* Header */}
-        <div className="max-w-2xl mb-space-3xl relative accent-line">
+        <div className="max-w-2xl mb-space-3xl relative">
           <SplitReveal delay={0.1}>
-            <div className="flex items-center gap-3">
-              <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
-                WHAT WE DO
-              </span>
-              <AnimatedSoundwave className="w-16 h-4" bars={12} />
-            </div>
+            <span className="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary font-bold">
+              WHAT WE DO
+            </span>
           </SplitReveal>
           <div className="relative inline-block">
             <WordReveal
@@ -82,14 +78,8 @@ export default function WhatWeDo() {
         {/* Cards */}
         <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
           {PROGRAMS.map((program) => (
-            <Card key={program.number} className="flex flex-col gap-space-md pressable relative overflow-hidden">
-              <div className="h-1 w-full rounded-t-card bg-gradient-to-r from-primary via-secondary to-tertiary-fixed-dim" />
-              <AnkaraDiamonds
-                className="absolute top-2 right-2 w-16 h-16 pointer-events-none"
-                opacity={0.06}
-                color="var(--color-secondary)"
-              />
-              <div className="flex items-center justify-between relative">
+            <Card key={program.number} className="flex flex-col gap-space-md pressable relative">
+              <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-mid text-primary font-label-sm text-label-sm font-semibold">
                   {program.number} / {program.label}
                 </span>
